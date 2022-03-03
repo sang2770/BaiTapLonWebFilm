@@ -1,0 +1,820 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBFilmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TB_GHE">
+          <Key>
+            <PropertyRef Name="MAGHE" />
+          </Key>
+          <Property Name="MAGHE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SOGHE" Type="bigint" Nullable="false" />
+          <Property Name="MALOAIGHE" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DBFilm.dbo.TB_GHE_TRONG_PHONG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TB_GHE_TRONG_PHONG">
+          <Key>
+            <PropertyRef Name="MAGHE" />
+            <PropertyRef Name="MAPHONG" />
+          </Key>
+          <Property Name="MAGHE" Type="int" Nullable="false" />
+          <Property Name="MAPHONG" Type="int" Nullable="false" />
+          <Property Name="TRANGTHAI" Type="nvarchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="TB_LICHCHIEU">
+          <Key>
+            <PropertyRef Name="MALICHCHIEU" />
+          </Key>
+          <Property Name="MALICHCHIEU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NGAYCHIEU" Type="date" Nullable="false" />
+          <Property Name="NGAYKETTHUC" Type="date" Nullable="false" />
+          <Property Name="MAPHONG" Type="int" Nullable="false" />
+          <Property Name="MAPHIM" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_LOAIGHE">
+          <Key>
+            <PropertyRef Name="MALOAIGHE" />
+          </Key>
+          <Property Name="MALOAIGHE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TENLOAIGHE" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="GIAGHE" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_LOAIPHIM">
+          <Key>
+            <PropertyRef Name="MALOAIPHIM" />
+          </Key>
+          <Property Name="MALOAIPHIM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TENLOAIPHIM" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_NHANVIEN">
+          <Key>
+            <PropertyRef Name="MANHANVIEN" />
+          </Key>
+          <Property Name="MANHANVIEN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TENNHANVIEN" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="NGAYSINH" Type="date" Nullable="false" />
+          <Property Name="CMTND" Type="nvarchar" MaxLength="20" />
+          <Property Name="NGAYVAOLAM" Type="date" Nullable="false" />
+          <Property Name="QUEQUAN" Type="nvarchar" MaxLength="100" />
+          <Property Name="DIACHI" Type="nvarchar" MaxLength="100" />
+          <Property Name="SDT" Type="nvarchar" MaxLength="11" />
+        </EntityType>
+        <EntityType Name="TB_PHIM">
+          <Key>
+            <PropertyRef Name="MAPHIM" />
+          </Key>
+          <Property Name="MAPHIM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QUOCGIA" Type="nvarchar" MaxLength="20" />
+          <Property Name="HINHANH" Type="nvarchar" MaxLength="20" />
+          <Property Name="MOTAPHIM" Type="nvarchar" MaxLength="100" />
+          <Property Name="THOILUONG" Type="int" Nullable="false" />
+          <Property Name="TENPHIM" Type="nvarchar" MaxLength="100" />
+          <Property Name="MALOAIPHIM" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_PHONG">
+          <Key>
+            <PropertyRef Name="MAPHONG" />
+          </Key>
+          <Property Name="MAPHONG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SOPHONG" Type="int" Nullable="false" />
+          <Property Name="SOGHE" Type="int" Nullable="false" />
+          <Property Name="LOAIPHONG" Type="nvarchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_TAIKHOAN">
+          <Key>
+            <PropertyRef Name="MATAIKHOAN" />
+          </Key>
+          <Property Name="MATAIKHOAN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TENDANGNHAP" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LOAITAIKHOAN" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="MATKHAU" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MANHANVIEN" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_THEKHACHHANG">
+          <Key>
+            <PropertyRef Name="MATHEKHACHHANG" />
+          </Key>
+          <Property Name="MATHEKHACHHANG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TENKHACHHANG" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CMTND" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NGAYSINH" Type="date" Nullable="false" />
+          <Property Name="NGAYDANGKY" Type="date" Nullable="false" />
+          <Property Name="MUCDOTHANTHIET" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_VEXEMPHIM">
+          <Key>
+            <PropertyRef Name="MAVE" />
+          </Key>
+          <Property Name="MAVE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GIAVE" Type="int" Nullable="false" />
+          <Property Name="MATAIKHOAN" Type="int" Nullable="false" />
+          <Property Name="MALICHCHIEU" Type="int" Nullable="false" />
+          <Property Name="MATHEKHACHHANG" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_KH_VE">
+          <End Role="TB_THEKHACHHANG" Type="Self.TB_THEKHACHHANG" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_VEXEMPHIM" Type="Self.TB_VEXEMPHIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_THEKHACHHANG">
+              <PropertyRef Name="MATHEKHACHHANG" />
+            </Principal>
+            <Dependent Role="TB_VEXEMPHIM">
+              <PropertyRef Name="MATHEKHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LICHCHIEU_PHIM">
+          <End Role="TB_PHIM" Type="Self.TB_PHIM" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_LICHCHIEU" Type="Self.TB_LICHCHIEU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_PHIM">
+              <PropertyRef Name="MAPHIM" />
+            </Principal>
+            <Dependent Role="TB_LICHCHIEU">
+              <PropertyRef Name="MAPHIM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LICHCHIEU_PHONG">
+          <End Role="TB_PHONG" Type="Self.TB_PHONG" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_LICHCHIEU" Type="Self.TB_LICHCHIEU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_PHONG">
+              <PropertyRef Name="MAPHONG" />
+            </Principal>
+            <Dependent Role="TB_LICHCHIEU">
+              <PropertyRef Name="MAPHONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LICHCHIEU_VE">
+          <End Role="TB_LICHCHIEU" Type="Self.TB_LICHCHIEU" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_VEXEMPHIM" Type="Self.TB_VEXEMPHIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_LICHCHIEU">
+              <PropertyRef Name="MALICHCHIEU" />
+            </Principal>
+            <Dependent Role="TB_VEXEMPHIM">
+              <PropertyRef Name="MALICHCHIEU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_GHE_LOAIGHE">
+          <End Role="TB_LOAIGHE" Type="Self.TB_LOAIGHE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_GHE" Type="Self.TB_GHE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_LOAIGHE">
+              <PropertyRef Name="MALOAIGHE" />
+            </Principal>
+            <Dependent Role="TB_GHE">
+              <PropertyRef Name="MALOAIGHE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_GHE_PHONG">
+          <End Role="TB_GHE" Type="Self.TB_GHE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_GHE_TRONG_PHONG" Type="Self.TB_GHE_TRONG_PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_GHE">
+              <PropertyRef Name="MAGHE" />
+            </Principal>
+            <Dependent Role="TB_GHE_TRONG_PHONG">
+              <PropertyRef Name="MAGHE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_PHIM">
+          <End Role="TB_LOAIPHIM" Type="Self.TB_LOAIPHIM" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_PHIM" Type="Self.TB_PHIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_LOAIPHIM">
+              <PropertyRef Name="MALOAIPHIM" />
+            </Principal>
+            <Dependent Role="TB_PHIM">
+              <PropertyRef Name="MALOAIPHIM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_PHONG_GHE">
+          <End Role="TB_PHONG" Type="Self.TB_PHONG" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_GHE_TRONG_PHONG" Type="Self.TB_GHE_TRONG_PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_PHONG">
+              <PropertyRef Name="MAPHONG" />
+            </Principal>
+            <Dependent Role="TB_GHE_TRONG_PHONG">
+              <PropertyRef Name="MAPHONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TK_SINHVIEN">
+          <End Role="TB_NHANVIEN" Type="Self.TB_NHANVIEN" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_TAIKHOAN" Type="Self.TB_TAIKHOAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_NHANVIEN">
+              <PropertyRef Name="MANHANVIEN" />
+            </Principal>
+            <Dependent Role="TB_TAIKHOAN">
+              <PropertyRef Name="MANHANVIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TK_VE">
+          <End Role="TB_TAIKHOAN" Type="Self.TB_TAIKHOAN" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_VEXEMPHIM" Type="Self.TB_VEXEMPHIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAIKHOAN">
+              <PropertyRef Name="MATAIKHOAN" />
+            </Principal>
+            <Dependent Role="TB_VEXEMPHIM">
+              <PropertyRef Name="MATAIKHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBFilmModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_GHE" EntityType="Self.TB_GHE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_LICHCHIEU" EntityType="Self.TB_LICHCHIEU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_LOAIGHE" EntityType="Self.TB_LOAIGHE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_LOAIPHIM" EntityType="Self.TB_LOAIPHIM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_NHANVIEN" EntityType="Self.TB_NHANVIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_PHIM" EntityType="Self.TB_PHIM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_PHONG" EntityType="Self.TB_PHONG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TAIKHOAN" EntityType="Self.TB_TAIKHOAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_THEKHACHHANG" EntityType="Self.TB_THEKHACHHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_VEXEMPHIM" EntityType="Self.TB_VEXEMPHIM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_GHE_TRONG_PHONG" EntityType="Self.TB_GHE_TRONG_PHONG" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TB_GHE_TRONG_PHONG].[MAGHE] AS [MAGHE], 
+    [TB_GHE_TRONG_PHONG].[MAPHONG] AS [MAPHONG], 
+    [TB_GHE_TRONG_PHONG].[TRANGTHAI] AS [TRANGTHAI]
+    FROM [dbo].[TB_GHE_TRONG_PHONG] AS [TB_GHE_TRONG_PHONG]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_KH_VE" Association="Self.FK_KH_VE">
+            <End Role="TB_THEKHACHHANG" EntitySet="TB_THEKHACHHANG" />
+            <End Role="TB_VEXEMPHIM" EntitySet="TB_VEXEMPHIM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LICHCHIEU_PHIM" Association="Self.FK_LICHCHIEU_PHIM">
+            <End Role="TB_PHIM" EntitySet="TB_PHIM" />
+            <End Role="TB_LICHCHIEU" EntitySet="TB_LICHCHIEU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LICHCHIEU_PHONG" Association="Self.FK_LICHCHIEU_PHONG">
+            <End Role="TB_PHONG" EntitySet="TB_PHONG" />
+            <End Role="TB_LICHCHIEU" EntitySet="TB_LICHCHIEU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LICHCHIEU_VE" Association="Self.FK_LICHCHIEU_VE">
+            <End Role="TB_LICHCHIEU" EntitySet="TB_LICHCHIEU" />
+            <End Role="TB_VEXEMPHIM" EntitySet="TB_VEXEMPHIM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_GHE_LOAIGHE" Association="Self.FK_TB_GHE_LOAIGHE">
+            <End Role="TB_LOAIGHE" EntitySet="TB_LOAIGHE" />
+            <End Role="TB_GHE" EntitySet="TB_GHE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_GHE_PHONG" Association="Self.FK_TB_GHE_PHONG">
+            <End Role="TB_GHE" EntitySet="TB_GHE" />
+            <End Role="TB_GHE_TRONG_PHONG" EntitySet="TB_GHE_TRONG_PHONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_PHIM" Association="Self.FK_TB_PHIM">
+            <End Role="TB_LOAIPHIM" EntitySet="TB_LOAIPHIM" />
+            <End Role="TB_PHIM" EntitySet="TB_PHIM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_PHONG_GHE" Association="Self.FK_TB_PHONG_GHE">
+            <End Role="TB_PHONG" EntitySet="TB_PHONG" />
+            <End Role="TB_GHE_TRONG_PHONG" EntitySet="TB_GHE_TRONG_PHONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TK_SINHVIEN" Association="Self.FK_TK_SINHVIEN">
+            <End Role="TB_NHANVIEN" EntitySet="TB_NHANVIEN" />
+            <End Role="TB_TAIKHOAN" EntitySet="TB_TAIKHOAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TK_VE" Association="Self.FK_TK_VE">
+            <End Role="TB_TAIKHOAN" EntitySet="TB_TAIKHOAN" />
+            <End Role="TB_VEXEMPHIM" EntitySet="TB_VEXEMPHIM" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBFilmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TB_GHE">
+          <Key>
+            <PropertyRef Name="MAGHE" />
+          </Key>
+          <Property Name="MAGHE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SOGHE" Type="Int64" Nullable="false" />
+          <Property Name="MALOAIGHE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_LOAIGHE" Relationship="Self.FK_TB_GHE_LOAIGHE" FromRole="TB_GHE" ToRole="TB_LOAIGHE" />
+          <NavigationProperty Name="TB_GHE_TRONG_PHONG" Relationship="Self.FK_TB_GHE_PHONG" FromRole="TB_GHE" ToRole="TB_GHE_TRONG_PHONG" />
+        </EntityType>
+        <EntityType Name="TB_LICHCHIEU">
+          <Key>
+            <PropertyRef Name="MALICHCHIEU" />
+          </Key>
+          <Property Name="MALICHCHIEU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NGAYCHIEU" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NGAYKETTHUC" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MAPHONG" Type="Int32" Nullable="false" />
+          <Property Name="MAPHIM" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_PHIM" Relationship="Self.FK_LICHCHIEU_PHIM" FromRole="TB_LICHCHIEU" ToRole="TB_PHIM" />
+          <NavigationProperty Name="TB_PHONG" Relationship="Self.FK_LICHCHIEU_PHONG" FromRole="TB_LICHCHIEU" ToRole="TB_PHONG" />
+          <NavigationProperty Name="TB_VEXEMPHIM" Relationship="Self.FK_LICHCHIEU_VE" FromRole="TB_LICHCHIEU" ToRole="TB_VEXEMPHIM" />
+        </EntityType>
+        <EntityType Name="TB_LOAIGHE">
+          <Key>
+            <PropertyRef Name="MALOAIGHE" />
+          </Key>
+          <Property Name="MALOAIGHE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENLOAIGHE" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GIAGHE" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="TB_GHE" Relationship="Self.FK_TB_GHE_LOAIGHE" FromRole="TB_LOAIGHE" ToRole="TB_GHE" />
+        </EntityType>
+        <EntityType Name="TB_LOAIPHIM">
+          <Key>
+            <PropertyRef Name="MALOAIPHIM" />
+          </Key>
+          <Property Name="MALOAIPHIM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENLOAIPHIM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TB_PHIM" Relationship="Self.FK_TB_PHIM" FromRole="TB_LOAIPHIM" ToRole="TB_PHIM" />
+        </EntityType>
+        <EntityType Name="TB_NHANVIEN">
+          <Key>
+            <PropertyRef Name="MANHANVIEN" />
+          </Key>
+          <Property Name="MANHANVIEN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENNHANVIEN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NGAYSINH" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CMTND" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NGAYVAOLAM" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="QUEQUAN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TB_TAIKHOAN" Relationship="Self.FK_TK_SINHVIEN" FromRole="TB_NHANVIEN" ToRole="TB_TAIKHOAN" />
+        </EntityType>
+        <EntityType Name="TB_PHIM">
+          <Key>
+            <PropertyRef Name="MAPHIM" />
+          </Key>
+          <Property Name="MAPHIM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QUOCGIA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="HINHANH" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MOTAPHIM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="THOILUONG" Type="Int32" Nullable="false" />
+          <Property Name="TENPHIM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MALOAIPHIM" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_LICHCHIEU" Relationship="Self.FK_LICHCHIEU_PHIM" FromRole="TB_PHIM" ToRole="TB_LICHCHIEU" />
+          <NavigationProperty Name="TB_LOAIPHIM" Relationship="Self.FK_TB_PHIM" FromRole="TB_PHIM" ToRole="TB_LOAIPHIM" />
+        </EntityType>
+        <EntityType Name="TB_PHONG">
+          <Key>
+            <PropertyRef Name="MAPHONG" />
+          </Key>
+          <Property Name="MAPHONG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SOPHONG" Type="Int32" Nullable="false" />
+          <Property Name="SOGHE" Type="Int32" Nullable="false" />
+          <Property Name="LOAIPHONG" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TB_LICHCHIEU" Relationship="Self.FK_LICHCHIEU_PHONG" FromRole="TB_PHONG" ToRole="TB_LICHCHIEU" />
+          <NavigationProperty Name="TB_GHE_TRONG_PHONG" Relationship="Self.FK_TB_PHONG_GHE" FromRole="TB_PHONG" ToRole="TB_GHE_TRONG_PHONG" />
+        </EntityType>
+        <EntityType Name="TB_TAIKHOAN">
+          <Key>
+            <PropertyRef Name="MATAIKHOAN" />
+          </Key>
+          <Property Name="MATAIKHOAN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENDANGNHAP" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LOAITAIKHOAN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MATKHAU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MANHANVIEN" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_NHANVIEN" Relationship="Self.FK_TK_SINHVIEN" FromRole="TB_TAIKHOAN" ToRole="TB_NHANVIEN" />
+          <NavigationProperty Name="TB_VEXEMPHIM" Relationship="Self.FK_TK_VE" FromRole="TB_TAIKHOAN" ToRole="TB_VEXEMPHIM" />
+        </EntityType>
+        <EntityType Name="TB_THEKHACHHANG">
+          <Key>
+            <PropertyRef Name="MATHEKHACHHANG" />
+          </Key>
+          <Property Name="MATHEKHACHHANG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENKHACHHANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CMTND" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NGAYSINH" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NGAYDANGKY" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MUCDOTHANTHIET" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TB_VEXEMPHIM" Relationship="Self.FK_KH_VE" FromRole="TB_THEKHACHHANG" ToRole="TB_VEXEMPHIM" />
+        </EntityType>
+        <EntityType Name="TB_VEXEMPHIM">
+          <Key>
+            <PropertyRef Name="MAVE" />
+          </Key>
+          <Property Name="MAVE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GIAVE" Type="Int32" Nullable="false" />
+          <Property Name="MATAIKHOAN" Type="Int32" Nullable="false" />
+          <Property Name="MALICHCHIEU" Type="Int32" Nullable="false" />
+          <Property Name="MATHEKHACHHANG" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_LICHCHIEU" Relationship="Self.FK_LICHCHIEU_VE" FromRole="TB_VEXEMPHIM" ToRole="TB_LICHCHIEU" />
+          <NavigationProperty Name="TB_TAIKHOAN" Relationship="Self.FK_TK_VE" FromRole="TB_VEXEMPHIM" ToRole="TB_TAIKHOAN" />
+          <NavigationProperty Name="TB_THEKHACHHANG" Relationship="Self.FK_KH_VE" FromRole="TB_VEXEMPHIM" ToRole="TB_THEKHACHHANG" />
+        </EntityType>
+        <EntityType Name="TB_GHE_TRONG_PHONG">
+          <Key>
+            <PropertyRef Name="MAGHE" />
+            <PropertyRef Name="MAPHONG" />
+          </Key>
+          <Property Name="MAGHE" Type="Int32" Nullable="false" />
+          <Property Name="MAPHONG" Type="Int32" Nullable="false" />
+          <Property Name="TRANGTHAI" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TB_GHE" Relationship="Self.FK_TB_GHE_PHONG" FromRole="TB_GHE_TRONG_PHONG" ToRole="TB_GHE" />
+          <NavigationProperty Name="TB_PHONG" Relationship="Self.FK_TB_PHONG_GHE" FromRole="TB_GHE_TRONG_PHONG" ToRole="TB_PHONG" />
+        </EntityType>
+        <Association Name="FK_TB_GHE_LOAIGHE">
+          <End Role="TB_LOAIGHE" Type="Self.TB_LOAIGHE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_GHE" Type="Self.TB_GHE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_LOAIGHE">
+              <PropertyRef Name="MALOAIGHE" />
+            </Principal>
+            <Dependent Role="TB_GHE">
+              <PropertyRef Name="MALOAIGHE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_GHE_PHONG">
+          <End Role="TB_GHE" Type="Self.TB_GHE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_GHE_TRONG_PHONG" Type="Self.TB_GHE_TRONG_PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_GHE">
+              <PropertyRef Name="MAGHE" />
+            </Principal>
+            <Dependent Role="TB_GHE_TRONG_PHONG">
+              <PropertyRef Name="MAGHE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LICHCHIEU_PHIM">
+          <End Role="TB_PHIM" Type="Self.TB_PHIM" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_LICHCHIEU" Type="Self.TB_LICHCHIEU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_PHIM">
+              <PropertyRef Name="MAPHIM" />
+            </Principal>
+            <Dependent Role="TB_LICHCHIEU">
+              <PropertyRef Name="MAPHIM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LICHCHIEU_PHONG">
+          <End Role="TB_PHONG" Type="Self.TB_PHONG" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_LICHCHIEU" Type="Self.TB_LICHCHIEU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_PHONG">
+              <PropertyRef Name="MAPHONG" />
+            </Principal>
+            <Dependent Role="TB_LICHCHIEU">
+              <PropertyRef Name="MAPHONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LICHCHIEU_VE">
+          <End Role="TB_LICHCHIEU" Type="Self.TB_LICHCHIEU" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_VEXEMPHIM" Type="Self.TB_VEXEMPHIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_LICHCHIEU">
+              <PropertyRef Name="MALICHCHIEU" />
+            </Principal>
+            <Dependent Role="TB_VEXEMPHIM">
+              <PropertyRef Name="MALICHCHIEU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_PHIM">
+          <End Role="TB_LOAIPHIM" Type="Self.TB_LOAIPHIM" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_PHIM" Type="Self.TB_PHIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_LOAIPHIM">
+              <PropertyRef Name="MALOAIPHIM" />
+            </Principal>
+            <Dependent Role="TB_PHIM">
+              <PropertyRef Name="MALOAIPHIM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TK_SINHVIEN">
+          <End Role="TB_NHANVIEN" Type="Self.TB_NHANVIEN" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_TAIKHOAN" Type="Self.TB_TAIKHOAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_NHANVIEN">
+              <PropertyRef Name="MANHANVIEN" />
+            </Principal>
+            <Dependent Role="TB_TAIKHOAN">
+              <PropertyRef Name="MANHANVIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_PHONG_GHE">
+          <End Role="TB_PHONG" Type="Self.TB_PHONG" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_GHE_TRONG_PHONG" Type="Self.TB_GHE_TRONG_PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_PHONG">
+              <PropertyRef Name="MAPHONG" />
+            </Principal>
+            <Dependent Role="TB_GHE_TRONG_PHONG">
+              <PropertyRef Name="MAPHONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TK_VE">
+          <End Role="TB_TAIKHOAN" Type="Self.TB_TAIKHOAN" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_VEXEMPHIM" Type="Self.TB_VEXEMPHIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAIKHOAN">
+              <PropertyRef Name="MATAIKHOAN" />
+            </Principal>
+            <Dependent Role="TB_VEXEMPHIM">
+              <PropertyRef Name="MATAIKHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KH_VE">
+          <End Role="TB_THEKHACHHANG" Type="Self.TB_THEKHACHHANG" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_VEXEMPHIM" Type="Self.TB_VEXEMPHIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_THEKHACHHANG">
+              <PropertyRef Name="MATHEKHACHHANG" />
+            </Principal>
+            <Dependent Role="TB_VEXEMPHIM">
+              <PropertyRef Name="MATHEKHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBFilmEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TB_GHE" EntityType="Self.TB_GHE" />
+          <EntitySet Name="TB_LICHCHIEU" EntityType="Self.TB_LICHCHIEU" />
+          <EntitySet Name="TB_LOAIGHE" EntityType="Self.TB_LOAIGHE" />
+          <EntitySet Name="TB_LOAIPHIM" EntityType="Self.TB_LOAIPHIM" />
+          <EntitySet Name="TB_NHANVIEN" EntityType="Self.TB_NHANVIEN" />
+          <EntitySet Name="TB_PHIM" EntityType="Self.TB_PHIM" />
+          <EntitySet Name="TB_PHONG" EntityType="Self.TB_PHONG" />
+          <EntitySet Name="TB_TAIKHOAN" EntityType="Self.TB_TAIKHOAN" />
+          <EntitySet Name="TB_THEKHACHHANG" EntityType="Self.TB_THEKHACHHANG" />
+          <EntitySet Name="TB_VEXEMPHIM" EntityType="Self.TB_VEXEMPHIM" />
+          <EntitySet Name="TB_GHE_TRONG_PHONG" EntityType="Self.TB_GHE_TRONG_PHONG" />
+          <AssociationSet Name="FK_TB_GHE_LOAIGHE" Association="Self.FK_TB_GHE_LOAIGHE">
+            <End Role="TB_LOAIGHE" EntitySet="TB_LOAIGHE" />
+            <End Role="TB_GHE" EntitySet="TB_GHE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_GHE_PHONG" Association="Self.FK_TB_GHE_PHONG">
+            <End Role="TB_GHE" EntitySet="TB_GHE" />
+            <End Role="TB_GHE_TRONG_PHONG" EntitySet="TB_GHE_TRONG_PHONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LICHCHIEU_PHIM" Association="Self.FK_LICHCHIEU_PHIM">
+            <End Role="TB_PHIM" EntitySet="TB_PHIM" />
+            <End Role="TB_LICHCHIEU" EntitySet="TB_LICHCHIEU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LICHCHIEU_PHONG" Association="Self.FK_LICHCHIEU_PHONG">
+            <End Role="TB_PHONG" EntitySet="TB_PHONG" />
+            <End Role="TB_LICHCHIEU" EntitySet="TB_LICHCHIEU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LICHCHIEU_VE" Association="Self.FK_LICHCHIEU_VE">
+            <End Role="TB_LICHCHIEU" EntitySet="TB_LICHCHIEU" />
+            <End Role="TB_VEXEMPHIM" EntitySet="TB_VEXEMPHIM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_PHIM" Association="Self.FK_TB_PHIM">
+            <End Role="TB_LOAIPHIM" EntitySet="TB_LOAIPHIM" />
+            <End Role="TB_PHIM" EntitySet="TB_PHIM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TK_SINHVIEN" Association="Self.FK_TK_SINHVIEN">
+            <End Role="TB_NHANVIEN" EntitySet="TB_NHANVIEN" />
+            <End Role="TB_TAIKHOAN" EntitySet="TB_TAIKHOAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_PHONG_GHE" Association="Self.FK_TB_PHONG_GHE">
+            <End Role="TB_PHONG" EntitySet="TB_PHONG" />
+            <End Role="TB_GHE_TRONG_PHONG" EntitySet="TB_GHE_TRONG_PHONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TK_VE" Association="Self.FK_TK_VE">
+            <End Role="TB_TAIKHOAN" EntitySet="TB_TAIKHOAN" />
+            <End Role="TB_VEXEMPHIM" EntitySet="TB_VEXEMPHIM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KH_VE" Association="Self.FK_KH_VE">
+            <End Role="TB_THEKHACHHANG" EntitySet="TB_THEKHACHHANG" />
+            <End Role="TB_VEXEMPHIM" EntitySet="TB_VEXEMPHIM" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBFilmModelStoreContainer" CdmEntityContainer="DBFilmEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBFilmModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_GHE">
+            <EntityTypeMapping TypeName="DBFilmModel.TB_GHE">
+              <MappingFragment StoreEntitySet="TB_GHE">
+                <ScalarProperty Name="MAGHE" ColumnName="MAGHE" />
+                <ScalarProperty Name="SOGHE" ColumnName="SOGHE" />
+                <ScalarProperty Name="MALOAIGHE" ColumnName="MALOAIGHE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_LICHCHIEU">
+            <EntityTypeMapping TypeName="DBFilmModel.TB_LICHCHIEU">
+              <MappingFragment StoreEntitySet="TB_LICHCHIEU">
+                <ScalarProperty Name="MALICHCHIEU" ColumnName="MALICHCHIEU" />
+                <ScalarProperty Name="NGAYCHIEU" ColumnName="NGAYCHIEU" />
+                <ScalarProperty Name="NGAYKETTHUC" ColumnName="NGAYKETTHUC" />
+                <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
+                <ScalarProperty Name="MAPHIM" ColumnName="MAPHIM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_LOAIGHE">
+            <EntityTypeMapping TypeName="DBFilmModel.TB_LOAIGHE">
+              <MappingFragment StoreEntitySet="TB_LOAIGHE">
+                <ScalarProperty Name="MALOAIGHE" ColumnName="MALOAIGHE" />
+                <ScalarProperty Name="TENLOAIGHE" ColumnName="TENLOAIGHE" />
+                <ScalarProperty Name="GIAGHE" ColumnName="GIAGHE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_LOAIPHIM">
+            <EntityTypeMapping TypeName="DBFilmModel.TB_LOAIPHIM">
+              <MappingFragment StoreEntitySet="TB_LOAIPHIM">
+                <ScalarProperty Name="MALOAIPHIM" ColumnName="MALOAIPHIM" />
+                <ScalarProperty Name="TENLOAIPHIM" ColumnName="TENLOAIPHIM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_NHANVIEN">
+            <EntityTypeMapping TypeName="DBFilmModel.TB_NHANVIEN">
+              <MappingFragment StoreEntitySet="TB_NHANVIEN">
+                <ScalarProperty Name="MANHANVIEN" ColumnName="MANHANVIEN" />
+                <ScalarProperty Name="TENNHANVIEN" ColumnName="TENNHANVIEN" />
+                <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+                <ScalarProperty Name="CMTND" ColumnName="CMTND" />
+                <ScalarProperty Name="NGAYVAOLAM" ColumnName="NGAYVAOLAM" />
+                <ScalarProperty Name="QUEQUAN" ColumnName="QUEQUAN" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_PHIM">
+            <EntityTypeMapping TypeName="DBFilmModel.TB_PHIM">
+              <MappingFragment StoreEntitySet="TB_PHIM">
+                <ScalarProperty Name="MAPHIM" ColumnName="MAPHIM" />
+                <ScalarProperty Name="QUOCGIA" ColumnName="QUOCGIA" />
+                <ScalarProperty Name="HINHANH" ColumnName="HINHANH" />
+                <ScalarProperty Name="MOTAPHIM" ColumnName="MOTAPHIM" />
+                <ScalarProperty Name="THOILUONG" ColumnName="THOILUONG" />
+                <ScalarProperty Name="TENPHIM" ColumnName="TENPHIM" />
+                <ScalarProperty Name="MALOAIPHIM" ColumnName="MALOAIPHIM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_PHONG">
+            <EntityTypeMapping TypeName="DBFilmModel.TB_PHONG">
+              <MappingFragment StoreEntitySet="TB_PHONG">
+                <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
+                <ScalarProperty Name="SOPHONG" ColumnName="SOPHONG" />
+                <ScalarProperty Name="SOGHE" ColumnName="SOGHE" />
+                <ScalarProperty Name="LOAIPHONG" ColumnName="LOAIPHONG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TAIKHOAN">
+            <EntityTypeMapping TypeName="DBFilmModel.TB_TAIKHOAN">
+              <MappingFragment StoreEntitySet="TB_TAIKHOAN">
+                <ScalarProperty Name="MATAIKHOAN" ColumnName="MATAIKHOAN" />
+                <ScalarProperty Name="TENDANGNHAP" ColumnName="TENDANGNHAP" />
+                <ScalarProperty Name="LOAITAIKHOAN" ColumnName="LOAITAIKHOAN" />
+                <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+                <ScalarProperty Name="MANHANVIEN" ColumnName="MANHANVIEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_THEKHACHHANG">
+            <EntityTypeMapping TypeName="DBFilmModel.TB_THEKHACHHANG">
+              <MappingFragment StoreEntitySet="TB_THEKHACHHANG">
+                <ScalarProperty Name="MATHEKHACHHANG" ColumnName="MATHEKHACHHANG" />
+                <ScalarProperty Name="TENKHACHHANG" ColumnName="TENKHACHHANG" />
+                <ScalarProperty Name="CMTND" ColumnName="CMTND" />
+                <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+                <ScalarProperty Name="NGAYDANGKY" ColumnName="NGAYDANGKY" />
+                <ScalarProperty Name="MUCDOTHANTHIET" ColumnName="MUCDOTHANTHIET" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_VEXEMPHIM">
+            <EntityTypeMapping TypeName="DBFilmModel.TB_VEXEMPHIM">
+              <MappingFragment StoreEntitySet="TB_VEXEMPHIM">
+                <ScalarProperty Name="MAVE" ColumnName="MAVE" />
+                <ScalarProperty Name="GIAVE" ColumnName="GIAVE" />
+                <ScalarProperty Name="MATAIKHOAN" ColumnName="MATAIKHOAN" />
+                <ScalarProperty Name="MALICHCHIEU" ColumnName="MALICHCHIEU" />
+                <ScalarProperty Name="MATHEKHACHHANG" ColumnName="MATHEKHACHHANG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_GHE_TRONG_PHONG">
+            <EntityTypeMapping TypeName="DBFilmModel.TB_GHE_TRONG_PHONG">
+              <MappingFragment StoreEntitySet="TB_GHE_TRONG_PHONG">
+                <ScalarProperty Name="MAGHE" ColumnName="MAGHE" />
+                <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
+                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
