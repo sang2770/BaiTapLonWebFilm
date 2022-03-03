@@ -17,6 +17,7 @@ namespace BaiTapLonWebFilm.Models
         public int MAGHE { get; set; }
         public int MAPHONG { get; set; }
         public string TRANGTHAI { get; set; }
+        public int MA { get; set; }
     
         public virtual TB_GHE TB_GHE { get; set; }
         public virtual TB_PHONG TB_PHONG { get; set; }

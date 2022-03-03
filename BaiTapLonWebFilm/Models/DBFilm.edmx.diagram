@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bff5b725c53b4ab2902b6a2e3341fdcd" Name="Diagram1">
+        <EntityTypeShape EntityType="DBFilmModel.sysdiagram" Width="1.5" PointX="7.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFilmModel.TB_GHE" Width="1.5" PointX="3.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFilmModel.TB_GHE_TRONG_PHONG" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFilmModel.TB_LICHCHIEU" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFilmModel.TB_LOAIGHE" Width="1.5" PointX="1.5" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFilmModel.TB_LOAIPHIM" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFilmModel.TB_NHANVIEN" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFilmModel.TB_PHIM" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFilmModel.TB_Phim_LoaiPhim" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFilmModel.TB_PHONG" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFilmModel.TB_TAIKHOAN" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFilmModel.TB_THEKHACHHANG" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFilmModel.TB_VEXEMPHIM" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="DBFilmModel.FK_TB_GHE_LOAIGHE" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFilmModel.FK_TB_GHE_PHONG" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFilmModel.FK_TB_PHONG_GHE" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFilmModel.FK_LICHCHIEU_PHIM" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFilmModel.FK_LICHCHIEU_PHONG" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFilmModel.FK_LICHCHIEU_VE" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFilmModel.FK_TB_LoaiPhim" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFilmModel.FK_TK_SINHVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFilmModel.FK_TB_PHIM" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFilmModel.FK_TK_VE" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFilmModel.FK_KH_VE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

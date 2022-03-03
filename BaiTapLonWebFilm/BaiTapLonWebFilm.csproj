@@ -128,60 +128,65 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\AdminsController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\FlimDb.Context.cs">
+    <Compile Include="Models\DBFilm.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FlimDb.Context.tt</DependentUpon>
+      <DependentUpon>DBFilm.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FlimDb.cs">
+    <Compile Include="Models\DBFilm.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FlimDb.tt</DependentUpon>
+      <DependentUpon>DBFilm.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FlimDb.Designer.cs">
+    <Compile Include="Models\DBFilm.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FlimDb.edmx</DependentUpon>
+      <DependentUpon>DBFilm.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>FlimDb.tt</DependentUpon>
+      <DependentUpon>DBFilm.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_GHE.cs">
-      <DependentUpon>FlimDb.tt</DependentUpon>
+      <DependentUpon>DBFilm.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_GHE_TRONG_PHONG.cs">
-      <DependentUpon>FlimDb.tt</DependentUpon>
+      <DependentUpon>DBFilm.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_LICHCHIEU.cs">
-      <DependentUpon>FlimDb.tt</DependentUpon>
+      <DependentUpon>DBFilm.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_LOAIGHE.cs">
-      <DependentUpon>FlimDb.tt</DependentUpon>
+      <DependentUpon>DBFilm.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_LOAIPHIM.cs">
-      <DependentUpon>FlimDb.tt</DependentUpon>
+      <DependentUpon>DBFilm.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_NHANVIEN.cs">
-      <DependentUpon>FlimDb.tt</DependentUpon>
+      <DependentUpon>DBFilm.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_PHIM.cs">
-      <DependentUpon>FlimDb.tt</DependentUpon>
+      <DependentUpon>DBFilm.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_Phim_LoaiPhim.cs">
+      <DependentUpon>DBFilm.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_PHONG.cs">
-      <DependentUpon>FlimDb.tt</DependentUpon>
+      <DependentUpon>DBFilm.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_TAIKHOAN.cs">
-      <DependentUpon>FlimDb.tt</DependentUpon>
+      <DependentUpon>DBFilm.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_THEKHACHHANG.cs">
-      <DependentUpon>FlimDb.tt</DependentUpon>
+      <DependentUpon>DBFilm.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_VEXEMPHIM.cs">
-      <DependentUpon>FlimDb.tt</DependentUpon>
+      <DependentUpon>DBFilm.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -194,24 +199,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\FlimDb.Context.tt">
+    <Content Include="Models\DBFilm.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>FlimDb.Context.cs</LastGenOutput>
-      <DependentUpon>FlimDb.edmx</DependentUpon>
+      <DependentUpon>DBFilm.edmx</DependentUpon>
+      <LastGenOutput>DBFilm.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\FlimDb.tt">
+    <Content Include="Models\DBFilm.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FlimDb.edmx</DependentUpon>
-      <LastGenOutput>FlimDb.cs</LastGenOutput>
+      <DependentUpon>DBFilm.edmx</DependentUpon>
+      <LastGenOutput>DBFilm.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\FlimDb.edmx">
+    <EntityDeploy Include="Models\DBFilm.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FlimDb.Designer.cs</LastGenOutput>
+      <LastGenOutput>DBFilm.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\FlimDb.edmx.diagram">
-      <DependentUpon>FlimDb.edmx</DependentUpon>
+    <Content Include="Models\DBFilm.edmx.diagram">
+      <DependentUpon>DBFilm.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -235,12 +240,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admins\" />
+    <Folder Include="Views\Client\" />
+    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

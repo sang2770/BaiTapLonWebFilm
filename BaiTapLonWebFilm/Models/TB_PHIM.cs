@@ -18,6 +18,7 @@ namespace BaiTapLonWebFilm.Models
         public TB_PHIM()
         {
             this.TB_LICHCHIEU = new HashSet<TB_LICHCHIEU>();
+            this.TB_Phim_LoaiPhim = new HashSet<TB_Phim_LoaiPhim>();
         }
     
         public int MAPHIM { get; set; }
@@ -26,10 +27,10 @@ namespace BaiTapLonWebFilm.Models
         public string MOTAPHIM { get; set; }
         public int THOILUONG { get; set; }
         public string TENPHIM { get; set; }
-        public int MALOAIPHIM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TB_LICHCHIEU> TB_LICHCHIEU { get; set; }
-        public virtual TB_LOAIPHIM TB_LOAIPHIM { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TB_Phim_LoaiPhim> TB_Phim_LoaiPhim { get; set; }
     }
 }

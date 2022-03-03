@@ -12,18 +12,13 @@ namespace BaiTapLonWebFilm.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TB_LOAIPHIM
+    public partial class TB_Phim_LoaiPhim
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TB_LOAIPHIM()
-        {
-            this.TB_Phim_LoaiPhim = new HashSet<TB_Phim_LoaiPhim>();
-        }
-    
+        public int MAPHIM { get; set; }
         public int MALOAIPHIM { get; set; }
-        public string TENLOAIPHIM { get; set; }
+        public int MA { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TB_Phim_LoaiPhim> TB_Phim_LoaiPhim { get; set; }
+        public virtual TB_LOAIPHIM TB_LOAIPHIM { get; set; }
+        public virtual TB_PHIM TB_PHIM { get; set; }
     }
 }

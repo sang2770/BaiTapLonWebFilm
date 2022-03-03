@@ -17,8 +17,8 @@ namespace BaiTapLonWebFilm.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TB_PHONG()
         {
-            this.TB_LICHCHIEU = new HashSet<TB_LICHCHIEU>();
             this.TB_GHE_TRONG_PHONG = new HashSet<TB_GHE_TRONG_PHONG>();
+            this.TB_LICHCHIEU = new HashSet<TB_LICHCHIEU>();
         }
     
         public int MAPHONG { get; set; }
@@ -27,8 +27,8 @@ namespace BaiTapLonWebFilm.Models
         public string LOAIPHONG { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TB_LICHCHIEU> TB_LICHCHIEU { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TB_GHE_TRONG_PHONG> TB_GHE_TRONG_PHONG { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TB_LICHCHIEU> TB_LICHCHIEU { get; set; }
     }
 }
