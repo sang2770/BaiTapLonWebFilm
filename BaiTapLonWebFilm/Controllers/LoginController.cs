@@ -33,11 +33,11 @@ namespace BaiTapLonWebFilm.Controllers
                     Session["Type"] = tk.LOAITAIKHOAN;
                     if (Session["Type"].ToString().ToUpper().Equals("Admin".ToUpper()))
                     {
-                       return  RedirectToAction("Index", "Admins");
+                       return  RedirectToAction("Index", "Admin/NhanVien");
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Client");
+                        return RedirectToAction("Index", "Client/TB_PHIM");
                     }
                 }    
             }

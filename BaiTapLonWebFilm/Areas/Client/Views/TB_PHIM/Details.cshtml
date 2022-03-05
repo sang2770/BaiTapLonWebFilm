@@ -1,0 +1,59 @@
+﻿@model BaiTapLonWebFilm.Models.TB_PHIM
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Client/Views/Shared/_ClientTemplate.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TB_PHIM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.QUOCGIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QUOCGIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HINHANH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HINHANH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MOTAPHIM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOTAPHIM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.THOILUONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THOILUONG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TENPHIM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENPHIM)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MAPHIM }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

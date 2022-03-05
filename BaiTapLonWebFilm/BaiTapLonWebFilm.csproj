@@ -132,13 +132,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AdminsController.cs" />
-    <Compile Include="Controllers\ClientController.cs" />
-    <Compile Include="Controllers\KhachHangController.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\KhachHangController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PhimController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PhongController.cs" />
+    <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
+    <Compile Include="Areas\Client\Controllers\TB_PHIMController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\NhanVienController.cs" />
-    <Compile Include="Controllers\PhimController.cs" />
-    <Compile Include="Controllers\PhongController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhanVienController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -261,6 +262,25 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Client\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Phim\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Index.cshtml" />
+    <Content Include="Areas\Client\Views\TB_PHIM\Details.cshtml" />
+    <Content Include="Areas\Client\Views\TB_PHIM\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -365,32 +385,18 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Shared\_AdminTemplate.cshtml" />
-    <Content Include="Views\Client\Index.cshtml" />
-    <Content Include="Views\Phim\Create.cshtml" />
-    <Content Include="Views\Phim\Delete.cshtml" />
-    <Content Include="Views\Phim\Details.cshtml" />
-    <Content Include="Views\Phim\Edit.cshtml" />
-    <Content Include="Views\Phim\Index.cshtml" />
-    <Content Include="Views\NhanVien\Create.cshtml" />
-    <Content Include="Views\NhanVien\Delete.cshtml" />
-    <Content Include="Views\NhanVien\Details.cshtml" />
-    <Content Include="Views\NhanVien\Edit.cshtml" />
-    <Content Include="Views\NhanVien\Index.cshtml" />
-    <Content Include="Views\Phong\Create.cshtml" />
-    <Content Include="Views\Phong\Delete.cshtml" />
-    <Content Include="Views\Phong\Details.cshtml" />
-    <Content Include="Views\Phong\Edit.cshtml" />
-    <Content Include="Views\Phong\Index.cshtml" />
-    <Content Include="Views\KhachHang\Create.cshtml" />
-    <Content Include="Views\KhachHang\Delete.cshtml" />
-    <Content Include="Views\KhachHang\Details.cshtml" />
-    <Content Include="Views\KhachHang\Edit.cshtml" />
-    <Content Include="Views\KhachHang\Index.cshtml" />
-    <Content Include="Views\Shared\_ClientTemplate.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminTemplate.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\Index.cshtml" />
+    <Content Include="Areas\Client\Views\Shared\_ClientTemplate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Client\Data\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
