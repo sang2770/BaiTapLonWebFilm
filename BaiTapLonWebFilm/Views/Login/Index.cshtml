@@ -1,0 +1,81 @@
+﻿@model BaiTapLonWebFilm.Models.TB_TAIKHOAN
+@{
+
+    Layout = null ;
+    if(Session["User"]!=null)
+    {
+        Response.Redirect("~/Admins/Index");
+
+            }
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    @Styles.Render("~/Content/bootstrap-reboot.min.css")
+    @Styles.Render("~/Content/bootstrap-grid.min.css")
+    @Styles.Render("~/Content/bootstrap.min.css")
+
+    @Styles.Render("~/Content/CSS/magnific-popup.css")
+    @Styles.Render("~/Content/CSS/css/select2.min.css")
+    @Styles.Render("~/Content/CSS/admin.css")
+    @Styles.Render("~/Content/Style.css")
+
+
+    <!-- Favicons -->
+    @*<link rel="icon" type="image/png" href="icon/favicon-32x32.png" sizes="32x32">*@
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Dmitry Volkov">
+    <title>Login</title>
+
+</head>
+<body>
+    <!-- sign in -->
+    <div class="sign section--bg" style=" background: url(@Url.Content("~/Image/bg.jpg")) center center / cover no-repeat">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="sign__content">
+                        <!-- authorization form -->
+                        @using (Html.BeginForm("Login", "Login"))
+                        {
+                            <div class="sign__form">
+                                @Html.AntiForgeryToken()
+                                <p class="sign__logo" id="Title_Form">
+                                    Film <span class="Tv_Icon">Tv</span>
+                                </p>
+
+                                <div class="sign__group">
+                                    <input type="text" class="sign__input" placeholder="Tên đăng nhập" required name="TenDangNhap">
+                                    @Html.ValidationMessageFor(model => model.TENDANGNHAP, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="sign__group">
+                                    <input type="password" class="sign__input" placeholder="Mật khẩu" required name="MatKhau">
+                                    @Html.ValidationMessageFor(model => model.MATKHAU, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="text-left text-danger w-100 p-2" style="min-height:40px">@TempData["Err"]</div>
+
+                                <div class="sign__group sign__group--checkbox">
+                                    <input id="Remeber" name="remember" type="checkbox">
+                                    <label for="Remeber">Remember me</label>
+                                </div>
+                                <input type="submit" value="Login" class="sign__btn" />
+                                <span class="sign__text">Forgot password?</span>
+                            </div>
+                        }
+                        <!-- end authorization form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end sign in -->
+    <!-- JS -->
+</body>
+</html>

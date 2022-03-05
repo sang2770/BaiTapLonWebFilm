@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBFilmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBFilmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -27,10 +27,10 @@
           <Key>
             <PropertyRef Name="MA" />
           </Key>
+          <Property Name="MA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MAGHE" Type="int" Nullable="false" />
           <Property Name="MAPHONG" Type="int" Nullable="false" />
           <Property Name="TRANGTHAI" Type="nvarchar" MaxLength="40" />
-          <Property Name="MA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="TB_LICHCHIEU">
           <Key>
@@ -77,7 +77,7 @@
           <Property Name="MAPHIM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="QUOCGIA" Type="nvarchar" MaxLength="100" />
           <Property Name="HINHANH" Type="nvarchar" MaxLength="100" />
-          <Property Name="MOTAPHIM" Type="nvarchar" MaxLength="100" />
+          <Property Name="MOTAPHIM" Type="nvarchar" MaxLength="1000" />
           <Property Name="THOILUONG" Type="int" Nullable="false" />
           <Property Name="TENPHIM" Type="nvarchar" MaxLength="100" />
         </EntityType>
@@ -85,9 +85,9 @@
           <Key>
             <PropertyRef Name="MA" />
           </Key>
+          <Property Name="MA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MAPHIM" Type="int" Nullable="false" />
           <Property Name="MALOAIPHIM" Type="int" Nullable="false" />
-          <Property Name="MA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="TB_PHONG">
           <Key>
@@ -95,7 +95,6 @@
           </Key>
           <Property Name="MAPHONG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SOPHONG" Type="int" Nullable="false" />
-          <Property Name="SOGHE" Type="int" Nullable="false" />
           <Property Name="LOAIPHONG" Type="nvarchar" MaxLength="40" Nullable="false" />
         </EntityType>
         <EntityType Name="TB_TAIKHOAN">
@@ -255,7 +254,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TK_SINHVIEN">
+        <Association Name="FK_TK_NHANVIEN">
           <End Role="TB_NHANVIEN" Type="Self.TB_NHANVIEN" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -333,7 +332,7 @@
             <End Role="TB_PHONG" EntitySet="TB_PHONG" />
             <End Role="TB_GHE_TRONG_PHONG" EntitySet="TB_GHE_TRONG_PHONG" />
           </AssociationSet>
-          <AssociationSet Name="FK_TK_SINHVIEN" Association="Self.FK_TK_SINHVIEN">
+          <AssociationSet Name="FK_TK_NHANVIEN" Association="Self.FK_TK_NHANVIEN">
             <End Role="TB_NHANVIEN" EntitySet="TB_NHANVIEN" />
             <End Role="TB_TAIKHOAN" EntitySet="TB_TAIKHOAN" />
           </AssociationSet>
@@ -342,8 +341,7 @@
             <End Role="TB_VEXEMPHIM" EntitySet="TB_VEXEMPHIM" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBFilmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -429,7 +427,7 @@
           <Property Name="MAPHIM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="QUOCGIA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="HINHANH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="MOTAPHIM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MOTAPHIM" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="THOILUONG" Type="Int32" Nullable="false" />
           <Property Name="TENPHIM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TB_LICHCHIEU" Relationship="Self.FK_LICHCHIEU_PHIM" FromRole="TB_PHIM" ToRole="TB_LICHCHIEU" />
@@ -451,7 +449,6 @@
           </Key>
           <Property Name="MAPHONG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SOPHONG" Type="Int32" Nullable="false" />
-          <Property Name="SOGHE" Type="Int32" Nullable="false" />
           <Property Name="LOAIPHONG" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="TB_GHE_TRONG_PHONG" Relationship="Self.FK_TB_PHONG_GHE" FromRole="TB_PHONG" ToRole="TB_GHE_TRONG_PHONG" />
           <NavigationProperty Name="TB_LICHCHIEU" Relationship="Self.FK_LICHCHIEU_PHONG" FromRole="TB_PHONG" ToRole="TB_LICHCHIEU" />
@@ -810,7 +807,6 @@
               <MappingFragment StoreEntitySet="TB_PHONG">
                 <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
                 <ScalarProperty Name="SOPHONG" ColumnName="SOPHONG" />
-                <ScalarProperty Name="SOGHE" ColumnName="SOGHE" />
                 <ScalarProperty Name="LOAIPHONG" ColumnName="LOAIPHONG" />
               </MappingFragment>
             </EntityTypeMapping>

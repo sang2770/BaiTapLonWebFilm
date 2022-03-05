@@ -1,0 +1,35 @@
+﻿@model BaiTapLonWebFilm.Models.TB_PHONG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminTemplate.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TB_PHONG</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SOPHONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOPHONG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOAIPHONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAIPHONG)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MAPHONG }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

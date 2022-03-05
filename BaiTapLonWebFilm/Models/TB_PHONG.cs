@@ -23,7 +23,6 @@ namespace BaiTapLonWebFilm.Models
     
         public int MAPHONG { get; set; }
         public int SOPHONG { get; set; }
-        public int SOGHE { get; set; }
         public string LOAIPHONG { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -1,0 +1,59 @@
+﻿@model BaiTapLonWebFilm.Models.TB_THEKHACHHANG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminTemplate.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TB_THEKHACHHANG</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TENKHACHHANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENKHACHHANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CMTND)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CMTND)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYSINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYSINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYDANGKY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYDANGKY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MUCDOTHANTHIET)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MUCDOTHANTHIET)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MATHEKHACHHANG }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
