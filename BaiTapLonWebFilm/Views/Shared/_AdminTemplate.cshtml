@@ -27,24 +27,7 @@
     <title>Admin</title>
 </head>
 <body>
-    <!-- header -->
-    <header class="header">
-        <div class="header__content">
-            <!-- header logo -->
-            <a href="index.html" class="header__logo">
-                <img src="img/logo.svg" alt="" />
-            </a>
-            <!-- end header logo -->
-            <!-- header menu btn -->
-            <button class="header__btn" type="button">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <!-- end header menu btn -->
-        </div>
-    </header>
-    <!-- end header -->
+
     <!-- sidebar -->
     <div class="sidebar">
         <!-- sidebar logo -->
@@ -183,8 +166,13 @@
     <!-- end sidebar -->
     <!-- main content -->
     <main class="main">
-        <div class="container-fluid">@RenderBody()</div>
-    </main>
+        <div class="container-fluid">
+            <div class="row">
+
+                @RenderBody()
+            </div>
+            </div>
+</main>
     <!-- end main content -->
     <!-- JS -->
     @Scripts.Render("~/bundles/jquery")

@@ -493,6 +493,7 @@ body::-webkit-scrollbar-thumb {
   font-weight: 500;
   margin-right: 10px;
   transition: 0.5s;
+  margin:0px 10px;
 }
 .header__user svg {
   width: 20px;
@@ -624,7 +625,7 @@ body::-webkit-scrollbar-thumb {
   }
   .header__actions {
     justify-content: space-between;
-    width: 350px;
+    min-width: 500px;
   }
   .header__form {
     position: relative;
@@ -634,7 +635,7 @@ body::-webkit-scrollbar-thumb {
     right: auto;
     bottom: auto;
     left: auto;
-    width: 250px;
+    width: 400px;
   }
   .header__form-input {
     width: 100%;

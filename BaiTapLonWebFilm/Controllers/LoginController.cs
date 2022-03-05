@@ -27,9 +27,11 @@ namespace BaiTapLonWebFilm.Controllers
             {
                 if(tk.MATKHAU==MatKhau)
                 {
-                    Session["User"] = tk.TENDANGNHAP;
+                    
+                    TB_NHANVIEN user=db.TB_NHANVIEN.Where(s=>s.MANHANVIEN==tk.MANHANVIEN).SingleOrDefault<TB_NHANVIEN>();
+                    Session["User"] = user.TENNHANVIEN;
                     Session["Type"] = tk.LOAITAIKHOAN;
-                    if(Session["Type"].ToString().ToUpper().Equals("Admin".ToUpper()))
+                    if (Session["Type"].ToString().ToUpper().Equals("Admin".ToUpper()))
                     {
                        return  RedirectToAction("Index", "Admins");
                     }
