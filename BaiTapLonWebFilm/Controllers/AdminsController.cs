@@ -11,7 +11,7 @@ namespace BaiTapLonWebFilm.Controllers
         // GET: Admins
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "NhanVien");
         }
     }
 }
