@@ -45,7 +45,6 @@ namespace BaiTapLonWebFilm.Controllers
             return RedirectToAction("Index");
 
         }
-
         public ActionResult Logout()
         {
             Session.Clear();
