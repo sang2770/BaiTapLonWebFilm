@@ -501,6 +501,7 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   margin-top: 70px;
   padding: 20px 0 0;
+
 }
 .main__title {
   display: flex;

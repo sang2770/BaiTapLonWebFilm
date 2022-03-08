@@ -8,9 +8,9 @@
 <h2>Details</h2>
 
 <div>
-    <h4>TB_PHIM</h4>
+    
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal" style="color:white">
         <dt>
             @Html.DisplayNameFor(model => model.QUOCGIA)
         </dt>
@@ -24,7 +24,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.HINHANH)
+            <img src="@Url.Content("~/Image/movies/"+Html.DisplayFor(model=>model.HINHANH))" alt="Alternate Text" style="width:100%" />
         </dd>
 
         <dt>

@@ -9,9 +9,9 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>TB_PHIM</h4>
+    
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal" style="color:white">
         <dt>
             @Html.DisplayNameFor(model => model.QUOCGIA)
         </dt>
@@ -21,7 +21,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.HINHANH)
+            <img src="@Url.Content("~/Image/movies/"+Html.DisplayFor(model=>model.HINHANH))" alt="Alternate Text" style="width:100%" />
         </dt>
 
         <dd>
@@ -58,7 +58,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="submit" value="Delete" class="btn btn-default" style="background-color:blue" /> |<br /><br />
             @Html.ActionLink("Back to List", "Index")
         </div>
     }
