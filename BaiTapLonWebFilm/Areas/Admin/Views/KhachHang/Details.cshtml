@@ -1,59 +1,70 @@
 ﻿@model BaiTapLonWebFilm.Models.TB_THEKHACHHANG
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_AdminTemplate.cshtml";
+    DateTime NgaySinh = (DateTime)Model.NGAYSINH;
+    DateTime NgayDangKy = (DateTime)Model.NGAYDANGKY;
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>TB_THEKHACHHANG</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TENKHACHHANG)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TENKHACHHANG)
-        </dd>
+<div class="container-fluid">
+    <div class="row">
+        <!-- main title -->
+        <div class="col-12">
+            <div class="main__title">
+                <h2>Chi tiết Khách hàng</h2>
+            </div>
+        </div>
+        <!-- end main title -->
+        <!-- form -->
+        <div class="col-12">
+            @using (Html.BeginForm("Create", "Khách Hàng"))
+            {
+                <div class="form">
+                    <div class="row">
+                        <div class="col-12 col-md-7 form__content">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form__group">
+                                        <label class="Label text-white">Họ và tên:</label>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CMTND)
-        </dt>
+                                        <input type="text" class="form__input" name="TENKHACHHANG" value="@Model.TENKHACHHANG">
+                                    </div>
+                                </div>
+                                <div class="col-12 ">
+                                    <div class="form__group">
+                                        <label class="Label text-white">CMTND:</label>
 
-        <dd>
-            @Html.DisplayFor(model => model.CMTND)
-        </dd>
+                                        <input type="text" class="form__input" name="CMTND" value="@Model.CMTND">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NGAYSINH)
-        </dt>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form__group">
+                                        <label class="Label text-white" for="NgayVaoLam">Ngày Đăng Kí:</label>
+                                        <input type="date" id="Ngày vào làm" name="NGAYVAOLAM" class="form__input" value="@NgayDangKy.ToString("yyyy-MM-dd")">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form__group">
+                                        <label class="Label text-white" for="NgaySinh">Ngày sinh:</label>
 
-        <dd>
-            @Html.DisplayFor(model => model.NGAYSINH)
-        </dd>
+                                        <input type="date" id="NgaySinh" name="NGAYSINH" class="form__input" value="@NgaySinh.ToString("yyyy-MM-dd")">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NGAYDANGKY)
-        </dt>
+                                    </div>
+                                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.NGAYDANGKY)
-        </dd>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            }
+            <!-- end form -->
+        </div>
+    </div>
+    <!-- end main content -->
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MUCDOTHANTHIET)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MUCDOTHANTHIET)
-        </dd>
-
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MATHEKHACHHANG }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
