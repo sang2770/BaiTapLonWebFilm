@@ -336,16 +336,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBFilmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="TB_GHE">
           <Key>
             <PropertyRef Name="MAGHE" />
@@ -638,7 +628,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DBFilmEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TB_GHE" EntityType="Self.TB_GHE" />
           <EntitySet Name="TB_GHE_TRONG_PHONG" EntityType="Self.TB_GHE_TRONG_PHONG" />
           <EntitySet Name="TB_LICHCHIEU" EntityType="Self.TB_LICHCHIEU" />

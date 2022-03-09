@@ -25,7 +25,6 @@ namespace BaiTapLonWebFilm.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TB_GHE> TB_GHE { get; set; }
         public virtual DbSet<TB_GHE_TRONG_PHONG> TB_GHE_TRONG_PHONG { get; set; }
         public virtual DbSet<TB_LICHCHIEU> TB_LICHCHIEU { get; set; }

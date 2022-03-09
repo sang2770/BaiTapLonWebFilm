@@ -159,9 +159,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBFilm.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>DBFilm.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\TB_GHE.cs">
       <DependentUpon>DBFilm.tt</DependentUpon>
     </Compile>
