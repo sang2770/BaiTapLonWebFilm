@@ -4,7 +4,11 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Client/Views/Shared/_ClientTemplate.cshtml";
 }
-
+<style>
+    th, td {
+        color: white;
+    }
+</style>
 <h2>Index</h2>
 
 <p>
@@ -36,7 +40,7 @@
             @Html.DisplayFor(modelItem => item.QUOCGIA)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.HINHANH)
+            <img src="@Url.Content("~/Image/movies/"+Html.DisplayFor(modelItem=>item.HINHANH))" alt="Alternate Text" style="width:100%"/>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MOTAPHIM)
@@ -48,9 +52,10 @@
             @Html.DisplayFor(modelItem => item.TENPHIM)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MAPHIM }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MAPHIM }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MAPHIM })
+
+            @Html.ActionLink("Details", "Details", new { id = item.MAPHIM })
+            
+
         </td>
     </tr>
 }

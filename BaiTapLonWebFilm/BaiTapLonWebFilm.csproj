@@ -134,6 +134,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\KhachHangController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LichChieuController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhimController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhongController.cs" />
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
@@ -221,6 +222,26 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Image\bg.jpg" />
+    <Content Include="Image\movies\A_Silent_Voice.jpg" />
+    <Content Include="Image\movies\batman.jpg" />
+    <Content Include="Image\movies\bogia.jpg" />
+    <Content Include="Image\movies\Doremon.jpg" />
+    <Content Include="Image\movies\Endgame.jpg" />
+    <Content Include="Image\movies\Get_out.jpg" />
+    <Content Include="Image\movies\Hereditary.jpg" />
+    <Content Include="Image\movies\Howl.jpg" />
+    <Content Include="Image\movies\Inception.jpg" />
+    <Content Include="Image\movies\Inside_Out.jpg" />
+    <Content Include="Image\movies\IT.jpg" />
+    <Content Include="Image\movies\king.jpg" />
+    <Content Include="Image\movies\Klaus.jpg" />
+    <Content Include="Image\movies\Princess_Mononoke.jpg" />
+    <Content Include="Image\movies\shawahank.jpg" />
+    <Content Include="Image\movies\The_Conjuring.jpg" />
+    <Content Include="Image\movies\The_Shining.jpg" />
+    <Content Include="Image\movies\Totoro.jpg" />
+    <Content Include="Image\movies\Up.jpg" />
+    <Content Include="Image\movies\Your_name.jpg" />
     <Content Include="Image\user.svg" />
     <Content Include="Models\DBFilm.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -281,6 +302,12 @@
     <Content Include="Areas\Admin\Views\KhachHang\Index.cshtml" />
     <Content Include="Areas\Client\Views\TB_PHIM\Details.cshtml" />
     <Content Include="Areas\Client\Views\TB_PHIM\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\LichChieu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\LichChieu\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\LichChieu\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\LichChieu\Delete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

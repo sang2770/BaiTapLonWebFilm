@@ -1,5 +1,6 @@
 ﻿@model BaiTapLonWebFilm.Models.TB_PHIM
 
+
 @{
     ViewBag.Title = "Details";
     Layout = "~/Areas/Client/Views/Shared/_ClientTemplate.cshtml";
@@ -10,7 +11,7 @@
 <div>
     <h4>TB_PHIM</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal" style="color:white">
         <dt>
             @Html.DisplayNameFor(model => model.QUOCGIA)
         </dt>
@@ -20,7 +21,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.HINHANH)
+            <img src="@Url.Content("~/Image/movies/"+Html.DisplayFor(model=>model.HINHANH))" alt="Alternate Text" style="width:100%" />
         </dt>
 
         <dd>
@@ -50,7 +51,25 @@
         <dd>
             @Html.DisplayFor(model => model.TENPHIM)
         </dd>
+        <dt>
+            LỊCH CHIẾU
+        </dt>
 
+        <dd>
+            @{
+                int i = 0;
+                foreach (var item in @ViewBag.lstLichchieu)
+                {
+                    i++;
+                        <p>item.NGAYCHIEU</p>
+                    if (i % 4 == 0)
+                    {
+                        <div style="clear:both"></div>
+                    }
+                }
+            }
+        
+        </dd>
     </dl>
 </div>
 <p>

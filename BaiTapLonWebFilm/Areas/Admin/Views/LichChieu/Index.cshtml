@@ -1,0 +1,56 @@
+﻿@model IEnumerable<BaiTapLonWebFilm.Models.TB_LICHCHIEU>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminTemplate.cshtml";
+}
+
+<style>
+    th, td {
+        color: white;
+    }
+</style>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYCHIEU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYKETTHUC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TB_PHIM.QUOCGIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TB_PHONG.LOAIPHONG)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYCHIEU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYKETTHUC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TB_PHIM.QUOCGIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TB_PHONG.LOAIPHONG)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MALICHCHIEU }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MALICHCHIEU }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MALICHCHIEU })
+        </td>
+    </tr>
+}
+
+</table>

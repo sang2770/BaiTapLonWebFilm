@@ -92,10 +92,9 @@
                 </a>
                 @*Điền Action ở đây*@
                 <ul class="collapse sidebar__menu" id="collapseMenu2">
-                    <li><a href=@Url.Action("", "Phim")>Thêm phim</a></li>
-                    <li><a href=@Url.Action("", "Phim")>Sửa phim</a></li>
-                    <li><a href=@Url.Action("", "Phim")>Danh sách phim</a></li>
-                    <li><a href=@Url.Action("", "Phim")>Thông tin lịch chiếu</a></li>
+                    <li><a href=@Url.Action("Create", "Phim")>Thêm phim</a></li>
+                    <li><a href=@Url.Action("Index" , "Phim")>Danh sách phim</a></li>
+                    <li><a href=@Url.Action("Index" , "LichChieu")>Thông tin lịch chiếu</a></li>
                 </ul>
             </li>
 
@@ -164,7 +163,7 @@
     </div>
     <!-- end sidebar -->
     <!-- main content -->
-    <main class="main">
+    <main class="main" >
         <div class="container-fluid">
             <div class="row">
 

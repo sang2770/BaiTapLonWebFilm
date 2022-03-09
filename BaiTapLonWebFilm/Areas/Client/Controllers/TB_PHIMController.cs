@@ -28,12 +28,20 @@ namespace BaiTapLonWebFilm.Areas.Client.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             TB_PHIM tB_PHIM = db.TB_PHIM.Find(id);
+            List<TB_LICHCHIEU> lstlichchieu=db.TB_LICHCHIEU.Where(n=>n.MAPHIM==id).ToList();
             if (tB_PHIM == null)
             {
                 return HttpNotFound();
             }
+            if(lstlichchieu == null)
+            {
+                ViewBag.lstLichchieu = "Không có Lịch chiếu";
+            }
+            ViewBag.lstLichchieu=lstlichchieu;
+            ViewBag.MaPhim = id;
             return View(tB_PHIM);
         }
+        
 
 
     }
