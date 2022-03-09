@@ -6,14 +6,21 @@
     Layout = "~/Areas/Client/Views/Shared/_ClientTemplate.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Thông tin chi tiết bộ phim</h2>
 
 <div>
-    <h4>TB_PHIM</h4>
+    <br />
     <hr />
     <dl class="dl-horizontal" style="color:white">
         <dt>
-            @Html.DisplayNameFor(model => model.QUOCGIA)
+            @Html.DisplayNameFor(model => model.TENPHIM) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENPHIM)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.QUOCGIA) :
         </dt>
 
         <dd>
@@ -21,36 +28,32 @@
         </dd>
 
         <dt>
-            <img src="@Url.Content("~/Image/movies/"+Html.DisplayFor(model=>model.HINHANH))" alt="Alternate Text" style="width:100%" />
+            @Html.DisplayNameFor(model => model.HINHANH) :
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.HINHANH)
+            <img src="@Url.Content("~/Image/movies/"+Html.DisplayFor(model=>model.HINHANH))" alt="Alternate Text" style="width:50%;height:70%" />
         </dd>
 
+        <br />
+
         <dt>
-            @Html.DisplayNameFor(model => model.MOTAPHIM)
+            @Html.DisplayNameFor(model => model.MOTAPHIM) :
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MOTAPHIM)
+            @Html.DisplayFor(model => model.MOTAPHIM) 
         </dd>
-
+        <br />
         <dt>
-            @Html.DisplayNameFor(model => model.THOILUONG)
+            @Html.DisplayNameFor(model => model.THOILUONG) :
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.THOILUONG)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TENPHIM)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TENPHIM)
-        </dd>
         <dt>
             LỊCH CHIẾU
         </dt>
@@ -61,14 +64,14 @@
                 foreach (var item in @ViewBag.lstLichchieu)
                 {
                     i++;
-                        <p>item.NGAYCHIEU</p>
+                    <p>item.NGAYCHIEU</p>
                     if (i % 4 == 0)
                     {
                         <div style="clear:both"></div>
                     }
                 }
             }
-        
+
         </dd>
     </dl>
 </div>
