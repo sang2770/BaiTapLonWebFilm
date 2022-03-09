@@ -40,4 +40,70 @@
 .Label{
     color:#fff
 }
+.button {
+    background-color: #098eee;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.main_search {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: auto;
+    width: 100%;
+    margin: 20px 40%;
+}
+
+.button-create {
+    background-color: #6bcfe6;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #13cdf7;
+    color: red;
+}
+.button-edit {
+    background-color: #6bcfe6;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+    height:50px;
+}
+.edit-label {
+    margin-bottom: 15px;
+}
+.Label
+{
+    color: #fff;
+}
 /*Client*/
