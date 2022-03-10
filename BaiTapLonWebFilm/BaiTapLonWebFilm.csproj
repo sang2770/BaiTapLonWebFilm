@@ -219,11 +219,14 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Image\bg.jpg" />
+    <Content Include="Image\BgFilm.jpg" />
+    <Content Include="Image\FilmBG.jpg" />
     <Content Include="Image\movies\A_Silent_Voice.jpg" />
     <Content Include="Image\movies\batman.jpg" />
     <Content Include="Image\movies\bogia.jpg" />
     <Content Include="Image\movies\Doremon.jpg" />
     <Content Include="Image\movies\Endgame.jpg" />
+    <Content Include="Image\movies\FilmBG.jpg" />
     <Content Include="Image\movies\Get_out.jpg" />
     <Content Include="Image\movies\Hereditary.jpg" />
     <Content Include="Image\movies\Howl.jpg" />

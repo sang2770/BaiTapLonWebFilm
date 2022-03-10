@@ -39,6 +39,9 @@
         .Header_Title_Client {
             color: white;
             font-size: 40px;
+            display:block;
+            cursor:pointer
+           
         }
         .Header_Title_Client span{
             display:inline-block;
@@ -53,12 +56,47 @@
             margin-top:15px;
             padding:0px 10px;
         }
+        .owl-carousel .owl-item img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .home__card {
+            height: 330px;
+        }
+        .card {
+            background: transparent;
+            border:none
+        }
+        .card__cover {
+            height: 250px;
+        }
+        .card__cover img {
+                height:100%;
+                object-fit:cover
+            }
+        .section--head-fixed {
+             margin-top:0;
+        }
+        .ImageFilmDetails{
+            height:400px;
+        }
+            .ImageFilmDetails img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                box-shadow: 1px 1px 2px #3e3939;
+            }
+        .group-Input{
+            padding:10px;
+
+        }
     </style>
 </head>
 
 <body>
     <!-- header (relative style) -->
-    <header class="header header--static">
+    <header class="header header--static position-static">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -69,7 +107,7 @@
                             <span></span>
                         </button>
 
-                        <p class="Header_Title_Client" style="font-family: 'Fredoka', sans-serif;"> Film <span>Cinemas</span> </p>
+                        <a src="@Url.Action("", "TP_PHIM")" class="Header_Title_Client" style="font-family: 'Fredoka', sans-serif;"> Film <span>Cinemas</span> </a>
 
 
                         <div class="header__actions">
@@ -100,7 +138,7 @@
                                     <path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z" />
                                 </svg>
                             </button>
-                            <p  class="Client_user">
+                            <p class="Client_user">
                                 @Session["User"]
                             </p>
                             <a href=@Url.Action("Logout", "Login") class="header__user">
@@ -115,11 +153,9 @@
         </div>
     </header>
     <!-- end header -->
-   
     <!-- body -->
-    <div class="container text-white">
-        @RenderBody();
-    </div>
+    @RenderBody()
+
     <!-- end body -->
     <!-- footer -->
     <footer class="footer">
