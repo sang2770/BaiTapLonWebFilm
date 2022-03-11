@@ -11,7 +11,7 @@
         @foreach (var item in Model)
         {
             <div class="home__card">
-                <a href="details.html">
+                <a href="@Url.Action("Details", new { id = item.MAPHIM })">
                     <img src="@Url.Content("~/Image/movies/"+item.HINHANH)" alt="HinhAnh" />
                 </a>
                 <div>
