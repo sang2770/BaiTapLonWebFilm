@@ -159,9 +159,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBFilm.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>DBFilm.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\TB_GHE.cs">
       <DependentUpon>DBFilm.tt</DependentUpon>
     </Compile>
@@ -318,6 +315,17 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\admin.js" />
+    <Content Include="Scripts\js\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\js\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\js\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\js\main.js" />
+    <Content Include="Scripts\js\owl.carousel.min.js" />
+    <Content Include="Scripts\js\plyr.js" />
+    <Content Include="Scripts\js\plyr.min.js" />
+    <Content Include="Scripts\js\select2.min.js" />
+    <Content Include="Scripts\js\slider-radio.js" />
+    <Content Include="Scripts\js\smooth-scrollbar.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />

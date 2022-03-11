@@ -28,6 +28,8 @@ namespace BaiTapLonWebFilm.Models
         public string QUEQUAN { get; set; }
         public string DIACHI { get; set; }
         public string SDT { get; set; }
+        public string GIOITINH { get; set; }
+        public string ANH { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TB_TAIKHOAN> TB_TAIKHOAN { get; set; }

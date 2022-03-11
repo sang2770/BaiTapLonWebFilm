@@ -5,7 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="bff5b725c53b4ab2902b6a2e3341fdcd" Name="Diagram1">
-        <EntityTypeShape EntityType="DBFilmModel.sysdiagram" Width="1.5" PointX="7.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBFilmModel.TB_GHE" Width="1.5" PointX="3.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBFilmModel.TB_GHE_TRONG_PHONG" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DBFilmModel.TB_LICHCHIEU" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />

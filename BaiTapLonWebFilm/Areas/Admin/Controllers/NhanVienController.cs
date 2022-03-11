@@ -51,7 +51,7 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MANHANVIEN,TENNHANVIEN,NGAYSINH,CMTND,NGAYVAOLAM,QUEQUAN,DIACHI,SDT")] TB_NHANVIEN tB_NHANVIEN)
+        public ActionResult Create([Bind(Include = "TENNHANVIEN,NGAYSINH,CMTND,NGAYVAOLAM,QUEQUAN,DIACHI,SDT")] TB_NHANVIEN tB_NHANVIEN)
         {
             if (ModelState.IsValid)
             {
@@ -95,6 +95,7 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
         }
 
         // GET: NhanVien/Delete/5
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
