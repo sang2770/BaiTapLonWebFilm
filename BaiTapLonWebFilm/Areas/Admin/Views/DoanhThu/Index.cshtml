@@ -1,0 +1,151 @@
+﻿@{ ViewBag.Title = "Index"; Layout =
+ "~/Areas/Admin/Views/Shared/_AdminTemplate.cshtml"; }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+
+<div class="col-12">
+    <div class="main__title">
+        <h2>Quản lý doanh thu phòng vé</h2>
+    </div>
+</div>
+<div class="col-12 text-white">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">Doanh thu các phim nổi bật</div>
+            <div class="col-12">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+        <hr />
+        <div class="row m-t-4">
+            <div class="col-12 Select_Year">
+                <label>Chọn Năm</label>
+                <select class="p-2 border-0">
+                    <option value="1">2022</option>
+                    <option value="2">2023</option>
+                    <option value="3">2024</option>
+                    <option value="4">2025</option>
+                </select>
+            </div>
+            <div class="col-12">Doanh thu theo tháng trong năm</div>
+            <div class="col-12">
+                <canvas id="myChartLine" class="text-white"></canvas>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById("myChart").getContext("2d");
+
+        const data = {
+            labels: ["Pokemon","Đảo hải tặc", "Batman", "Joker", "Wonder woman", "Avenger", "Jumanji"],
+            datasets: [
+                {
+                    label: "Sô Lượng vé bán",
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    backgroundColor: [
+                        "rgba(255, 99, 132, 0.25",
+                        "rgba(255, 159, 64, 0.25",
+                        "rgba(255, 205, 86, 0.25",
+                        "rgba(75, 192, 192, 0.25",
+                        "rgba(54, 162, 235, 0.25",
+                        "rgba(153, 102, 255, 0.5)",
+                        "rgba(201, 203, 207, 0.5)",
+                    ],
+                    borderColor: [
+                        "rgb(255, 99, 132)",
+                        "rgb(255, 159, 64)",
+                        "rgb(255, 205, 86)",
+                        "rgb(75, 192, 192)",
+                        "rgb(54, 162, 235)",
+                        "rgb(153, 102, 255)",
+                        "rgb(201, 203, 207)",
+                    ],
+                    borderWidth: 1,
+                },
+            ],
+        };
+        const myChart = new Chart(ctx, {
+            type: "bar",
+            data: data,
+            options: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: "#fff"
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: "#fff",
+                        },
+                        grid:{
+                            color:"#ccc"
+        }
+                    },
+                    y: {
+                        ticks: {
+                            color: "#fff",
+                            beginAtZero: true,
+                        }, grid: {
+                            color: "#ccc"
+                        }
+                    },
+                },
+            },
+        });
+        const ArrayLine = [];
+        for (let i = 1; i <= 12; i++) {
+            ArrayLine.push(i);
+        }
+        const ArrayLineValue = [];
+        for (let i = 1; i <= 12; i++) {
+            ArrayLineValue.push(Math.random() * 100);
+        }
+        const ctx1 = document.getElementById("myChartLine").getContext("2d");
+        const data1 = {
+            labels: ArrayLine,
+            datasets: [
+                {
+                    label: "Tổng số lượng vé bán trong tháng",
+                    data: ArrayLineValue,
+                    fill: false,
+                    borderColor: "rgb(75, 192, 192)",
+                    tension: 0.1,
+                },
+            ],
+        };
+        const myChartLine = new Chart(ctx1, {
+            type: "line",
+            data: data1,
+            responsive: true,
+            scaleFontColor: "#FFFFFF",
+            options: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color:"#fff"
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: "#fff",
+                        }, grid: {
+                            color: "#ccc"
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: "#fff",
+                            beginAtZero: true,
+                        }, grid: {
+                            color: "#ccc"
+                        }
+                    },
+                },
+            },
+        });
+    </script>
+</div>

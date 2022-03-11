@@ -133,6 +133,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DoanhThuController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhachHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\LichChieuController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhimController.cs" />
@@ -308,6 +309,7 @@
     <Content Include="Areas\Admin\Views\LichChieu\Create.cshtml" />
     <Content Include="Areas\Admin\Views\LichChieu\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\LichChieu\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DoanhThu\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
