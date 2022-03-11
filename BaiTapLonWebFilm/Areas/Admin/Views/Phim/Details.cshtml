@@ -4,15 +4,26 @@
     ViewBag.Title = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_AdminTemplate.cshtml";
 }
-
-<h2>Details</h2>
-
+<style>
+    .img{
+        width:50%;
+        height:100%
+    }
+</style>
+<h2 style="color:white">Thông tin chi tiết của phim</h2>
 <div>
     
     <hr />
     <dl class="dl-horizontal" style="color:white">
         <dt>
-            @Html.DisplayNameFor(model => model.QUOCGIA)
+            @Html.DisplayNameFor(model => model.TENPHIM):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENPHIM)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.QUOCGIA):
         </dt>
 
         <dd>
@@ -20,15 +31,17 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.HINHANH)
+            <br />
+            @Html.DisplayNameFor(model => model.HINHANH):
         </dt>
 
-        <dd>
+        <dd class="img">
             <img src="@Url.Content("~/Image/movies/"+Html.DisplayFor(model=>model.HINHANH))" alt="Alternate Text" style="width:100%" />
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MOTAPHIM)
+            <br />
+            @Html.DisplayNameFor(model => model.MOTAPHIM):
         </dt>
 
         <dd>
@@ -36,23 +49,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.THOILUONG)
+            <br />
+            @Html.DisplayNameFor(model => model.THOILUONG):
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.THOILUONG)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TENPHIM)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TENPHIM)
-        </dd>
 
     </dl>
 </div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.MAPHIM }) |
     @Html.ActionLink("Back to List", "Index")

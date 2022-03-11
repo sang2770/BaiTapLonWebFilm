@@ -25,6 +25,11 @@
     <meta name="keywords" content="" />
     <meta name="author" content="Dmitry Volkov" />
     <title>Admin</title>
+    <style>
+        .ImageIndex {
+            
+        }
+    </style>
 </head>
 <body>
 
@@ -91,11 +96,12 @@
                     </svg>
                 </a>
                 @*Điền Action ở đây*@
-                <ul class="collapse sidebar__menu" id="collapseMenu2">
-                    <li><a href=@Url.Action("Create", "Phim")>Thêm phim</a></li>
-                    <li><a href=@Url.Action("Index" , "Phim")>Danh sách phim</a></li>
-                    <li><a href=@Url.Action("Index" , "LichChieu")>Thông tin lịch chiếu</a></li>
-                </ul>
+            <ul class="collapse sidebar__menu" id="collapseMenu2">
+                <li><a href=@Url.Action("Create", "Phim")>Thêm phim</a></li>
+                <li><a href=@Url.Action("Index" , "Phim")>Danh sách phim</a></li>
+                <li><a href=@Url.Action("Index" , "LichChieu")>Thông tin lịch chiếu</a></li>
+                <li><a href=@Url.Action("Create" , "LichChieu")>Thêm lịch chiếu</a></li>
+            </ul>
             </li>
 
             <!-- collapse -->
@@ -149,7 +155,7 @@
                 </a>
 
                 <ul class="collapse sidebar__menu" id="collapseMenu4">
-                    <li><a href=@Url.Action("", "KhachHang")>Thêm khách hàng</a></li>
+                    <li><a href=@Url.Action("Create", "KhachHang")>Thêm khách hàng</a></li>
                     <li><a href=@Url.Action("", "KhachHang")>Danh sách khách hàng</a></li>
                 </ul>
             </li>

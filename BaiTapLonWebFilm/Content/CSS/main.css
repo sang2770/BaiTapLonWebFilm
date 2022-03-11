@@ -721,12 +721,14 @@ body::-webkit-scrollbar-thumb {
   overflow: hidden;
   position: relative;
   border-radius: 16px;
+  height:330px;
 }
 .home__card img {
   position: relative;
   width: 100%;
   z-index: 1;
   transition: 0.5s;
+  height:300px;
 }
 .home__card:before {
   content: '';
