@@ -5,31 +5,58 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminTemplate.cshtml";
 }
 
-<h2>Details</h2>
+<div class="container-fluid">
+    <div class="row">
+        <!-- main title -->
+        <div class="col-12">
+            <div class="main__title">
+                <h2>Chi tiết phòng</h2>
+            </div>
+        </div>
+        <!-- end main title -->
+        <!-- form -->
+        <div class="col-12">
+            @using (Html.BeginForm("Edit", "Phong", new { id = Model.MAPHONG }))
+            {
+                @Html.AntiForgeryToken()
 
-<div>
-    <h4>TB_PHONG</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SOPHONG)
-        </dt>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form">
+                    <div class="row">
+                       
+                        <div class="col-12 col-md-7 form__content">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form__group">
+                                        <label class="text-white">Số phòng</label>
+                                        <input type="text" class="form__input" name="SOPHONG" value="@Model.SOPHONG">
+                                        @Html.ValidationMessageFor(model => model.SOPHONG, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.SOPHONG)
-        </dd>
+                                <div class="col-12">
+                                    <div class="form__group">
+                                        <label class="text-white">Loại phòng</label>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LOAIPHONG)
-        </dt>
+                                        <textarea id="text" name="DIACHI" class="form__textarea">@Model.LOAIPHONG</textarea>
+                                        @Html.ValidationMessageFor(model => model.LOAIPHONG, "", new { @class = "text-danger" })
 
-        <dd>
-            @Html.DisplayFor(model => model.LOAIPHONG)
-        </dd>
+                                    </div>
+                                </div>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MAPHONG }) |
+                                
+
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                </div>
+            }
+            <!-- end form -->
+        </div>
+    </div>
+
+    <!-- end main content -->
     @Html.ActionLink("Back to List", "Index")
-</p>
+</div>

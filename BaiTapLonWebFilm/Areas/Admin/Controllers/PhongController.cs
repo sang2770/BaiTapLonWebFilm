@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BaiTapLonWebFilm.Models;
+using PagedList;
 
 namespace BaiTapLonWebFilm.Areas.Admin.Controllers
 {
@@ -15,9 +16,14 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
         private DBFilmEntities1 db = new DBFilmEntities1();
 
         // GET: Admin/Phong
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(db.TB_PHONG.ToList());
+            int pageSize = 10;
+            int pagenum = (page ?? 1);
+            List<TB_PHONG> list = db.TB_PHONG.OrderBy(n => n.MAPHONG).ToList();
+            ViewBag.Size = list.Count();
+            return View(list.ToPagedList(pagenum, pageSize));
+       
         }
 
         // GET: Admin/Phong/Details/5

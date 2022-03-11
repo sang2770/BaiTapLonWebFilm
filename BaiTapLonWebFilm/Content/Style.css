@@ -40,6 +40,59 @@
 .Label{
     color:#fff
 }
+<<<<<<< HEAD
+/*Client*/
+
+/*Ghe*/
+.Group_Group_Title{
+    color:#fff;
+}
+
+.Char_Container {
+    min-height: 500px;
+}
+
+.Title_Char {
+    display: flex;
+}
+
+.Title_Group {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.Group_Retangle {
+    width: 20px;
+    height: 20px;
+    background-color: gray;
+    margin-right: 5px;
+}
+
+.Content_Char {
+}
+
+.LineChar {
+    display: flex;
+}
+
+.Number {
+    background: gray;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 0px 5px;
+    border: 1px solid #ccc;
+}
+
+.red {
+    border-color: yellow;
+    background: red;
+}
+
+.row{
+    color: #fff;
+}
+=======
 .button {
     background-color: #098eee;
     border: none;
@@ -108,3 +161,4 @@
 }
 
 /*Client*/
+>>>>>>> 66c0f801b17196ea99a016d0cb3bbdbcb1033799
