@@ -1,8 +1,6 @@
-﻿@model BaiTapLonWebFilm.Models.TB_PHONG
-
-
+﻿@model BaiTapLonWebFilm.Models.TB_GHE
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_AdminTemplate.cshtml";
 }
 <div class="container-fluid">
@@ -10,41 +8,38 @@
         <!-- main title -->
         <div class="col-12">
             <div class="main__title">
-                <h2>Tạo phòng</h2>
+                <h2>Chi tiết ghế</h2>
             </div>
         </div>
         <!-- end main title -->
         <!-- form -->
         <div class="col-12">
-            @using (Html.BeginForm("Create", "Phong"))
+            @using (Html.BeginForm("Edit", "Ghe"))
             {
                 @Html.AntiForgeryToken()
-
                 <div class="col-12 col-md-7 form__content">
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-lg-6">
                             <div class="form__group">
-                                <label class="text-white">Số phòng</label>
-                                <input type="text" class="form__input" name="SOPHONG" >
-                                @Html.ValidationMessageFor(model => model.SOPHONG, "", new { @class = "text-danger" })
+                                <label class="text-white">Số ghế</label>
+                                <input type="text" class="form__input" name="SOGHE" value="@Model.SOGHE">
+                                @Html.ValidationMessageFor(model => model.SOGHE, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-lg-6">
                             <div class="form__group">
-                                <label class="text-white">Loại phòng</label>
-                                <input type="text" class="form__input" name="LOAIPHONG" >
-                                @Html.ValidationMessageFor(model => model.LOAIPHONG, "", new { @class = "text-danger" })
+                                <label class="text-white">Mã loại ghế</label>
+
+                                <input type="text" class="form__input" name="MaLoaiGhe" value="@Model.MALOAIGHE">
+                                @Html.ValidationMessageFor(model => model.MALOAIGHE, "", new { @class = "text-danger" })
 
                             </div>
                         </div>
 
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-12">
-                                    <input type="submit" class="form__btn" value="Thêm" />
-                                </div>
-                               
+                                
                                 <div class="col-12 mt-3 ml-2">
                                     @Html.ActionLink("Back to List", "Index")
 
@@ -63,4 +58,6 @@
 
     <!-- end main content -->
 </div>
+
+
 

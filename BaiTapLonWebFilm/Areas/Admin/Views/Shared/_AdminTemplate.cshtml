@@ -49,7 +49,7 @@
                 <p>@Session["User"]</p>
             </div>
 
-            <a href=@Url.Action("Logout", "Login") class="sidebar__user-btn" type="button">
+            <a href=@Url.Action("Logout", "Login", new { area = "" }) class="sidebar__user-btn" type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M4,12a1,1,0,0,0,1,1h7.59l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H5A1,1,0,0,0,4,12ZM17,2H7A3,3,0,0,0,4,5V8A1,1,0,0,0,6,8V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1V19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V16a1,1,0,0,0-2,0v3a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V5A3,3,0,0,0,17,2Z" />
                 </svg>
@@ -96,12 +96,12 @@
                     </svg>
                 </a>
                 @*Điền Action ở đây*@
-            <ul class="collapse sidebar__menu" id="collapseMenu2">
-                <li><a href=@Url.Action("Create", "Phim")>Thêm phim</a></li>
-                <li><a href=@Url.Action("Index" , "Phim")>Danh sách phim</a></li>
-                <li><a href=@Url.Action("Index" , "LichChieu")>Thông tin lịch chiếu</a></li>
-                <li><a href=@Url.Action("Create" , "LichChieu")>Thêm lịch chiếu</a></li>
-            </ul>
+                <ul class="collapse sidebar__menu" id="collapseMenu2">
+                    <li><a href=@Url.Action("Create", "Phim")>Thêm phim</a></li>
+                    <li><a href=@Url.Action("Index" , "Phim")>Danh sách phim</a></li>
+                    <li><a href=@Url.Action("Index" , "LichChieu")>Thông tin lịch chiếu</a></li>
+                    <li><a href=@Url.Action("Create" , "LichChieu")>Thêm lịch chiếu</a></li>
+                </ul>
             </li>
 
             <!-- collapse -->
@@ -124,12 +124,34 @@
                 @*Điền Action ở đây*@
                 <ul class="collapse sidebar__menu" id="collapseMenu3">
                     <li><a href=@Url.Action("Index", "Phong")>Danh sách phòng</a></li>
-                    <li><a href=@Url.Action("", "Phong")>Thêm phòng</a></li>
-                    <li><a href=@Url.Action("Create", "Phong")>Quản lý ghế</a></li>
+                    <li><a href=@Url.Action("Create", "Phong")>Thêm phòng</a></li>
                 </ul>
             </li>
             <!-- end collapse -->
+            <!-- collapse -->
+            <li class="sidebar__nav-item">
+                <a class="sidebar__nav-link"
+                   data-toggle="collapse"
+                   href="#collapseMenu6"
+                   role="button"
+                   aria-expanded="false"
+                   aria-controls="collapseMenu6">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M20,8h0L14,2.74a3,3,0,0,0-4,0L4,8a3,3,0,0,0-1,2.26V19a3,3,0,0,0,3,3H18a3,3,0,0,0,3-3V10.25A3,3,0,0,0,20,8ZM14,20H10V15a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1Zm5-1a1,1,0,0,1-1,1H16V15a3,3,0,0,0-3-3H11a3,3,0,0,0-3,3v5H6a1,1,0,0,1-1-1V10.25a1,1,0,0,1,.34-.75l6-5.25a1,1,0,0,1,1.32,0l6,5.25a1,1,0,0,1,.34.75Z" />
+                    </svg>
 
+                    <span>Ghế</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M17,9.17a1,1,0,0,0-1.41,0L12,12.71,8.46,9.17a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42l4.24,4.24a1,1,0,0,0,1.42,0L17,10.59A1,1,0,0,0,17,9.17Z" />
+                    </svg>
+                </a>
+                @*Điền Action ở đây*@
+                <ul class="collapse sidebar__menu" id="collapseMenu6">
+                    <li><a href=@Url.Action("Index", "Ghe")>Danh sách ghế </a></li>
+                    <li><a href=@Url.Action("Create", "Ghe")>Thêm ghế</a></li>
+                </ul>
+            </li>
+            <!-- end collapse -->
             <li class="sidebar__nav-item">
                 <a href=@Url.Action("", "DoanhThu") class="sidebar__nav-link">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

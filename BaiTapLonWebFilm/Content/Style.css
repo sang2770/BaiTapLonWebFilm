@@ -1,13 +1,15 @@
 ﻿/*Login*/
-#Title_Form{
-    font-size:40px;
-    color:#fff;
+#Title_Form {
+    font-size: 40px;
+    color: #fff;
 }
-.Tv_Icon{
-    font-size:20px;
-    color:blue;
-    margin-left:-10px;
+
+.Tv_Icon {
+    font-size: 20px;
+    color: blue;
+    margin-left: -10px;
 }
+
 .sign__group--checkbox input:not(:checked) + label:after,
 .sign__group--checkbox input:checked + label:after {
     content: '';
@@ -21,144 +23,30 @@
     background: url(https://dmitryvolkov.me/demo/flixtv/main/img/checkmark.svg) no-repeat center/12px auto;
     border-radius: 8px;
 }
-.sign__btn{
-   outline:none !important;
-   border:none !important;
+
+.sign__btn {
+    outline: none !important;
+    border: none !important;
 }
 /*Admin*/
 .Header_Logo_Admin {
     font-size: 40px;
     color: #fff;
-    padding-top:20px;
+    padding-top: 20px;
 }
-.Header_Logo_Admin span{
-    display:inline-block;
-    font-size:20px;
-    margin-left:-10px;
-    color:blue;
+
+    .Header_Logo_Admin span {
+        display: inline-block;
+        font-size: 20px;
+        margin-left: -10px;
+        color: blue;
+    }
+
+.Label {
+    color: #fff
 }
-.Label{
-    color:#fff
-}
-<<<<<<< HEAD
 /*Client*/
 
-/*Ghe*/
-.Group_Group_Title{
-    color:#fff;
-}
 
-.Char_Container {
-    min-height: 500px;
-}
-
-.Title_Char {
-    display: flex;
-}
-
-.Title_Group {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-}
-
-.Group_Retangle {
-    width: 20px;
-    height: 20px;
-    background-color: gray;
-    margin-right: 5px;
-}
-
-.Content_Char {
-}
-
-.LineChar {
-    display: flex;
-}
-
-.Number {
-    background: gray;
-    color: #fff;
-    padding: 5px 10px;
-    margin: 0px 5px;
-    border: 1px solid #ccc;
-}
-
-.red {
-    border-color: yellow;
-    background: red;
-}
-
-.row{
-    color: #fff;
-}
-=======
-.button {
-    background-color: #098eee;
-    border: none;
-    color: white;
-    padding: 15px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 4px;
-    text-align: center;
-}
-
-.main_search {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-left: auto;
-    width: 100%;
-    margin: 20px 40%;
-}
-
-.button-create {
-    background-color: #6bcfe6;
-    border: none;
-    color: white;
-    padding: 15px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0px 2px;
-    cursor: pointer;
-    border-radius: 4px;
-    text-align: center;
-}
-
-.button:hover {
-    background-color: #13cdf7;
-    color: red;
-}
-.button-edit {
-    background-color: #6bcfe6;
-    border: none;
-    color: white;
-    padding: 15px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0px 2px;
-    cursor: pointer;
-    border-radius: 4px;
-    text-align: center;
-    height:50px;
-}
-.edit-label {
-    margin-bottom: 15px;
-}
-.Label
-{
-    color: #fff;
-}
 
 /*Client*/
->>>>>>> 66c0f801b17196ea99a016d0cb3bbdbcb1033799

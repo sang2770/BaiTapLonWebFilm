@@ -5,7 +5,57 @@
     ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_AdminTemplate.cshtml";
 }
+<style>
+    .Char_Container {
+        min-height:0;
+    }
 
+    .Title_Char {
+        display: flex;
+    }
+
+    .Title_Group {
+        display: flex;
+        align-items: center;
+        padding: 5px;
+    }
+
+    .Group_Retangle {
+        width: 20px;
+        height: 20px;
+        background-color: gray;
+        margin-right: 5px;
+    }
+
+    .Content_Char {
+    }
+
+    .LineChar {
+        display: flex;
+    }
+
+    .Number {
+        background: gray;
+        color: #fff;
+        padding: 5px 10px;
+        margin: 0px 5px;
+        border: 1px solid #2f80ed;
+    }
+
+        .Number:hover {
+            background: blue;
+            cursor: pointer;
+        }
+
+    .red {
+        border-color: yellow;
+        background: red;
+    }
+
+    .Content_Char tr td:first-child {
+        padding-right: 10px
+    }
+</style>
 <div class="container-fluid">
     <div class="row">
         <!-- main title -->
@@ -21,49 +71,157 @@
             {
                 @Html.AntiForgeryToken()
 
-                        <div class="col-12 col-md-7 form__content">
+                <div class="col-12 col-md-7 form__content">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form__group">
+                                <label class="text-white">Số phòng</label>
+                                <input type="text" class="form__input" name="SOPHONG" value="@Model.SOPHONG">
+                                @Html.ValidationMessageFor(model => model.SOPHONG, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form__group">
+                                <label class="text-white">Loại phòng</label>
+
+                                <textarea id="text" name="LOAIPHONG" class="form__textarea">@Model.LOAIPHONG</textarea>
+                                @Html.ValidationMessageFor(model => model.LOAIPHONG, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        
+                        <div class="col-12">
                             <div class="row">
                                 <div class="col-12">
+                                    <input type="submit" class="form__btn" value="Cập nhật" />
+                                </div>
+                                <div class="col-12">
+                                    <div class="Char_Container mt-5">
+
+                                        <div class="Title_Char mt-3">
+                                            <div class="Title_Group">
+                                                <div class="Group_Retangle"></div>
+                                                <div class="Group_Group_Title">Ghế trống</div>
+                                            </div>
+                                            <div class="Title_Group">
+                                                <div class="Group_Retangle" style="background-color: red"></div>
+                                                <div class="Group_Group_Title">Ghế đã đặt</div>
+                                            </div>
+                                        </div>
+                                        <table class="Content_Char">
+                                            <thead>
+                                            <th></th>
+                                            <th></th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>A</td>
+                                                    <td class="LineChar">
+                                                        <p class="Number">1</p>
+                                                        <p class="Number">2</p>
+                                                        <p class="Number">3</p>
+                                                        <p class="Number">4</p>
+                                                        <p class="Number">5</p>
+                                                        <p class="Number">6</p>
+                                                        <p class="Number">7</p>
+                                                        <p class="Number">8</p>
+                                                        <p class="Number">9</p>
+                                                        <p class="Number">10</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>B</td>
+                                                    <td class="LineChar">
+                                                        <p class="Number red">1</p>
+                                                        <p class="Number">2</p>
+                                                        <p class="Number">3</p>
+                                                        <p class="Number">4</p>
+                                                        <p class="Number">5</p>
+                                                        <p class="Number">6</p>
+                                                        <p class="Number">7</p>
+                                                        <p class="Number">8</p>
+                                                        <p class="Number">9</p>
+                                                        <p class="Number">10</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>C</td>
+                                                    <td class="LineChar">
+                                                        <p class="Number">1</p>
+                                                        <p class="Number">2</p>
+                                                        <p class="Number">3</p>
+                                                        <p class="Number">4</p>
+                                                        <p class="Number">5</p>
+                                                        <p class="Number">6</p>
+                                                        <p class="Number">7</p>
+                                                        <p class="Number">8</p>
+                                                        <p class="Number">9</p>
+                                                        <p class="Number">10</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>D</td>
+                                                    <td class="LineChar">
+                                                        <p class="Number">1</p>
+                                                        <p class="Number">2</p>
+                                                        <p class="Number">3</p>
+                                                        <p class="Number">4</p>
+                                                        <p class="Number">5</p>
+                                                        <p class="Number">6</p>
+                                                        <p class="Number">7</p>
+                                                        <p class="Number">8</p>
+                                                        <p class="Number">9</p>
+                                                        <p class="Number">10</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <div class="col-12 mt-4 mb-2 text-primary" style="font-size:30px">
+                                    Chỉnh sửa thông tin ghế
+                                </div>
+                                <div class="col-6">
                                     <div class="form__group">
-                                        <label class="text-white">Số phòng</label>
+                                        <label class="text-white">Số ghế</label>
                                         <input type="text" class="form__input" name="SOPHONG" value="@Model.SOPHONG">
                                         @Html.ValidationMessageFor(model => model.SOPHONG, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-
-                                <div class="col-12">
+                                <div class="col-6">
                                     <div class="form__group">
-                                        <label class="text-white">Loại phòng</label>
-
-                                        <textarea id="text" name="LOAIPHONG" class="form__textarea">@Model.LOAIPHONG</textarea>
-                                        @Html.ValidationMessageFor(model => model.LOAIPHONG, "", new { @class = "text-danger" })
-
+                                        <label class="text-white">Loại ghế</label>
+                                        <input type="text" class="form__input" name="SOPHONG" value="@Model.SOPHONG">
+                                        @Html.ValidationMessageFor(model => model.SOPHONG, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-
-                                @*<div class="col-12">
-                                    <div class="form__group">
-                                        <label class="text-white">Thêm ghế</label>
-
-                                        <ComboBox id="text" name="SOGHE" class="form__textarea"></ComboBox>
-                                        @Html.ValidationMessageFor(model => model.SOGHE, "", new { @class = "text-danger" })
-
-                                    </div>
-                                </div>*@
-                                <div class="col-12">
+                                <div class="col-12 px-lg-4">
                                     <div class="row">
-                                        <div class="col-12">
-                                            <input type="submit" class="form__btn" value="Cập nhật" />
+                                        <div class="col-6">
+                                            <div class="row align-items-center">
+                                                <Button class="form__btn mr-3">Thêm ghế</Button>
+                                                <button class="form__btn">Xóa ghế</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-12 mt-3 ml-2">
+                                    @Html.ActionLink("Back to List", "Index")
+
+                                </div>
                             </div>
+
+                        </div>
+                    </div>
                 </div>
             }
+
             <!-- end form -->
         </div>
+
     </div>
 
     <!-- end main content -->
-    @Html.ActionLink("Back to List", "Index")
 </div>
