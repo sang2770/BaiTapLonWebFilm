@@ -443,6 +443,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Client\Data\" />
+    <Folder Include="Image\nhanvien\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
