@@ -15,13 +15,28 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
     {
         private DBFilmEntities1 db = new DBFilmEntities1();
 
+        [HttpGet]
         // GET: NhanVien
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? page, int? id)
         {
-            int pageSize = 10;
+            int pageSize = 5;
             int pagenum = (page ?? 1);
-            List<TB_NHANVIEN> list = db.TB_NHANVIEN.OrderBy(n => n.MANHANVIEN).ToList();
+            //pagenum = pagenum > 0 ? pagenum : 1;
+            List<TB_NHANVIEN> list = new List<TB_NHANVIEN>();
+            if (id==null)
+            {
+                list = db.TB_NHANVIEN.OrderBy(n => n.MANHANVIEN).ToList();
+
+            }
+            else
+            {
+                list = db.TB_NHANVIEN.Where(n=>n.MANHANVIEN.ToString().Contains(id.ToString())).OrderBy(n => n.MANHANVIEN).ToList();
+
+            }
             ViewBag.Size = list.Count();
+            //int TotalPage = list.Count() % 2 == 0 ? list.Count() / 2 : list.Count() / 2 + 1;
+            //pagenum = pagenum > TotalPage ? TotalPage : pagenum;
+            ViewBag.TotalPage=list.Count()%pageSize==0?list.Count()/pageSize:list.Count()/pageSize+1;
             return View(list.ToPagedList(pagenum, pageSize));
         }
 
@@ -51,15 +66,25 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TENNHANVIEN,NGAYSINH,CMTND,NGAYVAOLAM,QUEQUAN,DIACHI,SDT")] TB_NHANVIEN tB_NHANVIEN)
+        public ActionResult Create([Bind(Include = "TENNHANVIEN,NGAYSINH,CMTND,NGAYVAOLAM,QUEQUAN,DIACHI,SDT, GIOITINH")] TB_NHANVIEN tB_NHANVIEN, HttpPostedFileBase ANH)
         {
-            if (ModelState.IsValid)
-            {
-                db.TB_NHANVIEN.Add(tB_NHANVIEN);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
+            
+                if (ModelState.IsValid)
+                {
+                    string savedFileName = "";  //string for saving the image server-side path          
+                    if (ANH != null)
+                    {
+                        savedFileName = Server.MapPath("~/Image/nhanvien/" + "nhanvien_" + tB_NHANVIEN.TENNHANVIEN + "_" + tB_NHANVIEN.SDT + ".jpg"); //get the server-side path for store image 
+                        ANH.SaveAs(savedFileName); //*save the image to server-side 
+                    }
+                var index = savedFileName.IndexOf(@"\Image\");
+                tB_NHANVIEN.ANH = savedFileName.Substring(index, savedFileName.Length - index); ;
+                    db.TB_NHANVIEN.Add(tB_NHANVIEN);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            
+            
             return View(tB_NHANVIEN);
         }
 
