@@ -16,10 +16,11 @@
             </div>
         </div>
         <!-- end main title -->
-        @using (Html.BeginForm())
+        @using(Html.BeginForm("Create", "Phim", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
         {
             @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <!-- form -->
             <div class="col-12">
                 <form action="#" class="form">
@@ -29,7 +30,7 @@
                                 <div class="col-12 col-sm-6 col-md-12">
                                     <div class="form__img">
                                         <label for="form__img-upload">Upload cover (190 x 270)</label>
-                                        <input id="form__img-upload" name="form__img-upload" type="file" accept=".png, .jpg, .jpeg">
+                                        <input id="form__img-upload" name="ANH" type="file" accept=".png, .jpg, .jpeg">
                                         <img id="form__img" src="#" alt=" ">
                                     </div>
                                 </div>
@@ -77,10 +78,10 @@
                                     </div>
                                 </div>
 
-                               
+
 
                                 <div class="col-12 col-lg-6">
-                                    
+
                                     <div class="form__group">
                                         @Html.EditorFor(model => model.QUOCGIA, new { htmlAttributes = new { @type = "text", @class = "form__input", @placeholder = "Country" } })
 
@@ -91,7 +92,7 @@
                                 <div class="col-12 col-lg-6">
                                     <div class="form__group">
                                         @Html.DropDownList("TENLOAIPHIM", null, htmlAttributes: new { @class = "js-example-basic-multiple", @id = "genre" })
-                                        
+
                                     </div>
                                 </div>
 

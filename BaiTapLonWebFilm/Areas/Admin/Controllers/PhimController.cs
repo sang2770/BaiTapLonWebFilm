@@ -86,17 +86,23 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MAPHIM,QUOCGIA,HINHANH,MOTAPHIM,THOILUONG,TENPHIM")] TB_PHIM tB_PHIM, [Bind(Include = "TENLOAIPHIM")] TB_LOAIPHIM tB_LOAIPHIM)
+        public ActionResult Create([Bind(Include = "MAPHIM,QUOCGIA,HINHANH,MOTAPHIM,THOILUONG,TENPHIM")] TB_PHIM tB_PHIM, HttpPostedFileBase ANH)
         {
             if (ModelState.IsValid)
             {
-               
-                
+                string savedFileName = "";  //string for saving the image server-side path          
+                if (ANH != null)
+                {
+                    savedFileName = Server.MapPath("~/Image/movies/" + tB_PHIM.TENPHIM + ".jpg"); //get the server-side path for store image 
+                    ANH.SaveAs(savedFileName); //*save the image to server-side 
+                }
+                var index = savedFileName.IndexOf(@"\Image\");
+                tB_PHIM.HINHANH = savedFileName.Substring(index, savedFileName.Length - index); ;
                 db.TB_PHIM.Add(tB_PHIM);
-                //db.TB_Phim_LoaiPhim.Add(TB_Phim_LoaiPhim(tB_PHIM.MAPHIM, tB_LOAIPHIM.MALOAIPHIM));
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+           
 
             return View(tB_PHIM);
         }
