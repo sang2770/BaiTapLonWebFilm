@@ -19,7 +19,7 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
         public ActionResult Index(int? size, int? page)
         {
             // 1. Tạo list pageSize để người dùng có thể chọn xem để phân trang
-            // Bạn có thể thêm bớt tùy ý --- dammio.com
+            // Bạn có thể thêm bớt tùy ý 
             List<SelectListItem> items = new List<SelectListItem>();
             items.Add(new SelectListItem { Text = "5", Value = "5" });
             items.Add(new SelectListItem { Text = "10", Value = "10" });

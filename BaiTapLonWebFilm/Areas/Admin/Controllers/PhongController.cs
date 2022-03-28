@@ -16,13 +16,44 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
         private DBFilmEntities1 db = new DBFilmEntities1();
 
         // GET: Admin/Phong
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? size, int? page, int? id)
         {
-            int pageSize = 10;
-            int pagenum = (page ?? 1);
-            List<TB_PHONG> list = db.TB_PHONG.OrderBy(n => n.MAPHONG).ToList();
-            ViewBag.Size = list.Count();
-            return View(list.ToPagedList(pagenum, pageSize));
+            // 1. Số lượng trên 1 trang
+            List<SelectListItem> items = new List<SelectListItem>();
+            items.Add(new SelectListItem { Text = "5", Value = "5" });
+            items.Add(new SelectListItem { Text = "10", Value = "10" });
+            items.Add(new SelectListItem { Text = "20", Value = "20" });
+            items.Add(new SelectListItem { Text = "25", Value = "25" });
+            items.Add(new SelectListItem { Text = "50", Value = "50" });
+            items.Add(new SelectListItem { Text = "100", Value = "100" });
+            items.Add(new SelectListItem { Text = "200", Value = "200" });
+            foreach (var item in items)
+            {
+                if (item.Value == size.ToString()) item.Selected = true;
+            }
+
+            
+            ViewBag.size = items; 
+            ViewBag.currentSize = size; 
+
+            // 2. Nếu page = null thì đặt lại là 1.
+            page = page ?? 1; //if (page == null) page = 1;
+            
+            //Tạo kích thước trang (pageSize), mặc định là 5.
+            int pageSize = (size ?? 5);
+            int pageNumber = (page ?? 1);
+            List<TB_PHONG> list =new List<TB_PHONG>();
+            if (id == null)
+            {
+                list = db.TB_PHONG.OrderBy(n => n.MAPHONG).ToList();
+
+            }
+            else
+            {
+                list = db.TB_PHONG.Where(n => n.MAPHONG.ToString().Contains(id.ToString())).OrderBy(n => n.MAPHONG).ToList();
+
+            }
+            return View(list.ToPagedList(pageNumber, pageSize));
        
         }
 

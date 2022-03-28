@@ -34,8 +34,6 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
 
             }
             ViewBag.Size = list.Count();
-            //int TotalPage = list.Count() % 2 == 0 ? list.Count() / 2 : list.Count() / 2 + 1;
-            //pagenum = pagenum > TotalPage ? TotalPage : pagenum;
             ViewBag.TotalPage=list.Count()%pageSize==0?list.Count()/pageSize:list.Count()/pageSize+1;
             return View(list.ToPagedList(pagenum, pageSize));
         }
