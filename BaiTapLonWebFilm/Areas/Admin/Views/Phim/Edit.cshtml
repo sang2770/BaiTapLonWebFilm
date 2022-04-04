@@ -42,7 +42,8 @@ div class="container-fluid">
                             <div class="form__group">
                                 <label class="Label text-white">Tên Phim:</label>
 
-                                <input type="text" class="form__input" name="TENPHIM" placeholder="@Html.DisplayFor(model => model.TENPHIM)">
+                                @Html.EditorFor(model => model.TENPHIM, new { htmlAttributes = new { @type = "text", @class = "form__input", @placeholder = @Html.DisplayFor(model => model.TENPHIM) } })
+
                                 @Html.ValidationMessageFor(model => model.TENPHIM, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -51,21 +52,18 @@ div class="container-fluid">
                             <div class="form__group">
                                 <label class="Label text-white">MÔ TẢ:</label>
 
-                                <textarea id="text" name="DIACHI" class="form__textarea" placeholder="Mô tả">@Html.DisplayFor(model => model.MOTAPHIM)</textarea>
+                                @Html.EditorFor(model => model.MOTAPHIM, new { htmlAttributes = new { @type = "text", @class = "form__textarea", @placeholder = @Html.DisplayFor(model => model.MOTAPHIM) } })
+
                                 @Html.ValidationMessageFor(model => model.MOTAPHIM, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
-                        <div class="col-12 col-sm-6 col-lg-3">
-                            <div class="form__group">
-                                <input type="text" class="form__input" placeholder="Release year">
-                            </div>
-                        </div>
+                        
 
                         <div class="col-12 col-sm-6 col-lg-3">
                             <div class="form__group">
-
-                                <input type="text" class="form__input" name="THOILUONG" placeholder="@Html.DisplayFor(model => model.THOILUONG)">
+                                @Html.EditorFor(model => model.THOILUONG, new { htmlAttributes = new { @type = "text", @class = "form__input", @placeholder = @Html.DisplayFor(model => model.THOILUONG) } })
+                               
                                 @Html.ValidationMessageFor(model => model.THOILUONG, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -79,15 +77,12 @@ div class="container-fluid">
                             </div>
                         </div>
 
-                        <div class="col-12 col-sm-6 col-lg-3">
-                            <div class="form__group">
-                                <input type="text" class="form__input" placeholder="Age">
-                            </div>
-                        </div>
+                      
 
                         <div class="col-12 col-lg-6">
                             <div class="form__group">
-                                <input type="text" class="form__input" name="QUOCGIA" placeholder="@Html.DisplayFor(model => model.QUOCGIA)">
+                                @Html.EditorFor(model => model.QUOCGIA, new { htmlAttributes = new { @type = "text", @class = "form__input", @placeholder = @Html.DisplayFor(model => model.QUOCGIA) } })
+
                                 @Html.ValidationMessageFor(model => model.QUOCGIA, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -162,9 +157,9 @@ div class="container-fluid">
     </div>
     <!-- end form -->
 </div>
-    </div>
+    
 <!-- end main content -->
-</div>
+
 @*<style>
         .size{
             width:700px;

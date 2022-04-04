@@ -12,24 +12,12 @@
     @Styles.Render("~/Content/CSS/magnific-popup.css")
     @Styles.Render("~/Content/CSS/select2.min.css")
     @Styles.Render("~/Content/CSS/admin.css")
-    @Styles.Render("~/Content/Style.css")
-    <!-- Favicons -->
-    @*/
-        <link rel="apple-touch-icon" href="icon/favicon-32x32.png" />
-    *@
-    <link rel="icon"
-          type="image/png"
-          href=@Url.Content("~/Image/user.svg")
-          sizes="32x32" />
+    <link rel="stylesheet" href="~/Content/Style.css">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <meta name="author" content="Dmitry Volkov" />
+    <meta name="author" content="Nhóm 7 CNTT1" />
     <title>Admin</title>
-    <style>
-        .ImageIndex {
-            
-        }
-    </style>
+    
 </head>
 <body>
 
@@ -206,6 +194,7 @@
     @Scripts.Render("~/Scripts/js/jquery.magnific-popup.min.js")
     @Scripts.Render("~/Scripts/js/smooth-scrollbar.js")
     @Scripts.Render("~/Scripts/js/select2.min.js")
-    @Scripts.Render("~/Scripts/js/admin.js") @RenderSection("scripts", required:false)
+    @Scripts.Render("~/Scripts/js/admin.js") 
+    @RenderSection("scripts", required:false)
 </body>
 </html>

@@ -56,6 +56,9 @@
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -216,6 +219,7 @@
     <Content Include="Content\CSS\plyr.css" />
     <Content Include="Content\CSS\select2.min.css" />
     <Content Include="Content\CSS\slider-radio.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\Style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -316,6 +320,8 @@
     <Content Include="Areas\Admin\Views\Ghe\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Ghe\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Ghe\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\timkiem.cshtml" />
+    <Content Include="Areas\Client\Views\TB_PHIM\timkiem.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -443,6 +449,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Client\Data\" />
+    <Folder Include="Image\nhanvien\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
