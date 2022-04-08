@@ -25,7 +25,15 @@ namespace BaiTapLonWebFilm.Models
         public string LOAITAIKHOAN { get; set; }
         public string MATKHAU { get; set; }
         public int MANHANVIEN { get; set; }
-    
+
+        public TB_TAIKHOAN(string tENDANGNHAP, string lOAITAIKHOAN, string mATKHAU, int mANHANVIEN)
+        {
+            TENDANGNHAP = tENDANGNHAP;
+            LOAITAIKHOAN = lOAITAIKHOAN;
+            MATKHAU = mATKHAU;
+            MANHANVIEN = mANHANVIEN;
+        }
+
         public virtual TB_NHANVIEN TB_NHANVIEN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TB_VEXEMPHIM> TB_VEXEMPHIM { get; set; }

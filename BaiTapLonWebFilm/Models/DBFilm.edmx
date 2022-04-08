@@ -119,6 +119,7 @@
           <Property Name="MATAIKHOAN" Type="int" Nullable="false" />
           <Property Name="MALICHCHIEU" Type="int" Nullable="false" />
           <Property Name="MATHEKHACHHANG" Type="int" Nullable="false" />
+          <Property Name="NgayLap" Type="date" Nullable="false" />
         </EntityType>
         <Association Name="FK_KH_VE">
           <End Role="TB_THEKHACHHANG" Type="Self.TB_THEKHACHHANG" Multiplicity="1">
@@ -472,6 +473,7 @@
           <NavigationProperty Name="TB_LICHCHIEU" Relationship="Self.FK_LICHCHIEU_VE" FromRole="TB_VEXEMPHIM" ToRole="TB_LICHCHIEU" />
           <NavigationProperty Name="TB_TAIKHOAN" Relationship="Self.FK_TK_VE" FromRole="TB_VEXEMPHIM" ToRole="TB_TAIKHOAN" />
           <NavigationProperty Name="TB_THEKHACHHANG" Relationship="Self.FK_KH_VE" FromRole="TB_VEXEMPHIM" ToRole="TB_THEKHACHHANG" />
+          <Property Name="NgayLap" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <Association Name="FK_TB_GHE_LOAIGHE">
           <End Role="TB_LOAIGHE" Type="Self.TB_LOAIGHE" Multiplicity="1">
@@ -810,6 +812,7 @@
           <EntitySetMapping Name="TB_VEXEMPHIM">
             <EntityTypeMapping TypeName="DBFilmModel.TB_VEXEMPHIM">
               <MappingFragment StoreEntitySet="TB_VEXEMPHIM">
+                <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
                 <ScalarProperty Name="MAVE" ColumnName="MAVE" />
                 <ScalarProperty Name="GIAVE" ColumnName="GIAVE" />
                 <ScalarProperty Name="MATAIKHOAN" ColumnName="MATAIKHOAN" />

@@ -19,6 +19,7 @@ namespace BaiTapLonWebFilm.Models
         public int MATAIKHOAN { get; set; }
         public int MALICHCHIEU { get; set; }
         public int MATHEKHACHHANG { get; set; }
+        public System.DateTime NgayLap { get; set; }
     
         public virtual TB_LICHCHIEU TB_LICHCHIEU { get; set; }
         public virtual TB_TAIKHOAN TB_TAIKHOAN { get; set; }

@@ -11,9 +11,10 @@
         padding: 5px;
         border-radius: 10px;
         outline: none;
-        width:100%;
-        color:black
+        width: 100%;
+        color: black
     }
+
         .group-Input input::placeholder {
             color: black;
         }
@@ -36,8 +37,8 @@
         border-radius: 10px;
         box-shadow: 1px 1px 2px #2f80ed;
         cursor: pointer;
-        
     }
+
     .Char_Container {
         min-height: 500px;
     }
@@ -73,18 +74,20 @@
         margin: 0px 5px;
         border: 1px solid #2f80ed;
     }
-    .Number:hover{
-        background:blue;
-        cursor:pointer;
-    }
+
+        .Number:hover {
+            background: blue;
+            cursor: pointer;
+        }
+
     .red {
         border-color: yellow;
         background: red;
     }
-    .Content_Char tr td:first-child{
-        padding-right:10px
-    }
 
+    .Content_Char tr td:first-child {
+        padding-right: 10px
+    }
 </style>
 <!-- details -->
 <section class="section section--head section--head-fixed section--gradient section--details-bg">
@@ -147,7 +150,7 @@
         <div class="row">
             <div class="col-3 group-Input">
                 <p class="Label_Price">Số vé:</p>
-                <input type="number" min="1" placeholder="0"  />
+                <input type="number" min="1" placeholder="0" />
             </div>
         </div>
         <div class="Char_Container mt-5">
@@ -232,11 +235,49 @@
                 </tbody>
             </table>
             <p class="Label_Price">Ghế đã chọn: <span>2</span></p>
-            <div class="Btn_Book mt-4">Đặt vé</div>
+            <div class="Btn_Book mt-4 btn" data-toggle="modal" data-target="#exampleModal">Đặt vé</div>
         </div>
     </div>
 </section>
 <!-- end details -->
+<!-- Button trigger modal -->
+<!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thông tin vé đặt</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <h2> Thời gian chiếu</h2>
+                    <p>10:00 22/2/2002</p>
+                </div>
+                <div>
+                    <h2>Số vé</h2>
+                    <p>2</p>
+                </div>
+                <div>
+                    <h2>Ghế đã đặt:</h2>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">A1</li>
+                        <li class="list-inline-item">A2</li>
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div>
 
 </div>

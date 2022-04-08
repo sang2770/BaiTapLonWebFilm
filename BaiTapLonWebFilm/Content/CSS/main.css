@@ -5147,7 +5147,7 @@ body::-webkit-scrollbar-thumb {
 /*==============================
 	Modal
 ==============================*/
-.modal {
+.modal1 {
   position: relative;
   display: block;
   background-color: #131720;

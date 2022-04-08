@@ -17,20 +17,20 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
 
         [HttpGet]
         // GET: NhanVien
-        public ActionResult Index(int? page, int? id)
+        public ActionResult Index(int? page, string TenNhanVien="")
         {
             int pageSize = 5;
             int pagenum = (page ?? 1);
             //pagenum = pagenum > 0 ? pagenum : 1;
             List<TB_NHANVIEN> list = new List<TB_NHANVIEN>();
-            if (id==null)
+            if (TenNhanVien==null)
             {
                 list = db.TB_NHANVIEN.OrderBy(n => n.MANHANVIEN).ToList();
 
             }
             else
             {
-                list = db.TB_NHANVIEN.Where(n=>n.MANHANVIEN.ToString().Contains(id.ToString())).OrderBy(n => n.MANHANVIEN).ToList();
+                list = db.TB_NHANVIEN.Where(n=>n.TENNHANVIEN.Contains(TenNhanVien)).OrderBy(n => n.MANHANVIEN).ToList();
 
             }
             ViewBag.Size = list.Count();
@@ -76,11 +76,20 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
                         ANH.SaveAs(savedFileName); //*save the image to server-side 
                     }
                 var index = savedFileName.IndexOf(@"\Image\");
-
+                
                 tB_NHANVIEN.ANH = savedFileName.Substring(index, savedFileName.Length - index); ;
-                    db.TB_NHANVIEN.Add(tB_NHANVIEN);
+                db.TB_NHANVIEN.Add(tB_NHANVIEN);
+                db.SaveChanges();
+                TB_NHANVIEN nv = db.TB_NHANVIEN.Where(n => n.CMTND == tB_NHANVIEN.CMTND).FirstOrDefault();
+                if(nv != null)
+                { 
+                   TB_TAIKHOAN tk = new TB_TAIKHOAN("NV_" + nv.MANHANVIEN, "nhanvien", "NV_" + nv.MANHANVIEN, nv.MANHANVIEN);
+                    db.TB_TAIKHOAN.Add(tk);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+
+                }
+
+                return RedirectToAction("Index");
                 }
             
             
