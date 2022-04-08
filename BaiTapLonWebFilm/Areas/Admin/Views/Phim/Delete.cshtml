@@ -7,40 +7,43 @@
 
 <style>
     .img{
-        width:50%;
-        height:40%
+        width:30%;
+        height:10%
     }
+    
 </style>
-<h2 style="color:white">Bạn có muốn xóa phim này</h2>
-<div>
 
+<div class="container">
+    <br />
+    <br />
+    <h2 style="color:white">Bạn có muốn xóa phim này không?</h2>
     <hr />
     <dl class="dl-horizontal" style="color:white">
         <dt>
-            @Html.DisplayNameFor(model => model.TENPHIM)
+            Tên Phim :
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.TENPHIM)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.QUOCGIA)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.QUOCGIA)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HINHANH)
+            <br />
+            Hình ảnh:
         </dt>
 
         <dd class="img">
             <img src="@Url.Content("~/Image/movies/"+Html.DisplayFor(model=>model.HINHANH))" alt="Alternate Text" style="width:100%" />
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.MOTAPHIM)
+            Quốc Gia:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QUOCGIA)
+        </dd>
+        <dt>
+
+            Mô Tả Phim:
         </dt>
 
         <dd>
@@ -48,7 +51,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.THOILUONG)
+
+            Thời lượng phim :
         </dt>
 
         <dd>
@@ -59,13 +63,13 @@
 
     </dl>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-    <div class="form-actions no-color">
-        <input type="submit" value="Delete" class="btn btn-default" style="background-color:blue" /> |<br /><br />
-        @Html.ActionLink("Back to List", "Index")
-    </div>
-}
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" style="background-color:blue" /> |<br /><br />
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
 </div>

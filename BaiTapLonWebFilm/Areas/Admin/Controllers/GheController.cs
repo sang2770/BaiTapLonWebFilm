@@ -60,7 +60,7 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
                 TB_PHONG tB_PHONG = db.TB_PHONG.Find(maPhong);
                 if (maPhong != null)
                 {
-                    
+                    ViewBag.phong = maPhong;
                     TB_GHE_TRONG_PHONG tB_GHE_TRONG_PHONG = new TB_GHE_TRONG_PHONG();
                     tB_GHE_TRONG_PHONG.MAGHE = tB_GHE.MAGHE;
                     tB_GHE_TRONG_PHONG.MAPHONG = maPhong;

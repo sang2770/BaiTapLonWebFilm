@@ -5,43 +5,46 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminTemplate.cshtml";
 }
 <style>
-    .img{
-        width:50%;
-        height:40%
+    .img {
+        width: 30%;
+        height: 10%
+    }
+    hr{
+        color:white;
     }
 </style>
-<h2 style="color:white">Thông tin chi tiết của phim</h2>
-<div>
-    
+
+<div class="container">
+    <br />
+    <br />
+    <h2 style="color:white">Thông tin chi tiết của phim</h2>
     <hr />
     <dl class="dl-horizontal" style="color:white">
         <dt>
-            @Html.DisplayNameFor(model => model.TENPHIM):
+            Tên Phim :
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.TENPHIM)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.QUOCGIA):
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.QUOCGIA)
-        </dd>
-
-        <dt>
             <br />
-            @Html.DisplayNameFor(model => model.HINHANH):
+            Hình ảnh:
         </dt>
 
         <dd class="img">
             <img src="@Url.Content("~/Image/movies/"+Html.DisplayFor(model=>model.HINHANH))" alt="Alternate Text" style="width:100%" />
         </dd>
+        <dt>
+            Quốc Gia:
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.QUOCGIA)
+        </dd>
         <dt>
             <br />
-            @Html.DisplayNameFor(model => model.MOTAPHIM):
+            Mô Tả Phim:
         </dt>
 
         <dd>
@@ -50,7 +53,7 @@
 
         <dt>
             <br />
-            @Html.DisplayNameFor(model => model.THOILUONG):
+            Thời lượng phim :
         </dt>
 
         <dd>
@@ -61,8 +64,11 @@
 
     </dl>
 </div>
+<br />
+<div class="container">
+    <button class="form__btn" ">@Html.ActionLink("Sửa", "Edit", new { id = Model.MAPHIM }, htmlAttributes: new { @style = "color:black;" })</button>
+    <br />
+    <button class="form__btn">@Html.ActionLink("Back to List", "Index", new { id = Model.MAPHIM }, htmlAttributes: new { @style = "color:black;" })</button>
 
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MAPHIM }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+</div>
