@@ -3,6 +3,9 @@
     ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_AdminTemplate.cshtml";
 }
+<div class="text-danger">
+    @ViewBag.phong
+</div>
 <div class="container-fluid">
     <div class="row">
         <!-- main title -->
@@ -22,7 +25,7 @@
                         <div class="col-lg-6">
                             <div class="form__group">
                                 <label class="text-white">Số ghế</label>
-                                <input type="text" class="form__input" name="SOGHE" >
+                                <input type="text" class="form__input" name="SOGHE">
                                 @Html.ValidationMessageFor(model => model.SOGHE, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -33,6 +36,16 @@
 
                                 <input type="text" class="form__input" name="MaLoaiGhe">
                                 @Html.ValidationMessageFor(model => model.MALOAIGHE, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form__group">
+                                <label class="text-white">Mã phòng</label>
+                                @Html.TextBox("txtMaPhong", "", htmlAttributes:new {@class= "form__input" })
+  
+                                
 
                             </div>
                         </div>
