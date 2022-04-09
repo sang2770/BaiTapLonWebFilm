@@ -27,8 +27,8 @@
             <PropertyRef Name="MALICHCHIEU" />
           </Key>
           <Property Name="MALICHCHIEU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NGAYCHIEU" Type="date" Nullable="false" />
-          <Property Name="NGAYKETTHUC" Type="date" Nullable="false" />
+          <Property Name="NGAYCHIEU" Type="datetime" Nullable="false" />
+          <Property Name="NGAYKETTHUC" Type="datetime" Nullable="false" />
           <Property Name="MAPHONG" Type="int" Nullable="false" />
           <Property Name="MAPHIM" Type="int" Nullable="false" />
         </EntityType>
@@ -363,8 +363,8 @@
             <PropertyRef Name="MALICHCHIEU" />
           </Key>
           <Property Name="MALICHCHIEU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NGAYCHIEU" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="NGAYKETTHUC" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NGAYCHIEU" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NGAYKETTHUC" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="MAPHONG" Type="Int32" Nullable="false" />
           <Property Name="MAPHIM" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TB_PHIM" Relationship="Self.FK_LICHCHIEU_PHIM" FromRole="TB_LICHCHIEU" ToRole="TB_PHIM" />

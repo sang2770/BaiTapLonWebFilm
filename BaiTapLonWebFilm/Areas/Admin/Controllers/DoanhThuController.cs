@@ -14,25 +14,20 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
         public ActionResult Index(int? Nam)
         {
             // Thống kê các phim doanh thu cao
-            var ReportFilm = from item in (
-                             from movie in db.TB_PHIM
+            var ReportFilm = from movie in db.TB_PHIM
                              join caculator in db.TB_LICHCHIEU
                              on movie.MAPHIM equals caculator.MAPHIM
                              join ticket in db.TB_VEXEMPHIM
                              on caculator.MALICHCHIEU equals ticket.MALICHCHIEU
-                             select new
-                             {
-                                 TenPhim = movie.TENPHIM,
-                                 MaVe = ticket.MAVE
-                             })
-                             group item by item.MaVe into g
-                             orderby g.Count() descending
-                             select new {TenPhim=g.Key, Count=g.Count()}
+                             group movie by movie.TENPHIM  
                              ;
-            ReportFilm.Take(6);
+            ReportFilm=ReportFilm.OrderByDescending(item=>item.Count()).Take(4);
+            int j = 0;
             foreach(var item in ReportFilm)
             {
-                ViewData[""+item.TenPhim] = item.Count;
+                ViewData["M" + (j + 1)] = item.Key.ToString();
+                ViewData["C"+(j+1)] = item.Count();
+                j++;
             }    
             // Thong ke so vé ván ra trong nam
             int year = Nam ?? DateTime.Now.Year;
@@ -43,10 +38,11 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
             foreach(TB_VEXEMPHIM item in query)
             {
                 DateTime ngaylap = item.NgayLap;
-                TkNam[ngaylap.Month]+=1;
+                TkNam[ngaylap.Month-1]+=1;
             }
             for(int i=0;i<12;i++)
             {
+                string t = "T" + (i + 1);
                 ViewData["T"+(i+1)] = TkNam[i];
             }    
           

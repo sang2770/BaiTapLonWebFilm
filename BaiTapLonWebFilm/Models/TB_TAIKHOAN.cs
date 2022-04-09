@@ -19,12 +19,6 @@ namespace BaiTapLonWebFilm.Models
         {
             this.TB_VEXEMPHIM = new HashSet<TB_VEXEMPHIM>();
         }
-    
-        public int MATAIKHOAN { get; set; }
-        public string TENDANGNHAP { get; set; }
-        public string LOAITAIKHOAN { get; set; }
-        public string MATKHAU { get; set; }
-        public int MANHANVIEN { get; set; }
 
         public TB_TAIKHOAN(string tENDANGNHAP, string lOAITAIKHOAN, string mATKHAU, int mANHANVIEN)
         {
@@ -34,6 +28,12 @@ namespace BaiTapLonWebFilm.Models
             MANHANVIEN = mANHANVIEN;
         }
 
+        public int MATAIKHOAN { get; set; }
+        public string TENDANGNHAP { get; set; }
+        public string LOAITAIKHOAN { get; set; }
+        public string MATKHAU { get; set; }
+        public int MANHANVIEN { get; set; }
+    
         public virtual TB_NHANVIEN TB_NHANVIEN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TB_VEXEMPHIM> TB_VEXEMPHIM { get; set; }

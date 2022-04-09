@@ -20,11 +20,8 @@
         <div class="row m-t-4">
             <div class="col-12 Select_Year">
                 <label>Chọn Năm</label>
-                <select class="p-2 border-0">
-                    <option value="1">2022</option>
-                    <option value="2">2023</option>
-                    <option value="3">2024</option>
-                    <option value="4">2025</option>
+                <select class="p-2 border-0" name="year" id="SelectYear">
+                    
                 </select>
             </div>
             <div class="col-12">Doanh thu theo tháng trong năm</div>
@@ -33,15 +30,16 @@
             </div>
         </div>
     </div>
-    <script>
+    @section scripts{
+        <script>
         const ctx = document.getElementById("myChart").getContext("2d");
 
         const data = {
-            labels: ["Pokemon","Đảo hải tặc", "Batman", "Joker", "Wonder woman", "Avenger", "Jumanji"],
+            labels: ['@ViewData["M1"]','@ViewData["M2"]','@ViewData["M3"]','@ViewData["M4"]'],
             datasets: [
                 {
                     label: "Sô Lượng vé bán",
-                    data: [65, 59, 80, 81, 56, 55, 40],
+                    data: [@ViewData["C1"],@ViewData["C2"],@ViewData["C3"],@ViewData["C4"],@ViewData["C5"],@ViewData["C6"]],
                     backgroundColor: [
                         "rgba(255, 99, 132, 0.8",
                         "rgba(255, 159, 64, 0.8",
@@ -100,7 +98,8 @@
         for (let i = 1; i <= 12; i++) {
             ArrayLine.push(i);
         }
-        const ArrayLineValue = [@ViewData["T1"],@ViewData["T2"],@ViewData["T3"],@ViewData["T4"],@ViewData["T5"],@ViewData["T6"],@ViewData["T7"],@ViewData["T8"],@ViewData["T9"],@ViewData["T10"],@ViewData["T11"],@ViewData["T12"], ];
+        const ArrayLineValue = [@ViewData["T1"],@ViewData["T2"],@ViewData["T3"],@ViewData["T4"],@ViewData["T5"],@ViewData["T6"],@ViewData["T7"],@ViewData["T8"],@ViewData["T9"],@ViewData["T10"],@ViewData["T11"],@ViewData["T12"] ];
+
         const ctx1 = document.getElementById("myChartLine").getContext("2d");
         const data1 = {
             labels: ArrayLine,
@@ -146,5 +145,17 @@
                 },
             },
         });
-    </script>
+         let yearList = "";
+            let year = new Date().getFullYear();
+            console.log(year);
+        for (let i = 0; i < 12; i++) {
+            yearList += '<option value=' + Number(year - i) + '>' + Number(year - i) + '</option>';
+
+        }
+            $("#SelectYear").html(yearList);
+            $("#SelectYear").change(function () {
+                value = $(this).val();
+                window.location.href = "/Admin/DoanhThu/Index?Nam=" + value;
+            });
+        </script>}
 </div>
