@@ -116,13 +116,22 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TENNHANVIEN,NGAYSINH,CMTND,NGAYVAOLAM,QUEQUAN,DIACHI,SDT")] TB_NHANVIEN tB_NHANVIEN, int id)
+        public ActionResult Edit([Bind(Include = "TENNHANVIEN,NGAYSINH,CMTND,NGAYVAOLAM,QUEQUAN,DIACHI,SDT")] TB_NHANVIEN tB_NHANVIEN, int id, HttpPostedFileBase ANH)
         {
             if (ModelState.IsValid)
             {
                 TB_NHANVIEN nhanvien = db.TB_NHANVIEN.Where(n => n.MANHANVIEN == id).FirstOrDefault();
                 if(nhanvien!=null)
                 {
+                    string savedFileName = "";  //string for saving the image server-side path          
+                    if (ANH != null)
+                    {
+                        savedFileName = Server.MapPath("~/Image/nhanvien/" + "nhanvien_" + tB_NHANVIEN.TENNHANVIEN + "_" + tB_NHANVIEN.SDT + ".jpg"); //get the server-side path for store image 
+                        ANH.SaveAs(savedFileName); //*save the image to server-side 
+                    }
+                    var index = savedFileName.IndexOf(@"\Image\");
+
+                    nhanvien.ANH = savedFileName.Substring(index, savedFileName.Length - index); ;
                     nhanvien.TENNHANVIEN = tB_NHANVIEN.TENNHANVIEN;
                     nhanvien.NGAYSINH = tB_NHANVIEN.NGAYSINH;
                     nhanvien.CMTND = tB_NHANVIEN.CMTND;

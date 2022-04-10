@@ -11,13 +11,13 @@
         <!-- main title -->
         <div class="col-12">
             <div class="main__title">
-                <h2>Cập nhật ghế</h2>
+                <h2>Thêm ghế</h2>
             </div>
         </div>
         <!-- end main title -->
         <!-- form -->
         <div class="col-12">
-            @using (Html.BeginForm("Edit", "Ghe"))
+            @using (Html.BeginForm("Create", "Ghe"))
             {
                 @Html.AntiForgeryToken()
                 <div class="col-12 col-md-7 form__content">
@@ -33,19 +33,8 @@
                         <div class="col-lg-6">
                             <div class="form__group">
                                 <label class="text-white">Mã loại ghế</label>
-
-                                <input type="text" class="form__input" name="MaLoaiGhe">
+                                @Html.DropDownList("MALOAIGHE", null, htmlAttributes: new { @class = "form__input", @id = "MaLoaiGhe" })
                                 @Html.ValidationMessageFor(model => model.MALOAIGHE, "", new { @class = "text-danger" })
-
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="form__group">
-                                <label class="text-white">Mã phòng</label>
-                                @Html.TextBox("txtMaPhong", "", htmlAttributes:new {@class= "form__input" })
-  
-                                
 
                             </div>
                         </div>

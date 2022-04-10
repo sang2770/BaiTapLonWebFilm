@@ -16,7 +16,7 @@
         <!-- end main title -->
         <!-- form -->
         <div class="col-12">
-            @using (Html.BeginForm("Edit", "Phong", new { id = Model.MAPHONG }))
+            @using (Html.BeginForm("Edit", "Phong", FormMethod.Post, new { id = Model.MAPHONG , enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
 
