@@ -18,6 +18,7 @@ namespace BaiTapLonWebFilm.Models
         public DBFilmEntities1()
             : base("name=DBFilmEntities1")
         {
+            base.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

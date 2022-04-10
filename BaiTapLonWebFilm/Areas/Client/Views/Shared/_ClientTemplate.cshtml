@@ -1,4 +1,4 @@
-﻿
+﻿@{ if (Session["User"] == null) { Response.Redirect("~/Login"); } }
 @{
     Layout = null;
 }
@@ -39,23 +39,24 @@
         .Header_Title_Client {
             color: white;
             font-size: 40px;
-            display:block;
-            cursor:pointer
-           
+            display: block;
+            cursor: pointer
         }
-        .Header_Title_Client span{
-            display:inline-block;
-            font-size:20px;
-            color:blue;
-            margin-left:-10px;
-            
+
+            .Header_Title_Client span {
+                display: inline-block;
+                font-size: 20px;
+                color: blue;
+                margin-left: -10px;
+            }
+
+        .Client_user {
+            height: 100%;
+            color: #fff;
+            margin-top: 15px;
+            padding: 0px 10px;
         }
-        .Client_user{
-            height:100%;
-            color:#fff;
-            margin-top:15px;
-            padding:0px 10px;
-        }
+
         .owl-carousel .owl-item img {
             height: 100%;
             object-fit: cover;
@@ -64,32 +65,38 @@
         .home__card {
             height: 330px;
         }
+
         .card {
             background: transparent;
-            border:none
+            border: none
         }
+
         .card__cover {
             height: 250px;
         }
-        .card__cover img {
-                height:100%;
-                object-fit:cover
+
+            .card__cover img {
+                height: 100%;
+                object-fit: cover
             }
+
         .section--head-fixed {
-             margin-top:0;
+            margin-top: 0;
         }
-        .ImageFilmDetails{
-            height:400px;
+
+        .ImageFilmDetails {
+            height: 400px;
         }
+
             .ImageFilmDetails img {
                 object-fit: cover;
                 width: 100%;
                 height: 100%;
                 box-shadow: 1px 1px 2px #3e3939;
             }
-        .group-Input{
-            padding:10px;
 
+        .group-Input {
+            padding: 10px;
         }
     </style>
 </head>
@@ -109,14 +116,17 @@
 
                         <a src="@Url.Action("", "TP_PHIM")" class="Header_Title_Client" style="font-family: 'Fredoka', sans-serif;"> Film <span>Cinemas</span> </a>
 
-                       
+
                         <div class="header__actions">
                             @using (Html.BeginForm("timkiem", "TB_Phim", FormMethod.Post))
                             {
                                 <div class="header__form">
-                                    @Html.TextBox("txtsearch","",htmlAttributes: new { @class="header__form-input",
-                                           @type="text",
-                                           @placeholder="I'm looking for..."} )
+                                    @Html.TextBox("txtsearch", "", htmlAttributes: new
+                                    {
+                                        @class = "header__form-input",
+                                           @type = "text",
+                                           @placeholder = "I'm looking for..."
+                                    })
                                     <button class="header__form-btn" type="submit">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                             <path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z" />

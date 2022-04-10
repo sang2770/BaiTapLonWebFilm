@@ -31,6 +31,7 @@ namespace BaiTapLonWebFilm.Controllers
                     TB_NHANVIEN user=db.TB_NHANVIEN.Where(s=>s.MANHANVIEN==tk.MANHANVIEN).SingleOrDefault<TB_NHANVIEN>();
                     Session["User"] = user.TENNHANVIEN;
                     Session["Type"] = tk.LOAITAIKHOAN;
+                    Session["TK"] = tk.MATAIKHOAN;
                     if (Session["Type"].ToString().ToUpper().Equals("Admin".ToUpper()))
                     {
                        return  RedirectToAction("Index", "Admin/NhanVien");

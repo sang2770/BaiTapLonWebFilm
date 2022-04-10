@@ -4,6 +4,7 @@
 @{
     ViewBag.Title = "Details";
     Layout = "~/Areas/Client/Views/Shared/_ClientTemplate.cshtml";
+    var MaPhim = ViewBag.MaPhim;
 }
 <style>
     .group-Input input {
@@ -40,7 +41,7 @@
     }
 
     .Char_Container {
-        min-height: 500px;
+        
     }
 
     .Title_Char {
@@ -139,103 +140,64 @@
         <div class="row">
             <div class="col-3 group-Input">
                 <p class="Label_Price">Chọn ngày</p>
-                <input type="date" />
+                <input type="date" id="SelectNgay" />
             </div>
             <div class="col-3 group-Input">
                 <p class="Label_Price">Chọn thời gian</p>
-                <input type="text" />
+                <div class="form-group">
+                    <select class="form-control" id="SelectLichChieu">
+                    </select>
+                </div>
             </div>
         </div>
         <div class="mt-3 Title_Price">Vui lòng chọn số vé</div>
         <div class="row">
             <div class="col-3 group-Input">
                 <p class="Label_Price">Số vé:</p>
-                <input type="number" min="1" placeholder="0" />
+                <div class="form-group">
+                    <input type="number" min="1" placeholder="0" id="SelectSoVe" />
+                </div>
+            </div>
+            <div class="col-3 group-Input">
+                <p class="Label_Price">Chọn phòng chiếu</p>
+                <div class="form-group">
+                    <input class="form-control" type="text" readonly id="SelectPhongChieu" />
+                </div>
             </div>
         </div>
-        <div class="Char_Container mt-5">
-            <div class="mt-3 Title_Price">Vui lòng chọn số ghế</div>
 
-            <div class="Title_Char mt-3">
-                <div class="Title_Group">
-                    <div class="Group_Retangle"></div>
-                    <div class="Group_Group_Title">Ghế trống</div>
-                </div>
-                <div class="Title_Group">
-                    <div class="Group_Retangle" style="background-color: red"></div>
-                    <div class="Group_Group_Title">Ghế đã đặt</div>
+        <div class="Char_Container mt-5" id="Char">
+
+
+        </div>
+        <p class="Label_Price" id="GheDaChon"></p>
+
+        <div class="row KH">
+            <div class=" col-4 form-group" style="width:200px">
+                <label for="MaKhachHang">Mã khách hàng (Nếu có)</label>
+                <input type="text" class="form-control" id="MaKhachHang" placeholder="Nhập mã khách hàng">
+            </div>
+            <div id="Info col-4">
+                <div class="card">
+                    <div class="card-body" style="padding:0">
+                        <h5 class="card-title" id="NameKH"></h5>
+                        <h6 class="card-subtitle mb-2 text-muted" id="LoaiKH"></h6>
+
+                    </div>
                 </div>
             </div>
-            <table class="Content_Char">
-                <thead>
-                <th></th>
-                <th></th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>A</td>
-                        <td class="LineChar">
-                            <p class="Number">1</p>
-                            <p class="Number">2</p>
-                            <p class="Number">3</p>
-                            <p class="Number">4</p>
-                            <p class="Number">5</p>
-                            <p class="Number">6</p>
-                            <p class="Number">7</p>
-                            <p class="Number">8</p>
-                            <p class="Number">9</p>
-                            <p class="Number">10</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>B</td>
-                        <td class="LineChar">
-                            <p class="Number red">1</p>
-                            <p class="Number">2</p>
-                            <p class="Number">3</p>
-                            <p class="Number">4</p>
-                            <p class="Number">5</p>
-                            <p class="Number">6</p>
-                            <p class="Number">7</p>
-                            <p class="Number">8</p>
-                            <p class="Number">9</p>
-                            <p class="Number">10</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>C</td>
-                        <td class="LineChar">
-                            <p class="Number">1</p>
-                            <p class="Number">2</p>
-                            <p class="Number">3</p>
-                            <p class="Number">4</p>
-                            <p class="Number">5</p>
-                            <p class="Number">6</p>
-                            <p class="Number">7</p>
-                            <p class="Number">8</p>
-                            <p class="Number">9</p>
-                            <p class="Number">10</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>D</td>
-                        <td class="LineChar">
-                            <p class="Number">1</p>
-                            <p class="Number">2</p>
-                            <p class="Number">3</p>
-                            <p class="Number">4</p>
-                            <p class="Number">5</p>
-                            <p class="Number">6</p>
-                            <p class="Number">7</p>
-                            <p class="Number">8</p>
-                            <p class="Number">9</p>
-                            <p class="Number">10</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <p class="Label_Price">Ghế đã chọn: <span>2</span></p>
-            <div class="Btn_Book mt-4 btn" data-toggle="modal" data-target="#exampleModal">Đặt vé</div>
+        </div>
+        <div class="BookTicket">
+            <div class="KH">
+                <div class="form-group" style="width:200px">
+                    <label for="GiaVe">Giá vé</label>
+                    <input type="text" class="form-control" id="GiaVe" placeholder="Nhập Giá vé">
+                </div>
+            </div>
+            <div id="TongTien">
+
+            </div>
+            <div class="Btn_Book mt-4 btn" id="BtnDatVe" data-toggle="modal" data-target="#exampleModal">Đặt vé</div>
         </div>
     </div>
 </section>
@@ -255,32 +217,248 @@
             <div class="modal-body">
                 <div>
                     <h2> Thời gian chiếu</h2>
-                    <p>10:00 22/2/2002</p>
+                    <p id="ThoiGianChieu"></p>
                 </div>
                 <div>
                     <h2>Số vé</h2>
-                    <p>2</p>
+                    <p id="SoVeDaDat">2</p>
                 </div>
                 <div>
                     <h2>Ghế đã đặt:</h2>
-                    <ul class="list-inline">
-                        <li class="list-inline-item">A1</li>
-                        <li class="list-inline-item">A2</li>
-
-
+                    <ul class="list-inline" id="GheDaDat">
                     </ul>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" id="BtnConfirm">Xác nhận</button>
             </div>
         </div>
     </div>
 </div>
-<div>
 
-</div>
 <p class="container">
     @Html.ActionLink("Back to List", "Index")
 </p>
+@section scripts{
+    <script>
+        const url = "https://localhost:44339/api";
+        let SoVe = 0;
+        let GheDat = [];
+        let GiaVe = 0;
+        let GiamGia = 80;
+        let ThanThiet = false;
+        let MaLichChieu = null;
+        let MaKhachHang = null;
+        let MaPhong = null;
+        // Thong tin ve
+        let ThoiGianChieu = "";
+        let TenKhachHang = "";
+        let GheDaDat = "";
+
+        //
+        $("#SelectNgay").on("input", function () {
+            let result = "";
+            let Dateselect = new Date($(this).val());
+            ThoiGianChieu += Dateselect.getDate() + "/" + (Dateselect.getMonth() + 1) + "/" + Dateselect.getFullYear();
+            console.log(Dateselect);
+            $.ajax({
+                url: url + '/LichChieu/'+@MaPhim+'/' + Dateselect.getDate() + "/" + (Dateselect.getMonth() + 1) + "/" + Dateselect.getFullYear(),
+                method: "GET",
+                contentType: "json",
+                dataType: "json",
+                success: function (data) {
+                    $.each(data, function (key, value) {
+                        const d = new Date(value.NGAYCHIEU);
+                        result += '<option value="' + (value.MALICHCHIEU+"-"+value.MAPHONG) + '">' + d.getHours() + ':' + d.getMinutes() + '</option>';
+
+                    })
+                    if (data.length == 0) {
+                        alert("Không có");
+                    }
+                    $('#SelectLichChieu').html(result);
+
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            })
+        });
+        $("#SelectSoVe").on("input", function () {
+            SoVe = $(this).val();
+        });
+        $("#GiaVe").on("input", function () {
+            GiaVe = $(this).val();
+            let total = "";
+            if (ThanThiet) {
+                total = `Tổng tiền: <span id="TotalMoney">${SoVe * GiaVe * 80 / 100} (Đã giảm)</span>`;
+            } else {
+                total = `Tổng tiền: <span id="TotalMoney">${SoVe * GiaVe}</span>`;
+            }
+            $("#TongTien").html(total);
+        });
+        $("#SelectLichChieu").on("input", function () {
+            let Ghe = {};
+            let value = $(this).val().split("-");
+            MaLichChieu = value[0];
+            MaPhong = value[1];
+            ThoiGianChieu += "  "+$('#SelectLichChieu option:selected').text();
+            $.ajax({
+                url: url + "/PhongChieu/" + value[1],
+                method: "GET",
+                contentType: "json",
+                dataType: "json",
+                success: function (data) {
+                    if (data.length == 0) {
+                        alert("Không có phòng chiếu vui lòng thử lại!");
+                    }
+                    $('#SelectPhongChieu').val(data.SOPHONG);
+
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            })
+            let HeaderGhe =`<div class="mt-3 Title_Price">Vui lòng chọn số ghế</div>
+                            <div class="Title_Char mt-3">
+                                <div class="Title_Group">
+                                    <div class="Group_Retangle"></div>
+                                    <div class="Group_Group_Title">Ghế trống</div>
+                                </div>
+                                <div class="Title_Group">
+                                    <div class="Group_Retangle" style="background-color: red"></div>
+                                    <div class="Group_Group_Title">Ghế đã đặt</div>
+                                </div>
+                            </div>
+                            <table class="Content_Char">
+                                <thead>
+                                <th></th>
+                                <th></th>
+                                </thead>
+                                <tbody  >
+                                `
+            $.ajax({
+                url: url + "/GheTrongPhong/" + value[1],
+                method: "GET",
+                contentType: "json",
+                dataType: "json",
+                success: function (data) {
+                    $.each(data, function (key, value) {
+                        if (Ghe[value.TENLOAIGHE]) {
+                            Ghe[value.TENLOAIGHE].push(value);
+                        } else {
+                            Ghe[value.TENLOAIGHE] = [value];
+                        }
+                    })
+                    let GheTheoLoai = "";
+                    console.log(Ghe)
+                    Object.keys(Ghe).forEach((value, index) => {
+                        GheTheoLoai += '<tr> <td>' + value + '</td > <td class="LineChar">';
+                        Ghe[value].forEach((item, index) => {
+                            if (item.TRANGTHAI !== "Ghế trống")
+                                GheTheoLoai += `<p class="Number red">${item.SOGHE}</p>`;
+                            else {
+                                let TenGhe = item.TENLOAIGHE + item.SOGHE;
+                                GheTheoLoai += `<p class="Number " onclick="DatGhe(${item.MAGHE}, '${TenGhe}')">${item.SOGHE}</p>`;
+
+                            }
+                        })
+                        GheTheoLoai += `</td></tr>`;
+                    })
+                    $('#Char').html(HeaderGhe + GheTheoLoai +`</tbody></table>`);
+
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            })
+        });
+        function DatGhe(id, TenGhe) {
+            console.log(id)
+            if (GheDat.length < SoVe) {
+                GheDat.push({ MaGhe: id, TenGhe: TenGhe });
+                GheDaDat += '<li class="list-inline-item">'+TenGhe+'</li>'
+                $("#GheDaChon").html(`Ghế đã chọn: <span>${GheDat.length}</span>`);
+            } else {
+                alert("Bạn phải đặt thêm vé")
+            }
+        }
+        $("#MaKhachHang").on("input", function () {
+            if ($(this).val().length > 0) {
+                $.ajax({
+                    url: url + "/KhacHang/" + $(this).val(),
+                    method: "GET",
+                    contentType: "json",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data) {
+                            $('#NameKH').html("Tên KH: " + data.TENKHACHHANG);
+                            $('#LoaiKH').html("Hạng: " + data.MUCDOTHANTHIET);
+                            if (data.MUCDOTHANTHIET !== "Đồng") {
+                                ThanThiet = true;
+                            } else {
+                                ThanThiet = false;
+                            }
+                        }
+
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                })
+            }
+            else {
+                $('#NameKH').html("");
+                $('#LoaiKH').html("");
+                ThanThiet = false;
+            }
+        });
+        $("#BtnDatVe").click((e) => {
+            $("#ThoiGianChieu").html(ThoiGianChieu);
+            $('#GheDaDat').html(GheDaDat);
+            $('#SoVeDaDat').html(SoVe);
+        })
+        $("#BtnConfirm").click(function (e) {
+            e.preventDefault();
+            let date = new Date();
+            let object = {
+                GIAVE: $('#GiaVe').val,
+                MATAIKHOAN: @Session["TK"],
+                MALICHCHIEU: MaLichChieu,
+                MATHEKHACHHANG: $("#MaKhachHang").val(),
+            }
+            //GheDat.forEach((item, index) => {
+            //    $.ajax({
+            //        url: url + "/Check/" + item.MaGhe + "/" + MaPhong,
+            //        method: "PUT",
+            //        success: function (data) {
+            //        },
+            //        error: function (err) {
+
+            //        }
+            //    })
+            //})
+            
+            $.ajax({
+                url: url +"/DatVe",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                method: "POST",
+
+                data: JSON.stringify(object),
+                success: function (data) {
+
+                    alert("Thành công");
+                    location.reload();
+                },
+                error: function (err) {
+
+                    console.log(err);
+                    alert("Thất bại");
+
+                }
+            })
+        })
+    </script>
+    }
