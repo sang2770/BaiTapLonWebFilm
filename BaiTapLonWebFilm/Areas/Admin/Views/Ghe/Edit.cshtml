@@ -21,6 +21,13 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form__group">
+                                <label class="text-white">Mã ghế</label>
+                                <input type="text" class="form__input" name="MAGHE" value="@Model.MAGHE">
+                                @Html.ValidationMessageFor(model => model.MAGHE, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form__group">
                                 <label class="text-white">Số ghế</label>
                                 <input type="text" class="form__input" name="SOGHE" value="@Model.SOGHE">
                                 @Html.ValidationMessageFor(model => model.SOGHE, "", new { @class = "text-danger" })

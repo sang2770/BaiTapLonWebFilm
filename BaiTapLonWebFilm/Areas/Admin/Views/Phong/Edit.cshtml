@@ -76,6 +76,13 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form__group">
+                                <label class="text-white">Mã phòng</label>
+                                <input type="text" readonly class="form__input" name="SOPHONG" value="@Model.MAPHONG">
+                                @Html.ValidationMessageFor(model => model.MAPHONG, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form__group">
                                 <label class="text-white">Số phòng</label>
                                 <input type="text" class="form__input" name="SOPHONG" value="@Model.SOPHONG">
                                 @Html.ValidationMessageFor(model => model.SOPHONG, "", new { @class = "text-danger" })
@@ -91,7 +98,7 @@
 
                             </div>
                         </div>
-                        
+
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-12">
@@ -201,25 +208,25 @@
 
                                 <div class="col-12">
 
-                                <div class="col-12 px-lg-4">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="row align-items-center">
-                                                <Button class="form__btn mr-3">Thêm ghế</Button>
-                                                <button class="form__btn">Xóa ghế</button>
+                                    <div class="col-12 px-lg-4">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="row align-items-center">
+                                                    <Button class="form__btn mr-3">Thêm ghế</Button>
+                                                    <button class="form__btn">Xóa ghế</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-12 mt-3 ml-2">
-                                    @Html.ActionLink("Back to List", "Index")
+                                    <div class="col-12 mt-3 ml-2">
+                                        @Html.ActionLink("Back to List", "Index")
 
+                                    </div>
                                 </div>
+
                             </div>
-
                         </div>
                     </div>
-                </div>
 
             <!-- end form -->
         </div>
