@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -98,6 +98,11 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
         // GET: Admin/Phong/Edit/5
         public ActionResult Edit(int? id)
         {
+            ViewBag.LOAIPHONG = new SelectList(db.TB_PHONG.OrderBy(n => n.LOAIPHONG), "MAPHONG", "LOAIPHONG");
+            ViewBag.TENLOAIGHE = new SelectList(db.TB_LOAIGHE.OrderBy(n => n.TENLOAIGHE), "MALOAIGHE", "TENLOAIGHE");
+            TB_GHE tB_GHE = db.TB_GHE.Find(id);
+            ViewBag.SOGHE = tB_GHE.SOGHE;
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -110,15 +115,15 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
             return View(tB_PHONG);
         }
 
+
         // POST: Admin/Phong/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SOPHONG,LOAIPHONG")] TB_PHONG tB_PHONG)
+        public ActionResult Edit([Bind(Include = "MAPHONG,SOPHONG,LOAIPHONG")] TB_PHONG tB_PHONG)
         {
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid) { 
                 db.Entry(tB_PHONG).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -126,6 +131,25 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
             return View(tB_PHONG);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditGhe(int id, FormCollection f)
+        {
+            if (ModelState.IsValid)
+            {
+                int maGhe = int.Parse(f["SOGHE"]);
+                int maLoaiGhe = int.Parse(f["SOGHE"]);
+                TB_GHE tB_GHE = db.TB_GHE.Where(n=>n.MALOAIGHE==maLoaiGhe).Where(n=>n.SOGHE==maGhe).FirstOrDefault();
+                TB_GHE_TRONG_PHONG gheinPhong = new TB_GHE_TRONG_PHONG();
+                gheinPhong.MAGHE=tB_GHE.MAGHE;
+                gheinPhong.MAPHONG = id;
+                gheinPhong.TRANGTHAI = "Còn trống";
+                db.TB_GHE_TRONG_PHONG.Add(gheinPhong);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
         // GET: Admin/Phong/Delete/5
         public ActionResult Delete(int? id)
         {
