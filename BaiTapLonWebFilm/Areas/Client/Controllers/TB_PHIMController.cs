@@ -114,9 +114,9 @@ namespace BaiTapLonWebFilm.Areas.Client.Controllers
         {
             string searchkey = f["txtsearch"].ToString();
 
-            TB_PHIM tB_PHIM = db.TB_PHIM.Single(n => n.TENPHIM.Contains(searchkey));
+            IList<TB_PHIM> tB_PHIM = db.TB_PHIM.Where(n => n.TENPHIM.Contains(searchkey)).ToList();
 
-            if (tB_PHIM == null)
+            if (tB_PHIM.Count>0)
             {
                 ViewBag.ThongBao = "Không tìm thấy phim bạn tìm kiếm";
                 //nếu không tìm thấy sản phẩm nào thì xuất ra toàn bộ sản phẩm
