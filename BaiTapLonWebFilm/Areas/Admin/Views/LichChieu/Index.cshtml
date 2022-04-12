@@ -1,146 +1,156 @@
-﻿@model IEnumerable<BaiTapLonWebFilm.Models.TB_LICHCHIEU>
+﻿
+@model PagedList.IPagedList<BaiTapLonWebFilm.Models.TB_LICHCHIEU>
+@using PagedList.Mvc
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminTemplate.cshtml";
 }
- <div class="col-12">
-                
-             
-            <div class="col-12">
-                <div class="main__table-wrap">
-                    <br />
-                    <br />
-
-                    <h2 style="color:white">Danh Sách Phim</h2>
-                    <br />
-                    <br />
-                    <table class="main__table">
-                        <thead>
-                            <tr>
-                                <th>
-                                   Ngày chiếu
-                                </th>
-                                <th>
-                                    Ngày kết thúc
-                                </th>
-                                <th>
-                                    Tên Phim 
-                                </th>
-                                <th>
-                                    Loại phòng
-                                </th>
-                                <th></th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                            <tr>
-                                <td>
-                                    <div class="main__table-text "> @Html.DisplayFor(modelItem => item.NGAYCHIEU))</div>
-                                </td>
+<div class="col-12">
 
 
-                                <td>
-                                    <div class="main__table-text"> @Html.DisplayFor(modelItem => item.NGAYKETTHUC))</div>
-                                </td>
-                                <td>
-                                    <div class="main__table-text"> @Html.DisplayFor(modelItem => item.TB_PHIM.TENPHIM)</div>
-                                </td>
-                                <td>
-                                    <div class="main__table-text"> @Html.DisplayFor(modelItem => item.TB_PHONG.LOAIPHONG)</div>
-                                </td>
+    <div class="col-12">
+        <div class="main__table-wrap">
+            <br />
+            <br />
 
-                                <td>
-                                    <div class="main__table-btns">
-                                      
-                                        <a href="@Url.Action( "Edit", new { id=item.MALICHCHIEU })" class="main__table-btn main__table-btn--edit">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22,7.24a1,1,0,0,0-.29-.71L17.47,2.29A1,1,0,0,0,16.76,2a1,1,0,0,0-.71.29L13.22,5.12h0L2.29,16.05a1,1,0,0,0-.29.71V21a1,1,0,0,0,1,1H7.24A1,1,0,0,0,8,21.71L18.87,10.78h0L21.71,8a1.19,1.19,0,0,0,.22-.33,1,1,0,0,0,0-.24.7.7,0,0,0,0-.14ZM6.83,20H4V17.17l9.93-9.93,2.83,2.83ZM18.17,8.66,15.34,5.83l1.42-1.41,2.82,2.82Z" /></svg>
-                                        </a>
-                                        @Html.ActionLink("Delete", "Delete", new { id = item.MALICHCHIEU, @class = "main__table-btn main__table-btn--delete open-modal" })
-                                    
+            <h2 style="color:white">Danh Sách Phim</h2>
+            <br />
+            <br />
+            <table class="main__table">
+                <thead>
+                    <tr>
+                        <th>
+                            Ngày chiếu
+                        </th>
+                        <th>
+                            Ngày kết thúc
+                        </th>
+                        <th>
+                            Tên Phim
+                        </th>
+                        <th>
+                            Loại phòng
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
 
-                                    </div>
-                                </td>
-                            </tr>
-                               
-                            }
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="main__table-text "> @Html.DisplayFor(modelItem => item.NGAYCHIEU)</div>
+                            </td>
 
-                        </tbody>
-                    </table>
-                </div>
+
+                            <td>
+                                <div class="main__table-text"> @Html.DisplayFor(modelItem => item.NGAYKETTHUC)</div>
+                            </td>
+                            <td>
+                                <div class="main__table-text"> @Html.DisplayFor(modelItem => item.MAPHIM)</div>
+                            </td>
+                            <td>
+                                <div class="main__table-text"> @Html.DisplayFor(modelItem => item.MAPHONG)</div>
+                            </td>
+
+                            <td>
+                                <div class="main__table-btns">
+
+                                    <a href="@Url.Action( "Edit", new { id=item.MALICHCHIEU })" class="main__table-btn main__table-btn--edit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22,7.24a1,1,0,0,0-.29-.71L17.47,2.29A1,1,0,0,0,16.76,2a1,1,0,0,0-.71.29L13.22,5.12h0L2.29,16.05a1,1,0,0,0-.29.71V21a1,1,0,0,0,1,1H7.24A1,1,0,0,0,8,21.71L18.87,10.78h0L21.71,8a1.19,1.19,0,0,0,.22-.33,1,1,0,0,0,0-.24.7.7,0,0,0,0-.14ZM6.83,20H4V17.17l9.93-9.93,2.83,2.83ZM18.17,8.66,15.34,5.83l1.42-1.41,2.82,2.82Z" /></svg>
+                                    </a>
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.MALICHCHIEU, @class = "main__table-btn main__table-btn--delete open-modal" })
+
+
+                                </div>
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="col-12">
+
+        <div class="paginator">
+            <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4">
+                @using (Html.BeginForm("Index", "LichChieu", FormMethod.Get))
+                {
+                    <p style="color:white">
+                        Kích thước trang: @Html.DropDownList("size", (List<SelectListItem>)ViewBag.size, new { @onchange = "this.form.submit();" })
+                    </p>
+                }
             </div>
-             
-            <div class="col-12">
-                <div class="paginator">
-                    <span class="paginator__pages">10 from 14 452</span>
 
-                    <ul class="paginator__paginator">
-                        <li>
-                            <a href="#">
-                                <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.75 5.36475L13.1992 5.36475" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5.771 10.1271L0.749878 5.36496L5.771 0.602051" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                            </a>
-                        </li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li>
-                            <a href="#">
-                                <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.1992 5.3645L0.75 5.3645" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M8.17822 0.602051L13.1993 5.36417L8.17822 10.1271" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+            <ul class="paginator__paginator">
+
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, size = ViewBag.currentSize }));
+
+            </ul>
+            <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 text-right" style="color:white">
+                Trang: @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
             </div>
-@*<style>
-    th, td {
-        color: white;
-    }
-</style>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NGAYCHIEU)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NGAYKETTHUC)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TB_PHIM.QUOCGIA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TB_PHONG.LOAIPHONG)
-        </th>
-        <th></th>
-    </tr>
+        </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NGAYCHIEU)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NGAYKETTHUC)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TB_PHIM.QUOCGIA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TB_PHONG.LOAIPHONG)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MALICHCHIEU }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MALICHCHIEU }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MALICHCHIEU })
-        </td>
-    </tr>
-}
 
-</table>*@
+
+
+        <!-- Kết thúc -->
+
+    </div>
+    @*<style>
+            th, td {
+                color: white;
+            }
+        </style>
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NGAYCHIEU)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NGAYKETTHUC)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TB_PHIM.QUOCGIA)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TB_PHONG.LOAIPHONG)
+                </th>
+                <th></th>
+            </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NGAYCHIEU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NGAYKETTHUC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TB_PHIM.QUOCGIA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TB_PHONG.LOAIPHONG)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.MALICHCHIEU }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.MALICHCHIEU }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.MALICHCHIEU })
+                </td>
+            </tr>
+        }
+
+        </table>*@
