@@ -18,7 +18,70 @@ namespace BaiTapLonWebFilm.Areas.Client.Controllers
         // GET: Client/TB_PHIM
         public ActionResult Index()
         {
-            return View(db.TB_PHIM.ToList());
+            List<TB_PHIM> tB_PHIM= new List<TB_PHIM>();
+            var query = (from movie in db.TB_PHIM
+                         join  lich in db.TB_LICHCHIEU on movie.MAPHIM equals lich.MAPHIM              
+                         group new {movie,lich} by new {movie.MAPHIM,movie.TENPHIM,movie.MOTAPHIM,movie.HINHANH,
+                         movie.QUOCGIA,movie.THOILUONG} into m
+                         select new
+                         {
+                             m.Key.MAPHIM,
+                             m.Key.TENPHIM,
+                             m.Key.MOTAPHIM,
+                             m.Key.HINHANH,
+                             m.Key.QUOCGIA,
+                             m.Key.THOILUONG,
+                         }).ToList();
+                         
+            foreach (var t in query)
+            {
+                tB_PHIM.Add(new TB_PHIM
+                {
+                    MAPHIM = t.MAPHIM,
+                    TENPHIM = t.TENPHIM,
+                    MOTAPHIM = t.MOTAPHIM,
+                    HINHANH = t.HINHANH,
+                    QUOCGIA = t.QUOCGIA,
+                    THOILUONG = t.THOILUONG,
+
+                });
+            }
+            return View(tB_PHIM);
+        }
+         public ActionResult Loc(String Category)
+        {
+            List<TB_PHIM> tB_PHIM= new List<TB_PHIM>();
+            var query = (from movie in db.TB_PHIM
+                         join  lich in db.TB_LICHCHIEU on movie.MAPHIM equals lich.MAPHIM      
+                         join category_phim in db.TB_Phim_LoaiPhim on movie.MAPHIM equals category_phim.MAPHIM
+                         join category in db.TB_LOAIPHIM on category_phim.MALOAIPHIM equals category.MALOAIPHIM
+                         where category.TENLOAIPHIM.Equals(Category)
+                         group new {movie,lich} by new {movie.MAPHIM,movie.TENPHIM,movie.MOTAPHIM,movie.HINHANH,
+                         movie.QUOCGIA,movie.THOILUONG} into m
+                         select new
+                         {
+                             m.Key.MAPHIM,
+                             m.Key.TENPHIM,
+                             m.Key.MOTAPHIM,
+                             m.Key.HINHANH,
+                             m.Key.QUOCGIA,
+                             m.Key.THOILUONG,
+                         }).ToList();
+                         
+            foreach (var t in query)
+            {
+                tB_PHIM.Add(new TB_PHIM
+                {
+                    MAPHIM = t.MAPHIM,
+                    TENPHIM = t.TENPHIM,
+                    MOTAPHIM = t.MOTAPHIM,
+                    HINHANH = t.HINHANH,
+                    QUOCGIA = t.QUOCGIA,
+                    THOILUONG = t.THOILUONG,
+
+                });
+            }
+            return View(tB_PHIM);
         }
 
         // GET: Client/TB_PHIM/Details/5
