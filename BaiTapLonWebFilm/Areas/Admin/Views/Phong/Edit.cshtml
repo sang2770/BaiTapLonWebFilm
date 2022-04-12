@@ -1,4 +1,4 @@
-﻿@model BaiTapLonWebFilm.Models.TB_PHONG
+@model BaiTapLonWebFilm.Models.TB_PHONG
 
 
 @{
@@ -76,22 +76,28 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form__group">
+                                <label class="text-white">Mã phòng</label>
+                                <input readonly type="text" class="form__input" name="MAPHONG" value="@Model.MAPHONG">
+                                @Html.ValidationMessageFor(model => model.MAPHONG, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form__group">
                                 <label class="text-white">Số phòng</label>
                                 <input type="text" class="form__input" name="SOPHONG" value="@Model.SOPHONG">
                                 @Html.ValidationMessageFor(model => model.SOPHONG, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-3">
                             <div class="form__group">
                                 <label class="text-white">Loại phòng</label>
-
-                                <textarea id="text" name="LOAIPHONG" class="form__textarea">@Model.LOAIPHONG</textarea>
-                                @Html.ValidationMessageFor(model => model.LOAIPHONG, "", new { @class = "text-danger" })
+                                <select name="LOAIPHONG" class="js-example-basic-single" id="quality">
+                                    <option value="THUONG">THUONG</option>
+                                    <option value="VIP">VIP</option>
+                                </select>
 
                             </div>
                         </div>
-                        
+
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-12">
@@ -181,36 +187,8 @@
                                     </div>
 
                                 </div>
-                                <div class="col-12 mt-4 mb-2 text-primary" style="font-size:30px">
-                                    Chỉnh sửa thông tin ghế
-                                </div>
-                                <div class="col-6">
-                                    <div class="form__group">
-                                        <label class="text-white">Số ghế</label>
-                                        <input type="text" class="form__input" name="SOPHONG" value="@Model.SOPHONG">
-                                        @Html.ValidationMessageFor(model => model.SOPHONG, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form__group">
-                                        <label class="text-white">Loại ghế</label>
-                                        <input type="text" class="form__input" name="SOPHONG" value="@Model.SOPHONG">
-                                        @Html.ValidationMessageFor(model => model.SOPHONG, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
 
-                                <div class="col-12">
 
-                                <div class="col-12 px-lg-4">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="row align-items-center">
-                                                <Button class="form__btn mr-3">Thêm ghế</Button>
-                                                <button class="form__btn">Xóa ghế</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-12 mt-3 ml-2">
                                     @Html.ActionLink("Back to List", "Index")
 
@@ -221,11 +199,54 @@
                     </div>
                 </div>
 
-            <!-- end form -->
-        </div>
+                <!-- end form -->
+
+            }
+            @using (Html.BeginForm("EditGhe", "Phong", new { id = Model.MAPHONG }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="col-12 mt-4 mb-2 text-primary" style="font-size:30px">
+                    Chỉnh sửa thông tin ghế
+                </div>
+                <div class="col-3">
+                    <div class="form__group">
+                        <label class="text-white">Số ghế</label>
+                        <select name="SOGHE" class="js-example-basic-multiple" id="genre">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form__group">
+                        <label class="text-white">Loại ghế</label>
+                        @Html.DropDownList("TENLOAIGHE", null, htmlAttributes: new { @class = "form__input" })
+                    </div>
+                </div>
+
+                <div class="col-12">
+
+                    <div class="col-12 px-lg-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="row align-items-center">
+                                    <Button class="form__btn mr-3">Thêm ghế</Button>
+                                    @*<button class="form__btn">Xóa ghế</button>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             }
 
-    </div>
-
-    <!-- end main content -->
-</div>
+            <!-- end main content -->
+        </div>

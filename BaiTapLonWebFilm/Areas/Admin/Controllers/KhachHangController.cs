@@ -51,10 +51,11 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MATHEKHACHHANG,TENKHACHHANG,CMTND,NGAYSINH,NGAYDANGKY,MUCDOTHANTHIET")] TB_THEKHACHHANG tB_THEKHACHHANG)
+        public ActionResult Create([Bind(Include = "TENKHACHHANG,CMTND,NGAYSINH,NGAYDANGKY")] TB_THEKHACHHANG tB_THEKHACHHANG)
         {
             if (ModelState.IsValid)
             {
+                tB_THEKHACHHANG.MUCDOTHANTHIET = "Đồng";
                 db.TB_THEKHACHHANG.Add(tB_THEKHACHHANG);
                 db.SaveChanges();
                 return RedirectToAction("Index");

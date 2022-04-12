@@ -20,7 +20,7 @@
         <!-- end main title -->
         <!-- form -->
         <div class="col-12">
-            @using (Html.BeginForm("Edit", "Khách Hàng", new {id=Model.MATHEKHACHHANG}))
+            @using (Html.BeginForm("Edit", "KhachHang"))
             {
                 @Html.AntiForgeryToken()
 
@@ -31,8 +31,13 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form__group">
+                                        <label class="Label text-white">Mã khách hàng:</label>
+                                        <input type="text" class="form__input" name="MATHEKHACHHANG" value="@Model.MATHEKHACHHANG">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form__group">
                                         <label class="Label text-white">Họ và tên:</label>
-
                                         <input type="text" class="form__input" name="TENKHACHHANG" value="@Model.TENKHACHHANG">
                                     </div>
                                 </div>
@@ -55,6 +60,17 @@
                                         <label class="Label text-white" for="NgaySinh">Ngày sinh:</label>
 
                                         <input type="date" id="NgaySinh" name="NGAYSINH" class="form__input" value="@NgaySinh.ToString("yyyy-MM-dd")">
+
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form__group">
+                                        <label class="Label text-white" for="NgaySinh">Mức độ thân thiết:</label>
+                                        <select name="MUCDOTHANTHIET" class="form__input">
+                                            <option value="Đồng">Đồng</option>
+                                            <option value="Bạc">Bạc </option>
+                                            <option value="Vàng">Vàng</option>
+                                        </select>
 
                                     </div>
                                 </div>

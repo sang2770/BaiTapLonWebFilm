@@ -74,10 +74,11 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
                     {
                         savedFileName = Server.MapPath("~/Image/nhanvien/" + "nhanvien_" + tB_NHANVIEN.TENNHANVIEN + "_" + tB_NHANVIEN.SDT + ".jpg"); //get the server-side path for store image 
                         ANH.SaveAs(savedFileName); //*save the image to server-side 
-                    }
-                var index = savedFileName.IndexOf(@"\Image\");
+                    var index = savedFileName.IndexOf(@"\Image\");
+
+                    tB_NHANVIEN.ANH = savedFileName.Substring(index, savedFileName.Length - index); 
+                }
                 
-                tB_NHANVIEN.ANH = savedFileName.Substring(index, savedFileName.Length - index); ;
                 db.TB_NHANVIEN.Add(tB_NHANVIEN);
                 db.SaveChanges();
                 TB_NHANVIEN nv = db.TB_NHANVIEN.Where(n => n.CMTND == tB_NHANVIEN.CMTND).FirstOrDefault();
@@ -128,10 +129,11 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
                     {
                         savedFileName = Server.MapPath("~/Image/nhanvien/" + "nhanvien_" + tB_NHANVIEN.TENNHANVIEN + "_" + tB_NHANVIEN.SDT + ".jpg"); //get the server-side path for store image 
                         ANH.SaveAs(savedFileName); //*save the image to server-side 
-                    }
-                    var index = savedFileName.IndexOf(@"\Image\");
+                        var index = savedFileName.IndexOf(@"\Image\");
 
-                    nhanvien.ANH = savedFileName.Substring(index, savedFileName.Length - index); ;
+                        nhanvien.ANH = savedFileName.Substring(index, savedFileName.Length - index); 
+                    }
+                    
                     nhanvien.TENNHANVIEN = tB_NHANVIEN.TENNHANVIEN;
                     nhanvien.NGAYSINH = tB_NHANVIEN.NGAYSINH;
                     nhanvien.CMTND = tB_NHANVIEN.CMTND;
