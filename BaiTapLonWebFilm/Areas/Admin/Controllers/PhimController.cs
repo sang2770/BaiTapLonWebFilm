@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using BaiTapLonWebFilm.Models;
 using PagedList;
 
@@ -86,7 +87,7 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MAPHIM,QUOCGIA,HINHANH,MOTAPHIM,THOILUONG,TENPHIM")] TB_PHIM tB_PHIM, HttpPostedFileBase ANH)
+        public ActionResult Create([Bind(Include = "MAPHIM,QUOCGIA,HINHANH,MOTAPHIM,THOILUONG,TENPHIM")] TB_PHIM tB_PHIM, HttpPostedFileBase ANH,FormCollection f)
         {
             if (ModelState.IsValid)
             {
@@ -99,6 +100,17 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
                 var index = savedFileName.IndexOf(@"\Image\");
                 tB_PHIM.HINHANH = tB_PHIM.TENPHIM + ".jpg"; 
                 db.TB_PHIM.Add(tB_PHIM);
+                var maloai = Request.Form["TENLOAIPHIM"];
+              
+                TB_Phim_LoaiPhim tB_Phim_LoaiPhim = new TB_Phim_LoaiPhim();
+                
+                {
+                    tB_Phim_LoaiPhim.MAPHIM = tB_PHIM.MAPHIM;
+                    tB_Phim_LoaiPhim.MALOAIPHIM = int.Parse(maloai);
+                    db.TB_Phim_LoaiPhim.Add(tB_Phim_LoaiPhim);
+                }
+               
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -129,11 +141,26 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MAPHIM,QUOCGIA,HINHANH,MOTAPHIM,THOILUONG,TENPHIM")] TB_PHIM tB_PHIM)
+        public ActionResult Edit([Bind(Include = "MAPHIM,QUOCGIA,HINHANH,MOTAPHIM,THOILUONG,TENPHIM")] TB_PHIM tB_PHIM, int id, HttpPostedFileBase ANH)
         {
-            if (ModelState.IsValid)
+            TB_PHIM movie = db.TB_PHIM.Where(n => n.MAPHIM == id).FirstOrDefault();
+            if (movie != null)
             {
-                db.Entry(tB_PHIM).State = EntityState.Modified;
+                string savedFileName = "";  //string for saving the image server-side path          
+                if (ANH != null)
+                {
+                    savedFileName = Server.MapPath("~/Image/movies" + tB_PHIM.TENPHIM + ".jpg"); //get the server-side path for store image 
+                    ANH.SaveAs(savedFileName); //*save the image to server-side 
+                }
+                var index = savedFileName.IndexOf(@"\Image\");
+
+                movie.HINHANH = tB_PHIM.TENPHIM + ".jpg"; ;
+                movie.MAPHIM = id;
+                movie.QUOCGIA = tB_PHIM.QUOCGIA;
+                movie.MOTAPHIM = tB_PHIM.MOTAPHIM;
+                movie.THOILUONG= tB_PHIM.THOILUONG;
+                movie.TENPHIM = tB_PHIM.TENPHIM;
+              
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
