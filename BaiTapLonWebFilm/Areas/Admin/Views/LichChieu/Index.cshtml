@@ -7,126 +7,119 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminTemplate.cshtml";
 }
 <div class="col-12">
+    <div class="main__table-wrap">
+        <br />
+        <br />
 
+        <h2 style="color:white">Danh Sách Lịch chiếu phim</h2>
+        <br />
+        <br />
+        <table class="main__table">
+            <thead>
+                <tr>
+                    <th>
+                        Ngày chiếu
+                    </th>
+                    <th>
+                        Ngày kết thúc
+                    </th>
+                    <th>
+                        Mã Phim
+                    </th>
+                    <th>
+                        Mã Phòng
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
 
-    <div class="col-12">
-        <div class="main__table-wrap">
-            <br />
-            <br />
-
-<<<<<<< HEAD
-            <h2 style="color:white">Danh Sách Phim</h2>
-=======
-            <h2 style="color:white">Danh Sách Lịch chiếu phim</h2>
->>>>>>> 3eb2a8423f366112d1f169832744ea846a5ef9d6
-            <br />
-            <br />
-            <table class="main__table">
-                <thead>
-                    <tr>
-                        <th>
-                            Ngày chiếu
-                        </th>
-                        <th>
-                            Ngày kết thúc
-                        </th>
-                        <th>
-                            Mã Phim
-                        </th>
-                        <th>
-                            Mã Phòng
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                <div class="main__table-text "> @Html.DisplayFor(modelItem => item.NGAYCHIEU)</div>
-                            </td>
-
-                            <td>
-                                <div class="main__table-text"> @Html.DisplayFor(modelItem => item.NGAYKETTHUC)</div>
-                            </td>
-                            <td>
-                                <div class="main__table-text"> @Html.DisplayFor(modelItem => item.MAPHIM)</div>
-                            </td>
-                            <td>
-                                <div class="main__table-text"> @Html.DisplayFor(modelItem => item.MAPHONG)</div>
-                            </td>
-
-                            <td>
-                                <div class="main__table-btns">
-
-                                    <a href="@Url.Action( "Edit", new { id=item.MALICHCHIEU })" class="main__table-btn main__table-btn--edit">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22,7.24a1,1,0,0,0-.29-.71L17.47,2.29A1,1,0,0,0,16.76,2a1,1,0,0,0-.71.29L13.22,5.12h0L2.29,16.05a1,1,0,0,0-.29.71V21a1,1,0,0,0,1,1H7.24A1,1,0,0,0,8,21.71L18.87,10.78h0L21.71,8a1.19,1.19,0,0,0,.22-.33,1,1,0,0,0,0-.24.7.7,0,0,0,0-.14ZM6.83,20H4V17.17l9.93-9.93,2.83,2.83ZM18.17,8.66,15.34,5.83l1.42-1.41,2.82,2.82Z" /></svg>
-                                    </a>
-                                    <span href="#modal-delete" style="cursor:pointer" onclick="ConfirmDelete(@item.MALICHCHIEU)" id="DeleteBtn" class="main__table-btn main__table-btn--delete open-modal">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z" /></svg>
-                                    </span>
-                                </div>
-                            </td>
-                        </tr>
-
-                    }
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-
-    <div class="col-12">
-
-        <div class="paginator">
-            <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4">
-                @using (Html.BeginForm("Index", "LichChieu", FormMethod.Get))
+            <tbody>
+                @foreach (var item in Model)
                 {
-                    <p style="color:white">
-                        Kích thước trang: @Html.DropDownList("size", (List<SelectListItem>)ViewBag.size, new { @onchange = "this.form.submit();" })
-                    </p>
+                    <tr>
+                        <td>
+                            <div class="main__table-text "> @Html.DisplayFor(modelItem => item.NGAYCHIEU)</div>
+                        </td>
+
+                        <td>
+                            <div class="main__table-text"> @Html.DisplayFor(modelItem => item.NGAYKETTHUC)</div>
+                        </td>
+                        <td>
+                            <div class="main__table-text"> @Html.DisplayFor(modelItem => item.MAPHIM)</div>
+                        </td>
+                        <td>
+                            <div class="main__table-text"> @Html.DisplayFor(modelItem => item.MAPHONG)</div>
+                        </td>
+
+                        <td>
+                            <div class="main__table-btns">
+
+                                <a href="@Url.Action( "Edit", new { id=item.MALICHCHIEU })" class="main__table-btn main__table-btn--edit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22,7.24a1,1,0,0,0-.29-.71L17.47,2.29A1,1,0,0,0,16.76,2a1,1,0,0,0-.71.29L13.22,5.12h0L2.29,16.05a1,1,0,0,0-.29.71V21a1,1,0,0,0,1,1H7.24A1,1,0,0,0,8,21.71L18.87,10.78h0L21.71,8a1.19,1.19,0,0,0,.22-.33,1,1,0,0,0,0-.24.7.7,0,0,0,0-.14ZM6.83,20H4V17.17l9.93-9.93,2.83,2.83ZM18.17,8.66,15.34,5.83l1.42-1.41,2.82,2.82Z" /></svg>
+                                </a>
+                                <span href="#modal-delete" style="cursor:pointer" onclick="ConfirmDelete(@item.MALICHCHIEU)" id="DeleteBtn" class="main__table-btn main__table-btn--delete open-modal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z" /></svg>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
                 }
-            </div>
 
-            <ul class="paginator__paginator">
-
-                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, size = ViewBag.currentSize }));
-
-            </ul>
-            <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 text-right" style="color:white">
-                Trang: @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
-            </div>
-
-        </div>
-        <!-- Kết thúc -->
-    <!-- modal delete -->
-    <div id="modal-delete" class="zoom-anim-dialog mfp-hide modal modal1 ">
-        <h6 class="modal__title">User delete</h6>
-
-        <p class="modal__text">Bạn có chắc chẵn muốn xóa lịch chiếu này không?</p>
-
-        <div class="modal__btns">
-            <button class="modal__btn modal__btn--apply" type="button">Delete</button>
-            <button class="modal__btn modal__btn--dismiss" data-dismiss="modal" type="button">Dismiss</button>
-        </div>
+            </tbody>
+        </table>
     </div>
-    <form action="/Admin/LichChieu/Delete" id="DeleteForm" method="post">
-        @Html.AntiForgeryToken()
-    </form>
-    @section scripts{
-        <script>
-            function ConfirmDelete(id) {
-                console.log(document.getElementById("DeleteForm"));
-                document.getElementById("DeleteForm").action = "/Admin/LichChieu/Delete?id=" + id;
-                $("#modal-delete").modal('backdrop');
+</div>
 
+
+<div class="col-12">
+
+    <div class="paginator">
+        <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4">
+            @using (Html.BeginForm("Index", "LichChieu", FormMethod.Get))
+            {
+                <p style="color:white">
+                    Kích thước trang: @Html.DropDownList("size", (List<SelectListItem>)ViewBag.size, new { @onchange = "this.form.submit();" })
+                </p>
             }
-            document.getElementsByClassName("modal__btn--apply")[0].addEventListener("click", () => {
-                document.getElementById("DeleteForm").submit();
-            })
-        </script>
-    }
->>>>>>> 3eb2a8423f366112d1f169832744ea846a5ef9d6
+        </div>
+
+        <ul class="paginator__paginator">
+
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, size = ViewBag.currentSize }));
+
+        </ul>
+        <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 text-right" style="color:white">
+            Trang: @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+        </div>
+
+    </div>
+    <!-- Kết thúc -->
+</div>
+<!-- modal delete -->
+<div id="modal-delete" class="zoom-anim-dialog mfp-hide modal modal1 ">
+    <h6 class="modal__title">User delete</h6>
+
+    <p class="modal__text">Bạn có chắc chẵn muốn xóa lịch chiếu này không?</p>
+
+    <div class="modal__btns">
+        <button class="modal__btn modal__btn--apply" type="button">Delete</button>
+        <button class="modal__btn modal__btn--dismiss" data-dismiss="modal" type="button">Dismiss</button>
+    </div>
+</div>
+<form action="/Admin/LichChieu/Delete" id="DeleteForm" method="post">
+    @Html.AntiForgeryToken()
+</form>
+@section scripts{
+    <script>
+        function ConfirmDelete(id) {
+            console.log(document.getElementById("DeleteForm"));
+            document.getElementById("DeleteForm").action = "/Admin/LichChieu/Delete?id=" + id;
+            $("#modal-delete").modal('backdrop');
+
+        }
+        document.getElementsByClassName("modal__btn--apply")[0].addEventListener("click", () => {
+            document.getElementById("DeleteForm").submit();
+        })
+    </script>
+}

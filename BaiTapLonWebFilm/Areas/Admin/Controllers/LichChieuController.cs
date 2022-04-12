@@ -79,7 +79,7 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.MAPHIM = new SelectList(db.TB_PHIM, "MAPHIM", "TENPHIM");
-            ViewBag.MAPHONG = new SelectList(db.TB_PHONG, "MAPHONG", "LOAIPHONG");
+            ViewBag.MAPHONG = new SelectList(db.TB_PHONG, "MAPHONG", "SOPHONG");
             return View();
         }
 
@@ -98,7 +98,7 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
             }
 
             ViewBag.MAPHIM = new SelectList(db.TB_PHIM, "MAPHIM", "QUOCGIA", tB_LICHCHIEU.MAPHIM);
-            ViewBag.MAPHONG = new SelectList(db.TB_PHONG, "MAPHONG", "LOAIPHONG", tB_LICHCHIEU.MAPHONG);
+            ViewBag.MAPHONG = new SelectList(db.TB_PHONG, "MAPHONG", "SOPHONG", tB_LICHCHIEU.MAPHONG);
             return View(tB_LICHCHIEU);
         }
 
