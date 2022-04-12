@@ -345,7 +345,6 @@
     <Content Include="Areas\Admin\Views\Phong\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Phong\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Phong\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Phong\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Phong\Index.cshtml" />
     <Content Include="Areas\Admin\Views\KhachHang\Create.cshtml" />
     <Content Include="Areas\Admin\Views\KhachHang\Delete.cshtml" />
@@ -389,6 +388,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Areas\Client\Views\TB_PHIM\Loc.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

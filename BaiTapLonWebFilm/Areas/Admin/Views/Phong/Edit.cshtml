@@ -1,14 +1,13 @@
-@model BaiTapLonWebFilm.Models.TB_PHONG
+﻿@model BaiTapLonWebFilm.Models.TB_PHONG
 
 
 @{
-    ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_AdminTemplate.cshtml";
 }
 <style>
     .Char_Container {
-        min-height:0;
-        color:#fff;
+        min-height: 0;
+        color: #fff;
     }
 
     .Title_Char {
@@ -78,12 +77,10 @@
                             <div class="form__group">
                                 <label class="text-white">Mã phòng</label>
                                 <input readonly type="text" class="form__input" name="MAPHONG" value="@Model.MAPHONG">
-                                @Html.ValidationMessageFor(model => model.MAPHONG, "", new { @class = "text-danger" })
                             </div>
                             <div class="form__group">
                                 <label class="text-white">Số phòng</label>
                                 <input type="text" class="form__input" name="SOPHONG" value="@Model.SOPHONG">
-                                @Html.ValidationMessageFor(model => model.SOPHONG, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
@@ -97,98 +94,100 @@
 
                             </div>
                         </div>
+                        <div class="col-12">
+                            @*<div class="Char_Container mt-5">
 
+                <div class="Title_Char mt-3">
+                    <div class="Title_Group">
+                        <div class="Group_Retangle"></div>
+                        <div class="Group_Group_Title">Ghế trống</div>
+                    </div>
+                    <div class="Title_Group">
+                        <div class="Group_Retangle" style="background-color: red"></div>
+                        <div class="Group_Group_Title">Ghế đã đặt</div>
+                    </div>
+                </div>
+                <table class="Content_Char">
+                    <thead>
+                    <th></th>
+                    <th></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>A</td>
+                            <td class="LineChar">
+                                <p class="Number">1</p>
+                                <p class="Number">2</p>
+                                <p class="Number">3</p>
+                                <p class="Number">4</p>
+                                <p class="Number">5</p>
+                                <p class="Number">6</p>
+                                <p class="Number">7</p>
+                                <p class="Number">8</p>
+                                <p class="Number">9</p>
+                                <p class="Number">10</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td class="LineChar">
+                                <p class="Number red">1</p>
+                                <p class="Number">2</p>
+                                <p class="Number">3</p>
+                                <p class="Number">4</p>
+                                <p class="Number">5</p>
+                                <p class="Number">6</p>
+                                <p class="Number">7</p>
+                                <p class="Number">8</p>
+                                <p class="Number">9</p>
+                                <p class="Number">10</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td class="LineChar">
+                                <p class="Number">1</p>
+                                <p class="Number">2</p>
+                                <p class="Number">3</p>
+                                <p class="Number">4</p>
+                                <p class="Number">5</p>
+                                <p class="Number">6</p>
+                                <p class="Number">7</p>
+                                <p class="Number">8</p>
+                                <p class="Number">9</p>
+                                <p class="Number">10</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td class="LineChar">
+                                <p class="Number">1</p>
+                                <p class="Number">2</p>
+                                <p class="Number">3</p>
+                                <p class="Number">4</p>
+                                <p class="Number">5</p>
+                                <p class="Number">6</p>
+                                <p class="Number">7</p>
+                                <p class="Number">8</p>
+                                <p class="Number">9</p>
+                                <p class="Number">10</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>*@
+
+                        </div>
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-12">
+                                <div class="col-3">
                                     <input type="submit" class="form__btn" value="Cập nhật" />
                                 </div>
-                                <div class="col-12">
-                                    <div class="Char_Container mt-5">
 
-                                        <div class="Title_Char mt-3">
-                                            <div class="Title_Group">
-                                                <div class="Group_Retangle"></div>
-                                                <div class="Group_Group_Title">Ghế trống</div>
-                                            </div>
-                                            <div class="Title_Group">
-                                                <div class="Group_Retangle" style="background-color: red"></div>
-                                                <div class="Group_Group_Title">Ghế đã đặt</div>
-                                            </div>
-                                        </div>
-                                        <table class="Content_Char">
-                                            <thead>
-                                            <th></th>
-                                            <th></th>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>A</td>
-                                                    <td class="LineChar">
-                                                        <p class="Number">1</p>
-                                                        <p class="Number">2</p>
-                                                        <p class="Number">3</p>
-                                                        <p class="Number">4</p>
-                                                        <p class="Number">5</p>
-                                                        <p class="Number">6</p>
-                                                        <p class="Number">7</p>
-                                                        <p class="Number">8</p>
-                                                        <p class="Number">9</p>
-                                                        <p class="Number">10</p>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>B</td>
-                                                    <td class="LineChar">
-                                                        <p class="Number red">1</p>
-                                                        <p class="Number">2</p>
-                                                        <p class="Number">3</p>
-                                                        <p class="Number">4</p>
-                                                        <p class="Number">5</p>
-                                                        <p class="Number">6</p>
-                                                        <p class="Number">7</p>
-                                                        <p class="Number">8</p>
-                                                        <p class="Number">9</p>
-                                                        <p class="Number">10</p>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>C</td>
-                                                    <td class="LineChar">
-                                                        <p class="Number">1</p>
-                                                        <p class="Number">2</p>
-                                                        <p class="Number">3</p>
-                                                        <p class="Number">4</p>
-                                                        <p class="Number">5</p>
-                                                        <p class="Number">6</p>
-                                                        <p class="Number">7</p>
-                                                        <p class="Number">8</p>
-                                                        <p class="Number">9</p>
-                                                        <p class="Number">10</p>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>D</td>
-                                                    <td class="LineChar">
-                                                        <p class="Number">1</p>
-                                                        <p class="Number">2</p>
-                                                        <p class="Number">3</p>
-                                                        <p class="Number">4</p>
-                                                        <p class="Number">5</p>
-                                                        <p class="Number">6</p>
-                                                        <p class="Number">7</p>
-                                                        <p class="Number">8</p>
-                                                        <p class="Number">9</p>
-                                                        <p class="Number">10</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
+                                <div class="col-2">
+                                    <a href="@Url.Action("ResetGhe", "Phong", new {id=@Model.MAPHONG})" class="form__btn">Reset Ghế</a>
                                 </div>
-
-
+                                <div class="col-12 text-danger p-3">@TempData["Mess"]</div>
                                 <div class="col-12 mt-3 ml-2">
                                     @Html.ActionLink("Back to List", "Index")
 

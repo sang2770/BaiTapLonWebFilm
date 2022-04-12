@@ -114,7 +114,17 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
             }
             return View(tB_PHONG);
         }
-
+        public ActionResult ResetGhe(int id)
+        {
+            var ghe = db.TB_GHE_TRONG_PHONG.Where(n => n.MAPHONG == id);
+            foreach (TB_GHE_TRONG_PHONG item in ghe)
+            {
+                item.TRANGTHAI = "Còn trống";
+            }
+            db.SaveChanges();
+            TempData["Mess"]= "Reset thành công";
+            return RedirectToAction("Edit", new { id = id });
+        }
 
         // POST: Admin/Phong/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
