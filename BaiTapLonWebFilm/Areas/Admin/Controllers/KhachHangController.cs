@@ -16,13 +16,22 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
         private DBFilmEntities1 db = new DBFilmEntities1();
 
         // GET: Admin/KhachHang
-        public ActionResult Index(int ?page)
+        public ActionResult Index(int ?page, string TenKhachHang = "")
         {
             int pageSize = 10;
             int pagenum = (page ?? 1);
-            List<TB_THEKHACHHANG> list = db.TB_THEKHACHHANG.OrderBy(n => n.MATHEKHACHHANG).ToList();
+            List<TB_THEKHACHHANG> list = new List<TB_THEKHACHHANG>() ;
+            if (TenKhachHang == "")
+            {
+                list = db.TB_THEKHACHHANG.OrderBy(n => n.MATHEKHACHHANG).ToList();
+            }
+            else
+            {
+                list = db.TB_THEKHACHHANG.Where(n => n.TENKHACHHANG.Contains(TenKhachHang)).OrderBy(n => n.MATHEKHACHHANG).ToList();
+            }
+            
             ViewBag.Size = list.Count();
-            return View(db.TB_THEKHACHHANG.ToList().ToPagedList(pagenum, pageSize));
+            return View(list.ToPagedList(pagenum, pageSize));
         }
 
         // GET: Admin/KhachHang/Details/5
