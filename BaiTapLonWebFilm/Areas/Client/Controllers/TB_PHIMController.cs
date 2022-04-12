@@ -18,9 +18,11 @@ namespace BaiTapLonWebFilm.Areas.Client.Controllers
         // GET: Client/TB_PHIM
         public ActionResult Index()
         {
+            DateTime now=DateTime.Now;
             List<TB_PHIM> tB_PHIM= new List<TB_PHIM>();
             var query = (from movie in db.TB_PHIM
-                         join  lich in db.TB_LICHCHIEU on movie.MAPHIM equals lich.MAPHIM              
+                         join  lich in db.TB_LICHCHIEU on movie.MAPHIM equals lich.MAPHIM
+                         where lich.NGAYKETTHUC>now.Date
                          group new {movie,lich} by new {movie.MAPHIM,movie.TENPHIM,movie.MOTAPHIM,movie.HINHANH,
                          movie.QUOCGIA,movie.THOILUONG} into m
                          select new
@@ -50,12 +52,13 @@ namespace BaiTapLonWebFilm.Areas.Client.Controllers
         }
          public ActionResult Loc(String Category)
         {
+            DateTime now = DateTime.Now;
             List<TB_PHIM> tB_PHIM= new List<TB_PHIM>();
             var query = (from movie in db.TB_PHIM
                          join  lich in db.TB_LICHCHIEU on movie.MAPHIM equals lich.MAPHIM      
                          join category_phim in db.TB_Phim_LoaiPhim on movie.MAPHIM equals category_phim.MAPHIM
                          join category in db.TB_LOAIPHIM on category_phim.MALOAIPHIM equals category.MALOAIPHIM
-                         where category.TENLOAIPHIM.Equals(Category)
+                         where category.TENLOAIPHIM.Equals(Category) && lich.NGAYKETTHUC > now.Date
                          group new {movie,lich} by new {movie.MAPHIM,movie.TENPHIM,movie.MOTAPHIM,movie.HINHANH,
                          movie.QUOCGIA,movie.THOILUONG} into m
                          select new
@@ -111,7 +114,7 @@ namespace BaiTapLonWebFilm.Areas.Client.Controllers
         {
             string searchkey = f["txtsearch"].ToString();
 
-            TB_PHIM tB_PHIM = db.TB_PHIM.Single(n => n.TENPHIM==searchkey);
+            TB_PHIM tB_PHIM = db.TB_PHIM.Single(n => n.TENPHIM.Contains(searchkey));
 
             if (tB_PHIM == null)
             {

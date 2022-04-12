@@ -39,7 +39,7 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
         // GET: Admin/LichChieu/Create
         public ActionResult Create()
         {
-            ViewBag.MAPHIM = new SelectList(db.TB_PHIM, "MAPHIM", "QUOCGIA");
+            ViewBag.MAPHIM = new SelectList(db.TB_PHIM, "MAPHIM", "TENPHIM");
             ViewBag.MAPHONG = new SelectList(db.TB_PHONG, "MAPHONG", "LOAIPHONG");
             return View();
         }
@@ -75,8 +75,8 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.MAPHIM = new SelectList(db.TB_PHIM, "MAPHIM", "QUOCGIA", tB_LICHCHIEU.MAPHIM);
-            ViewBag.MAPHONG = new SelectList(db.TB_PHONG, "MAPHONG", "LOAIPHONG", tB_LICHCHIEU.MAPHONG);
+            ViewBag.MAPHIM = new SelectList(db.TB_PHIM, "MAPHIM", "TENPHIM");
+            ViewBag.MAPHONG = new SelectList(db.TB_PHONG, "MAPHONG", "LOAIPHONG");
             return View(tB_LICHCHIEU);
         }
 
