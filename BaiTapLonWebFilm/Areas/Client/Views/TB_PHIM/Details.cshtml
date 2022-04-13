@@ -190,7 +190,7 @@
         <div class="BookTicket">
             <div class="KH">
                 <div class="form-group" style="width:200px">
-                    <label for="GiaVe">Giá vé</label>
+                    <label for="GiaVe">Giá vé (VND)</label>
                     <input type="text" class="form-control" id="GiaVe" placeholder="Nhập Giá vé">
                 </div>
             </div>
@@ -228,6 +228,10 @@
                     <ul class="list-inline" id="GheDaDat">
                     </ul>
                 </div>
+                <div>
+                    <h2>Tổng tiền</h2>
+                    <p id="TONGTIENBOOK"></p>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -255,7 +259,7 @@
         let ThoiGianChieu = "";
         let TenKhachHang = "";
         let GheDaDat = "";
-
+        let TongMoney = 0;
         //
         $("#SelectNgay").on("input", function () {
             let result = "";
@@ -291,9 +295,11 @@
             GiaVe = $(this).val();
             let total = "";
             if (ThanThiet) {
-                total = `Tổng tiền: <span id="TotalMoney">${SoVe * GiaVe * 80 / 100} (Đã giảm)</span>`;
+                TongMoney = SoVe * GiaVe * 80 / 100;
+                total = `Tổng tiền: <span id="TotalMoney">${TongMoney} (Đã giảm)</span>`;
             } else {
-                total = `Tổng tiền: <span id="TotalMoney">${SoVe * GiaVe}</span>`;
+                TongMoney = SoVe * GiaVe;
+                total = `Tổng tiền: <span id="TotalMoney">${TongMoney}</span>`;
             }
             $("#TongTien").html(total);
         });
@@ -417,16 +423,19 @@
             $("#ThoiGianChieu").html(ThoiGianChieu);
             $('#GheDaDat').html(GheDaDat);
             $('#SoVeDaDat').html(SoVe);
+
+
+            $('#TONGTIENBOOK').html(TongMoney)
         })
         $("#BtnConfirm").click(function (e) {
             e.preventDefault();
-            let date = new Date();
             let object = {
-                GIAVE: $('#GiaVe').val,
+                GIAVE: TongMoney,
                 MATAIKHOAN: @Session["TK"],
                 MALICHCHIEU: MaLichChieu,
                 MATHEKHACHHANG: $("#MaKhachHang").val(),
             }
+            console.log(object)
             //GheDat.forEach((item, index) => {
             //    $.ajax({
             //        url: url + "/Check/" + item.MaGhe + "/" + MaPhong,
