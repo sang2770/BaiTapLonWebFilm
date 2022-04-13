@@ -97,7 +97,6 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
                     savedFileName = Server.MapPath("~/Image/movies/" + tB_PHIM.TENPHIM + ".jpg"); //get the server-side path for store image 
                     ANH.SaveAs(savedFileName); //*save the image to server-side 
                 }
-                var index = savedFileName.IndexOf(@"\Image\");
                 tB_PHIM.HINHANH = tB_PHIM.TENPHIM + ".jpg"; 
                 db.TB_PHIM.Add(tB_PHIM);
                 var maloai = Request.Form["TENLOAIPHIM"];
@@ -149,7 +148,7 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
                 string savedFileName = "";  //string for saving the image server-side path          
                 if (ANH != null)
                 {
-                    savedFileName = Server.MapPath("~/Image/movies" + tB_PHIM.TENPHIM + ".jpg"); //get the server-side path for store image 
+                    savedFileName = Server.MapPath("~/Image/movies/" + tB_PHIM.TENPHIM + ".jpg"); //get the server-side path for store image 
                     ANH.SaveAs(savedFileName); //*save the image to server-side 
                 }
                 var index = savedFileName.IndexOf(@"\Image\");

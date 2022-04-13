@@ -18,7 +18,7 @@ div class="container-fluid">
         {
             @Html.AntiForgeryToken()
         <div class="row">
-            <hr />
+            <hr /> 
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.MAPHIM)
             <div class="col-12 col-md-5 form__cover">
@@ -26,9 +26,8 @@ div class="container-fluid">
                     <div class="col-12 col-sm-6 col-md-12">
                         <div class="form__img">
                             <label for="form__img-upload">Upload cover (190 x 270)</label>
-                            <input id="form__img-upload" name="form__img-upload" type="file" accept=".png, .jpg, .jpeg">
-                            
-                            <img src="@Url.Content("~/Image/movies/" + Html.DisplayFor(model => model.HINHANH))" alt="Alternate Text" style="width:100%" />
+                            <input id="form__img-upload" name="ANH" type="file" accept=".png, .jpg, .jpeg">
+                            <img id="form__img" src="@Url.Content("~/Image/movies/"+Model.HINHANH)" alt=" ">
                         </div>
                     </div>
                 </div>
