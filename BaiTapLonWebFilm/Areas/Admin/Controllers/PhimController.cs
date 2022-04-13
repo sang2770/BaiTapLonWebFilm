@@ -187,7 +187,12 @@ namespace BaiTapLonWebFilm.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             TB_PHIM tB_PHIM = db.TB_PHIM.Find(id);
+            List<TB_Phim_LoaiPhim> tB_Phim_LoaiPhims=db.TB_Phim_LoaiPhim.Where(n=>n.MAPHIM==id).ToList();
             db.TB_PHIM.Remove(tB_PHIM);
+            foreach(TB_Phim_LoaiPhim item in tB_Phim_LoaiPhims)
+            {
+                db.TB_Phim_LoaiPhim.Remove(item);
+            }
             db.SaveChanges();
             return RedirectToAction("Index");
         }
