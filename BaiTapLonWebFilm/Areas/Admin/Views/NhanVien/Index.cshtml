@@ -203,12 +203,7 @@
 </form>
 @section scripts{
     <script>
-    function ConfirmDelete(id) {
-        console.log(document.getElementById("DeleteForm"));
-        document.getElementById("DeleteForm").action = "/Admin/NhanVien/Delete?id=" + id;
-        $("#modal-delete").modal('backdrop');
-
-    }
+  
     document.getElementsByClassName("modal__btn--apply")[0].addEventListener("click", () => {
         document.getElementById("DeleteForm").submit();
     })
